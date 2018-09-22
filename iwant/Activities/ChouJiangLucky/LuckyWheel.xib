@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Ro3-zu-3eW" customClass="HYPWheelView">
+            <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhuanpan.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xgz-ID-pMb">
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaX-in-g3V">
+                    <rect key="frame" x="114.5" y="95" width="51" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="0YJ-li-eg0"/>
+                        <constraint firstAttribute="width" secondItem="MaX-in-g3V" secondAttribute="height" multiplier="8:11" id="77O-df-YbJ"/>
+                    </constraints>
+                    <state key="normal" image="centerBtn.png">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted" image="centerBtn.png"/>
+                    <connections>
+                        <action selector="startSelectNumber" destination="Ro3-zu-3eW" eventType="touchUpInside" id="AAa-5y-mbZ"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpf-PB-3P3">
+                    <rect key="frame" x="139" y="140" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <color key="textColor" red="0.64338320689999995" green="1" blue="0.51142097230000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Xgz-ID-pMb" secondAttribute="bottom" id="0ss-cf-ueA"/>
+                <constraint firstItem="MaX-in-g3V" firstAttribute="centerX" secondItem="Ro3-zu-3eW" secondAttribute="centerX" id="3zj-fR-Dce"/>
+                <constraint firstItem="Xgz-ID-pMb" firstAttribute="top" secondItem="Ro3-zu-3eW" secondAttribute="top" id="4UT-r4-ybo"/>
+                <constraint firstItem="hpf-PB-3P3" firstAttribute="centerX" secondItem="MaX-in-g3V" secondAttribute="centerX" constant="-1" id="7bT-hh-sSi"/>
+                <constraint firstItem="hpf-PB-3P3" firstAttribute="centerY" secondItem="MaX-in-g3V" secondAttribute="centerY" constant="10" id="Sda-UA-519"/>
+                <constraint firstAttribute="trailing" secondItem="Xgz-ID-pMb" secondAttribute="trailing" id="YBP-Jq-HBf"/>
+                <constraint firstItem="Xgz-ID-pMb" firstAttribute="leading" secondItem="Ro3-zu-3eW" secondAttribute="leading" id="d9G-Y5-LGj"/>
+                <constraint firstItem="MaX-in-g3V" firstAttribute="centerY" secondItem="Ro3-zu-3eW" secondAttribute="centerY" constant="-10" id="fYf-rv-thR"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="centerBtn" destination="MaX-in-g3V" id="zST-7J-4px"/>
+                <outlet property="centerView" destination="Xgz-ID-pMb" id="RSw-kY-AsJ"/>
+                <outlet property="timeLabel" destination="hpf-PB-3P3" id="yUK-pg-5a7"/>
+            </connections>
+            <point key="canvasLocation" x="-170" y="-52"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="centerBtn.png" width="104" height="143"/>
+        <image name="zhuanpan.png" width="469" height="469"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,1036 @@
+//
+//  AppDelegate.m
+//  iwant
+//
+//  Created by dongba on 16/3/6.
+//  Copyright © 2016年 FatherDong. All rights reserved.
+//
+
+#import "AppDelegate.h"
+#import "MainHeader.h"
+#import <BaiduMapAPI/BMKMapManager.h>
+#import "APService.h"
+//#import "BNCoreServices.h"
+#import "JPEngine.h"
+#import "IQKeyboardManager.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "MainHeader.h"
+#import "WalletViewController.h"
+#import "ExpressRequest.h"
+#import "WXApi.h"
+#import "AssessViewController.h"
+#import "WXPayManager.h"
+#import "MapViewController.h"
+#import <Bugly/Bugly.h>
+#import "MyMessageViewController.h"
+#import "ChatViewController.h"
+#import "EvaluateViewController.h"
+#import "ShunFengViewController.h"
+#import <CoreLocation/CoreLocation.h>
+#import <UserNotifications/UserNotifications.h>
+#import "CouponViewController.h"
+
+
+#define BUGLY_APP_ID @"900033832"
+
+@interface AppDelegate ()<WXApiDelegate,IChatManagerDelegate,CLLocationManagerDelegate,BMKGeneralDelegate,UNUserNotificationCenterDelegate>{
+    BMKMapManager *_mapManager;
+    NSDictionary *_adDic;
+    BOOL _isNeedUpdate;
+    NSString *_updateContent;
+    CLLocationManager *_locationManager;
+    
+}
+
+@end
+
+@implementation AppDelegate
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //腾讯崩溃日志收集
+    //[self setupBugly];
+    
+    [self setNetWork];
+    [self setBaiduMap];
+    [self setBaiduNavi];
+    //设置警告框样式
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+    [self setOpenShareKey];
+//        [self runJS];
+    [self setKeyBoard];
+    //极光
+    [self configJPush:launchOptions];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isJustLaunch"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    if (launchOptions){
+        NSDictionary *remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (remoteNotification) {
+            NSLog(@"推送消息===%@",remoteNotification);
+            [self goToMssageViewControllerWith:remoteNotification];
+        }
+    }
+    
+    
+    //    [self downloadAds];
+    //环信
+    //    [self setEaseWithapplication:application Options:launchOptions];
+    [WXApi registerApp:@"wx2a86c51f04882974" withDescription:@"我要"];
+    [self checkVersion];
+    return YES;
+    
+}
+- (void)setBaiduNavi{
+    //    [BNCoreServices_Instance initServices:@"CoRlKOQ8CFUxP9cbI727zhRy"];
+    //    [BNCoreServices_Instance startServicesAsyn:^{
+    //        NSLog(@"导航启动了");
+    //        [BNCoreServices_Instance setNaviTTSEventDelegate:self];
+    //    } fail:^{
+    //        NSLog(@"导航启动失败");
+    //    }];
+}
+-(void)setEaseWithapplication:(UIApplication *)application Options:(NSDictionary *)launchOptions{
+    //distrbuition
+    [[EaseMob sharedInstance] registerSDKWithAppKey:@"scht#iwant" apnsCertName:@"distrbuition"];
+    
+    [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    
+    
+    //    //代码注册离线推送  您注册了推送功能，iOS 会自动回调以下方法，得到deviceToken，您需要将deviceToken传给SDK
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
+        
+        
+        if ([application respondsToSelector:@selector(registerForRemoteNotifications)]) {
+            [application registerForRemoteNotifications];
+            UIUserNotificationType notificationTypes = UIUserNotificationTypeBadge |
+            UIUserNotificationTypeSound |
+            UIUserNotificationTypeAlert;
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+            [application registerUserNotificationSettings:settings];
+        }
+        else{
+            UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge |
+            UIRemoteNotificationTypeSound |
+            UIRemoteNotificationTypeAlert;
+            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+        }
+        
+    }
+    //    实现注册,收到信息等等的回调代理
+    [[EaseMob sharedInstance].chatManager removeDelegate:self];
+    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
+}
+
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[NSNotificationCenter defaultCenter] postNotificationName:ENTER_BACKGROUND object:application];
+    [[EaseMob sharedInstance] applicationDidEnterBackground:application];
+    //上传位置，只持续3分钟
+    if ([UserManager getDefaultUser].userId) {
+        /** 开始定位 */
+        [_locationManager startUpdatingLocation];
+    }
+    
+    
+    //        _timer = [NSTimer scheduledTimerWithTimeInterval:60.0f target:self selector:@selector(uploadLocation) userInfo:nil repeats:YES];
+    //        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
+    //        UIApplication *app = [UIApplication sharedApplication];
+    //        __block UIBackgroundTaskIdentifier bgTask;
+    //        bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+    //            dispatch_async(dispatch_get_main_queue(), ^{
+    //                if (bgTask != UIBackgroundTaskInvalid) {
+    //                    bgTask = UIBackgroundTaskInvalid;
+    //                }
+    //            });
+    //        }];
+    //
+    //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    //            dispatch_async(dispatch_get_main_queue(), ^{
+    //                if (bgTask != UIBackgroundTaskInvalid) {
+    //                    bgTask = UIBackgroundTaskInvalid;
+    //                }
+    //            });
+    //        });
+    //    }
+    
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ENTER_FOREGROUND object:application];
+    [_locationManager stopUpdatingLocation];
+    
+    //向后台查询微信支付结果 ios9 手机左上角返回功能导致微信不会走回调，故每次支付完回到程序调用[WXPayManager nextStep]去后台查询微信后台返回的支付结果
+    if ([UserManager getDefaultUser].userId) {
+        [WXPayManager nextStep];
+    }
+    
+}
+//程序启动进入程序
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [self checkVersion];
+    //小红点置零
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    //极光推送
+    if ([UserManager getDefaultUser].userId) {
+        NSString *tag;
+        switch ([UserManager getDefaultUser].userType) {
+            case 1:
+                tag = @"user";
+                break;
+            case 2:
+                tag = @"courier";
+                break;
+            case 3:
+                tag = @"driver";
+                break;
+                
+            default:
+                break;
+        }
+        [APService setTags:[NSSet setWithArray:@[tag]] alias:[UserManager getDefaultUser].userId callbackSelector:@selector(tagsAliasCallback:tags:alias:) target:self];
+        //        [self getUrl];
+        
+        //环信注册登陆
+        [self EaseMobLogin];
+    }
+}
+
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    [[EaseMob sharedInstance] applicationWillTerminate:application];
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+#pragma mark -- 从其他应用返回回调
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    
+    //跳转支付宝钱包进行支付，处理支付结果
+    //在控制器中已处理，暂时无用
+    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+        
+        NSLog(@"alipayresult = %@",resultDic);
+        //        [[NSNotificationCenter defaultCenter]postNotificationName:k_NOTIFACITION_APP_ACTIVE_FROM_ALIPAY object:@"alipay"];
+        
+    }];
+    //第二步：添加回调
+    if ([OpenShare handleOpenURL:url]|[WXApi handleOpenURL:url delegate:self]) {
+        return YES;
+    }
+    
+    //这里可以写上其他OpenShare不支持的客户端的回调，比如支付宝等。
+    return YES;
+}
+//openURL:。。。和此方法用一个就OK
+//- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary*)options{
+//    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//
+//        NSLog(@"alipayresult = %@",resultDic);
+//        //        [[NSNotificationCenter defaultCenter]postNotificationName:k_NOTIFACITION_APP_ACTIVE_FROM_ALIPAY object:@"alipay"];
+//
+//    }];
+//    return ([WXApi handleOpenURL:url delegate:self] |[OpenShare handleOpenURL:url]);
+//}
+
+#pragma mark WXApiDelegate ios9返回功能导致微信不会走回调，故每次支付完回到程序调用[WXPayManager nextStep]查询后台支付结果
+-(void) onResp:(BaseResp*)resp{
+    if([resp isKindOfClass:[PayResp class]])
+    {
+        [SVProgressHUD dismiss];
+        //        WXSuccess           = 0,    /**< 成功    */
+        //        WXErrCodeCommon     = -1,   /**< 普通错误类型    */
+        //        WXErrCodeUserCancel = -2,   /**< 用户点击取消并返回    */
+        //        WXErrCodeSentFail   = -3,   /**< 发送失败    */
+        //        WXErrCodeAuthDeny   = -4,   /**< 授权失败    */
+        //        WXErrCodeUnsupport  = -5,   /**< 微信不支持    */
+        
+        //        WXPayManager *manager = [WXPayManager shareManager];
+        //支付返回结果，实际支付结果需要去微信服务器端查询
+        NSString *strMsg,*strTitle = [NSString stringWithFormat:@"支付结果"];
+        switch (resp.errCode) {
+            case WXSuccess:
+                //                strMsg = @"支付结果：成功！";
+                //                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                [WXPayManager nextStep];
+                
+                break;
+            case WXErrCodeUserCancel:{
+                
+                strMsg = @"支付结果：用户取消支付";
+                NSLog(@"支付取消－PayError，retcode = %d", resp.errCode);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+                
+            }
+                
+                break;
+            default:{
+                
+                strMsg = @"支付结果：失败，授权失败或微信服务器出错或是微信不支持";
+                NSLog(@"支付失败－PayError，retcode = %d", resp.errCode);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+                
+        }
+        
+        
+        
+    }
+    
+}
+
+
+
+#pragma mark -- 自定义方法
+- (void) setBaiduMap{
+    _mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [_mapManager start:@"CoRlKOQ8CFUxP9cbI727zhRy"  generalDelegate:self];
+    if (!ret) {
+        NSLog(@"百度地图manager start failed!");
+    }else{
+        NSLog(@"百度地图启动成功");
+    }
+    
+    //    //自带定位
+    //
+    //    _locationManager = [[CLLocationManager alloc] init];
+    //
+    //    _locationManager.delegate = self;
+    //
+    //    [_locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+    //    [_locationManager setDistanceFilter:10];
+    //
+    //    if ([[UIDevice currentDevice].systemVersion floatValue] > 8)
+    //    {
+    //        /** 请求用户权限：分为：只在前台开启定位  /在后台也可定位， */
+    //
+    //        /** 只在前台开启定位 */
+    //        //        [self.locationManager requestWhenInUseAuthorization];
+    //
+    //        /** 后台也可以定位 */
+    //        [_locationManager requestAlwaysAuthorization];
+    //    }
+    //
+    //    if ([[UIDevice currentDevice].systemVersion floatValue] > 9)
+    //    {
+    //        /** iOS9新特性：将允许出现这种场景：同一app中多个location manager：一些只能在前台定位，另一些可在后台定位（并可随时禁止其后台定位）。 */
+    //        [_locationManager setAllowsBackgroundLocationUpdates:YES];
+    //    }
+}
+
+- (void)setOpenShareKey{
+    [OpenShare connectQQWithAppId:@"1105302992"];
+    //    [OpenShare connectWeiboWithAppKey:@"*********"];
+    [OpenShare connectWeixinWithAppId:@"wx2a86c51f04882974"];
+    
+    //iphone7
+    //  [OpenShare connectWeixinWithAppId:@"wx9e6f9ed0daf1a57b"];
+    
+}
+
+- (void)runJS{
+    [JPEngine startEngine];
+    // 直接执行js
+    //    [JPEngine evaluateScript:@"\
+    //     var alertView = require('UIAlertView').alloc().init();\
+    //     alertView.setTitle('Alert');\
+    //     alertView.setMessage('AlertView from js'); \
+    //     alertView.addButtonWithTitle('OK');\
+    //     alertView.show(); \
+    //     "];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMddHHmmss"];
+    NSString *strDate = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *urlStr = [NSString stringWithFormat:@"http://www.efamax.com/js/iosdongba.js?%@",strDate];
+    // 从网络拉回js脚本执行
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        NSString *script = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        if (script) {
+            [JPEngine evaluateScript:script];
+        }
+        
+    }];
+    
+    //    // 执行本地js文件
+    //    NSString *sourcePath = [[NSBundle mainBundle] pathForResource:@"sample" ofType:@"js"];
+    //
+    //    NSString *script = [NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
+    //    if (script) {
+    //        [JPEngine evaluateScript:script];
+    //    }
+    
+    
+}
+
+- (void)setKeyBoard{
+    [IQKeyboardManager sharedManager].enable = YES;
+    //    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;//取消keyboard
+    [IQKeyboardManager sharedManager].toolbarDoneBarButtonItemText = @"🔽";
+}
+- (void)checkVersion{
+    /*
+    //强制更新
+    if (_isNeedUpdate) {
+        return;
+    }
+    NSString *locaVersion =[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    [RequestManager getVersionUserId:@"" typeId:@"" content:@"" Success:^(NSDictionary *reslut) {
+        NSString *str = [reslut valueForKey:@"iosVersion"];
+        if ([locaVersion doubleValue] >= [str doubleValue]) {
+            nil;
+            //            [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"不需要更新"]];
+        }else{
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"\"我要\"有新的版本,是否前去更新？\n%@",reslut[@"updateContent"]] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"不更新" style:UIAlertActionStyleDestructive handler:nil];
+            _updateContent = reslut[@"updateContent"];
+            _isNeedUpdate = YES;
+            UIAlertAction *update = [UIAlertAction actionWithTitle:@"去更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/e-fa/id1031426530?l=zh&ls=1&mt=8"]];
+                //                [self updateAlert];
+            }];
+            
+            [alert addAction:cancle];
+            [alert addAction:update];
+            [[Utils getCurrentVC] presentViewController:alert animated:YES completion:nil];
+        }
+        
+    } Failed:^(NSString *error) {
+    }];
+     */
+    [RequestManager getUserAppVersionWithUserID:[UserManager getDefaultUser].userId success:^(NSString *reslut) {
+        NSLog(@"%@",reslut);
+        NSString *locaVersion =[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+        if ([reslut isEqualToString:locaVersion]) {
+            
+        } else {
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"现金券来袭，请您立即更新体验" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *update = [UIAlertAction actionWithTitle:@"去更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/e-fa/id1031426530?l=zh&ls=1&mt=8"]];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id1031426530"]];
+            }];
+            [alert addAction:update];
+            [[Utils getCurrentVC] presentViewController:alert animated:YES completion:nil];
+        }
+        
+    } Failed:^(NSString *error) {
+        
+        
+    }];
+}
+
+- (void)updateAlert{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"\"我要\"有新的版本,是否前去更新？\n%@",_updateContent] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"不更新" style:UIAlertActionStyleDestructive handler:nil];
+    UIAlertAction *update = [UIAlertAction actionWithTitle:@"去更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/e-fa/id1031426530?l=zh&ls=1&mt=8"]];
+        [self updateAlert];
+    }];
+    
+    [alert addAction:cancle];
+    [alert addAction:update];
+    [[Utils getCurrentVC] presentViewController:alert animated:YES completion:nil];
+}
+//注册APNS
+- (void)configJPush:(NSDictionary*)launchOptions
+{
+    
+    
+    // Required
+    
+//    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+//        //iOS10特有
+//        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+//        // 必须写代理，不然无法监听通知的接收与点击
+//        [PXAlertView showAlertWithTitle:[NSString stringWithFormat:@"iOS10特有, 必须写代理，不然无法监听通知的接收与点"]];
+//        center.delegate = self;
+//        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+//            if (granted) {
+//                // 点击允许
+//                NSLog(@"注册成功");
+//                [PXAlertView showAlertWithTitle:@"注册成功"];
+//                [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+//                    NSLog(@"%@", settings);
+//                     [PXAlertView showAlertWithTitle:[NSString stringWithFormat:@"settings:%@",settings]];
+//                }];
+//            } else {
+//                // 点击不允许
+//                NSLog(@"注册失败");
+//                [PXAlertView showAlertWithTitle:[NSString stringWithFormat:@"注册失败"]];
+//            }
+//        }];
+//    }else
+        if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        //categories
+        [APService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+                                                       UIUserNotificationTypeSound |
+                                                       UIUserNotificationTypeAlert)
+                                           categories:nil];
+    } else {
+        //categories nil
+        [APService
+         registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeSound |
+                                             UIRemoteNotificationTypeAlert)
+         
+         // Required
+         categories:nil];
+    }
+    [APService setupWithOption:launchOptions];
+}
+
+- (void)getPushFromLaunch:(NSDictionary*)launchOptions
+{
+    // apn 内容获取：
+    NSDictionary *remoteNotification = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
+    NSLog(@"%@",remoteNotification);
+//     [PXAlertView showAlertWithTitle:[NSString stringWithFormat:@"apns 内容获取：%@",remoteNotification]];
+    
+}
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
+    [application registerForRemoteNotifications];
+}
+// 将得到的deviceToken传给SDK
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Required
+    [APService registerDeviceToken:deviceToken];
+    [[EaseMob sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+//     [PXAlertView showAlertWithTitle:[NSString stringWithFormat:@"将得到的deviceToken传给SDK"]];
+}
+
+// 注册deviceToken失败
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    [[EaseMob sharedInstance] application:application didFailToRegisterForRemoteNotificationsWithError:error];
+    NSLog(@"error -- %@",error);
+//    [PXAlertView showAlertWithTitle:[NSString stringWithFormat:@"token注册失败：%@",error]];
+}
+//清除角标
+//- (void)applicationWillEnterForeground:(UIApplication *)application{
+//    [application setApplicationIconBadgeNumber:0];
+//    [application cancelAllLocalNotifications];
+//}
+
+//如果 App状态为正在前台或者后台运行，那么此函数将被调用
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    /*
+     // 取得 APNs 标准信息内容
+     NSDictionary *aps = [userInfo valueForKey:@"aps"];
+     NSString *content = [aps valueForKey:@"alert"]; //推送显示的内容
+     NSInteger badge = [[aps valueForKey:@"badge"] integerValue]; //badge数量
+     NSString *sound = [aps valueForKey:@"sound"]; //播放的声音
+     
+     // 取得自定义字段内容
+     NSString *customizeField1 = [userInfo valueForKey:@"extras"]; //自定义参数，key是自己定义的
+     
+     NSLog(@"content =[%@], badge=[%ld], sound=[%@], customize field =[%@]",content,(long)badge,sound,customizeField1);
+     
+     */
+    
+    NSString *action = [userInfo objectForKey:@"action"];
+    NSString *message = [userInfo objectForKey:@"message"];
+    [PXAlertView showAlertWithTitle:@"温馨提示" message:message completion:^(BOOL cancelled, NSInteger buttonIndex) {
+        if ([action isEqualToString:ACTION_TRANSFERMONEY]) {
+            if ([(UIViewController *)((UINavigationController *)[Utils getCurrentVC].childViewControllers.lastObject) isKindOfClass:[WalletViewController class]]) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:TRANSFERMONEY object:nil];
+            }else{
+                [(UINavigationController *)[Utils getCurrentVC] pushViewController:[[WalletViewController alloc]init] animated:YES];
+            }
+        }else if ([action isEqualToString:COURIER_AUTH]) {
+            NSString *userType = [userInfo valueForKey:@"userType"];
+            if ([userType isEqualToString:@"2"]) {
+                [APService setTags:[NSSet setWithArray:@[@"courier"]] alias:[UserManager getDefaultUser].userId callbackSelector:@selector(tagsAliasCallback:tags:alias:) target:self];
+                if ([(UIViewController *)((UINavigationController *)[Utils getCurrentVC].childViewControllers.lastObject) isKindOfClass:[MapViewController class]]) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:COURIER_SUCCESS object:nil];
+                }
+            }
+            
+        }
+        else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:action object:nil];
+        }
+        application.applicationIconBadgeNumber = 0;
+        [self goToMssageViewControllerWith:userInfo];
+        
+    }];
+    
+    // Required
+    [APService handleRemoteNotification:userInfo];
+}
+
+- (void)goToMssageViewControllerWith:(NSDictionary*)msgDic{
+    //将字段存入本地，因为要在你要跳转的页面用它来判断,这里我只介绍跳转一个页面，
+    NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
+    [pushJudge setObject:@"push" forKey:@"push"];
+    [pushJudge synchronize];
+    //判断是否需要跳转
+    NSString * targetStr = [msgDic objectForKey:@"AFTER_COUPON"];
+    if ([targetStr isEqualToString:@"CouponViewController"]) {
+        CouponViewController * VC = [[CouponViewController alloc]init];
+        UINavigationController * Nav = [[UINavigationController alloc]initWithRootViewController:VC];//这里加导航栏是因为我跳转的页面带导航栏，如果跳转的页面不带导航，那这句话请省去。
+        [self.window.rootViewController presentViewController:Nav animated:YES completion:nil];
+        
+    }
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:(void(^)(UIBackgroundFetchResult))completionHandler {
+    
+    // IOS 7 Support Required
+    NSString *action = [userInfo objectForKey:@"action"];
+    NSString *message = [userInfo objectForKey:@"message"];
+    [PXAlertView showAlertWithTitle:@"温馨提示" message:message completion:^(BOOL cancelled, NSInteger buttonIndex) {
+        if ([action isEqualToString:ACTION_TRANSFERMONEY]) {
+            if ([(UIViewController *)((UINavigationController *)[Utils getCurrentVC].childViewControllers.lastObject) isKindOfClass:[WalletViewController class]]) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:TRANSFERMONEY object:nil];
+            }else{
+                [(UINavigationController *)[Utils getCurrentVC] pushViewController:[[WalletViewController alloc]init] animated:YES];
+            }
+        }else if ([action isEqualToString:COURIER_AUTH]) {
+            NSString *userType = [NSString stringWithFormat:@"%@",[userInfo valueForKey:@"flag"]];
+            if ([userType isEqualToString:@"2"]) {
+                [APService setTags:[NSSet setWithArray:@[@"courier"]] alias:[UserManager getDefaultUser].userId callbackSelector:@selector(tagsAliasCallback:tags:alias:) target:self];
+                if ([(UIViewController *)((UINavigationController *)[Utils getCurrentVC].childViewControllers.lastObject) isKindOfClass:[MapViewController class]]) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:COURIER_SUCCESS object:nil];
+                }
+            }
+        }else if ([action isEqualToString:ACTION_SYSTEM_MESSAGE]){
+            [[NSNotificationCenter defaultCenter] postNotificationName:action object:nil];
+            [(UINavigationController *)[Utils getCurrentVC] pushViewController:[[MyMessageViewController alloc]init] animated:YES];
+        }else if ([action isEqualToString:@"CouponViewController"]){
+            [[NSNotificationCenter defaultCenter] postNotificationName:action object:nil];
+            [(UINavigationController *)[Utils getCurrentVC] pushViewController:[[NSClassFromString(@"CouponViewController") alloc] init] animated:YES];
+        }else if ([action isEqualToString:DRIVER_AUTH]){
+            [APService setTags:[NSSet setWithArray:@[@"driver"]] alias:[UserManager getDefaultUser].userId callbackSelector:@selector(tagsAliasCallback:tags:alias:) target:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:action object:nil];
+            [self updateUser];
+            
+        }else if ([action isEqualToString:TRUE_TAKE]){
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:action object:nil];
+            NSString *userid_recid = [NSString stringWithFormat:@"%@",[userInfo valueForKey:@"flag"]];
+            NSArray *arr  = [userid_recid componentsSeparatedByString:@"_"];
+            NSString *userId = arr[0];
+            NSString *recId = arr[1];
+            EvaluateViewController * VC = [[EvaluateViewController alloc] init];
+            VC.userId = userId;
+            VC.recId = recId;
+            [(UINavigationController *)[Utils getCurrentVC] pushViewController:VC animated:YES];
+        }else if ([action isEqualToString:NEAR_TASK]){
+            [[NSNotificationCenter defaultCenter] postNotificationName:action object:nil];
+            ShunFengViewController  * VC = [[ShunFengViewController alloc] init];
+            VC.type = 1;
+            [(UINavigationController *)[Utils getCurrentVC] pushViewController:VC animated:YES];
+        }
+        else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:action object:nil];
+            //收到推送,推送有类名就跳转到那个界面
+            Class OneVC = NSClassFromString([userInfo valueForKey:@"className_ios"]);
+            SEL method = NSSelectorFromString([userInfo valueForKey:@"method_ios"]);
+            if (!OneVC) {
+                return ;
+            }
+            UIViewController *vc = [OneVC new];
+            //有函数名，就在跳转到的界面执行此函数
+            if (![(UIViewController *)((UINavigationController *)[Utils getCurrentVC].childViewControllers.lastObject) isKindOfClass:[OneVC class]]) {
+                [(UINavigationController *)[Utils getCurrentVC] pushViewController:vc animated:YES];
+            }else{
+                if (method) {
+                    [vc performSelectorOnMainThread:method withObject:nil waitUntilDone:1.];
+                }
+                
+            }
+            
+        }
+        
+        
+    }];
+    
+    
+    
+    [APService handleRemoteNotification:userInfo];
+}
+
+// iOS 10收到通知,前台有通知栏下拉提示（ios10新特性）
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    UNNotificationRequest *request = notification.request; // 收到推送的请求
+    UNNotificationContent *content = request.content; // 收到推送的消息内容
+    NSNumber *badge = content.badge;  // 推送消息的角标
+    NSString *body = content.body;    // 推送消息体
+    UNNotificationSound *sound = content.sound;  // 推送消息的声音
+    NSString *subtitle = content.subtitle;  // 推送消息的副标题
+    NSString *title = content.title;  // 推送消息的标题
+    
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        
+        [APService handleRemoteNotification:userInfo];
+    }
+    else {
+        // 判断为本地通知
+        NSLog(@"iOS10 前台收到本地通知:{\\\\nbody:%@，\\\\ntitle:%@,\\\\nsubtitle:%@,\\\\nbadge：%@，\\\\nsound：%@，\\\\nuserInfo：%@\\\\n}",body,title,subtitle,badge,sound,userInfo);
+//        [PXAlertView showAlertWithTitle:[NSString stringWithFormat:@"iOS10 前台收到本地通知:{\\\\nbody:%@，\\\\ntitle:%@,\\\\nsubtitle:%@,\\\\nbadge：%@，\\\\nsound：%@，\\\\nuserInfo：%@\\\\n}",body,title,subtitle,badge,sound,userInfo]];
+    }
+    completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
+}
+
+// 通知的点击事件
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
+
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    UNNotificationRequest *request = response.notification.request; // 收到推送的请求
+    UNNotificationContent *content = request.content; // 收到推送的消息内容
+    NSNumber *badge = content.badge;  // 推送消息的角标
+    NSString *body = content.body;    // 推送消息体
+    UNNotificationSound *sound = content.sound;  // 推送消息的声音
+    NSString *subtitle = content.subtitle;  // 推送消息的副标题
+    NSString *title = content.title;  // 推送消息的标题
+//    [PXAlertView showAlertWithTitle:[NSString stringWithFormat:@"%@",userInfo]];
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [APService handleRemoteNotification:userInfo];
+    }
+    else {
+        // 判断为本地通知
+        NSLog(@"iOS10 收到本地通知:{\\\\nbody:%@，\\\\ntitle:%@,\\\\nsubtitle:%@,\\\\nbadge：%@，\\\\nsound：%@，\\\\nuserInfo：%@\\\\n}",body,title,subtitle,badge,sound,userInfo);
+//         [PXAlertView showAlertWithTitle:[NSString stringWithFormat:@"iOS10 前台收到本地通知:{\\\\nbody:%@，\\\\ntitle:%@,\\\\nsubtitle:%@,\\\\nbadge：%@，\\\\nsound：%@，\\\\nuserInfo：%@\\\\n}",body,title,subtitle,badge,sound,userInfo]];
+    }
+
+    // Warning: UNUserNotificationCenter delegate received call to -userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler: but the completion handler was never called.
+    completionHandler();  // 系统要求执行这个方法
+
+}
+
+
+- (void)tagsAliasCallback:(int)iResCode tags:(NSSet*)tags alias:(NSString*)alias {
+    NSLog(@"rescode: %d, \ntags: %@, \nalias: %@\n", iResCode, tags , alias);
+//     [PXAlertView showAlertWithTitle:[NSString stringWithFormat:@"rescode: %d, \ntags: %@, \nalias: %@\n", iResCode, tags , alias]];
+}
+//获取广告url
+- (void)getUrl{
+    if (![UserManager getDefaultUser]) {
+        return;
+    }
+    [RequestManager getAdsWithUserId:[UserManager getDefaultUser].userId deviceId:nil success:^(id object) {
+        if (![object objectForKey:@"data"] || [(NSArray *)[object objectForKey:@"data"] count] == 0) {
+            [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"%@",object]];
+            
+        }else{
+            NSDictionary *dic = [object objectForKey:@"data"][0];
+            NSString *adurl = [dic valueForKey:@"advertiseImageUrl"];
+            NSNumber *adImageId = [dic valueForKey:@"advertiseId"];
+            _adDic = dic;
+            
+            if (![[NSUserDefaults standardUserDefaults] valueForKey:@"advertiseId"]) {
+                
+                [self downloadAds:adurl];
+            }else{
+                NSNumber *adId = [[NSUserDefaults standardUserDefaults] valueForKey:@"advertiseId"];
+                if (adId == adImageId) {
+                    //广告页没变不下载
+                }else{
+                    [self downloadAds:adurl];
+                }
+            }
+        }
+    } Failed:^(NSString *error) {
+        [SVProgressHUD showErrorWithStatus:error];
+    }];
+    //    [NSThread sleepForTimeInterval:2.0];
+}
+//下载广告图片
+
+- (void)downloadAds:(NSString *)url{
+    
+    NSLog(@"开始下载图片");
+    
+    //    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"adImage"]) {
+    //
+    //    }
+    //    else{
+    [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:url] options:0
+                                                   progress:^(NSInteger receivedSize, NSInteger expectedSize)
+     {
+         //处理下载进度
+     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+         
+         if (error) {
+             NSLog(@"error is %@",error);
+         }
+         if (image) {
+             NSData *data;
+             if (UIImagePNGRepresentation(image) == nil) {
+                 
+                 data = UIImageJPEGRepresentation(image, 1);
+                 
+             } else {
+                 
+                 data = UIImagePNGRepresentation(image);
+             }
+             image = nil;
+             NSNumber *adImageId = [_adDic valueForKey:@"advertiseId"];
+             NSString *adHtml = [_adDic valueForKey:@"advertiseHtmlUrl"];
+             NSString *adName = [_adDic valueForKey:@"advertiseName"];
+             
+             [[NSUserDefaults standardUserDefaults] setObject:data forKey:[NSString stringWithFormat:@"%@.png",adImageId]];
+             [[NSUserDefaults standardUserDefaults] setValue:adHtml forKey:[NSString stringWithFormat:@"%@.html",adImageId]];
+             [[NSUserDefaults standardUserDefaults] setValue:adName forKey:[NSString stringWithFormat:@"image_%@",adImageId]];
+             [[NSUserDefaults standardUserDefaults] setValue:adImageId forKey:@"advertiseId"];
+             [[NSUserDefaults standardUserDefaults] synchronize];
+             //图片下载完成  在这里进行相关操作，如加到数组里 或者显示在imageView上
+             //                 [[SDImageCache sharedImageCache] storeImage:image forKey:@"anUrlString" toDisk:YES];
+             
+             //    下方是用SDWebimage加载刚刚缓存的图片
+             //             [imageView setImageWithURL:[NSURL URLWithString:@"anUrlString"]];
+             
+         }
+     }];
+    
+    //    }
+}
+//
+- (void)setNetWork{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUrl) name:WIFI_START object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUrl) name:WWAN_START object:nil];
+    
+    [ExpressRequest StartNetReachablityListen];
+}
+
+- (void)setupBugly {
+    // Get the default config
+    BuglyConfig * config = [[BuglyConfig alloc] init];
+    
+    // Open the debug mode to print the sdk log message.
+    // Default value is NO, please DISABLE it in your RELEASE version.
+#if DEBUG
+    config.debugMode = YES;
+#endif
+    
+    // Open the customized log record and report, BuglyLogLevelWarn will report Warn, Error log message.
+    // Default value is BuglyLogLevelSilent that means DISABLE it.
+    // You could change the value according to you need.
+    config.reportLogLevel = BuglyLogLevelWarn;
+    
+    // Open the STUCK scene data in MAIN thread record and report.
+    // Default value is NO
+    config.blockMonitorEnable = YES;
+    
+    // Set the STUCK THRESHOLD time, when STUCK time > THRESHOLD it will record an event and report data when the app launched next time.
+    // Default value is 3.5 second.
+    config.blockMonitorTimeout = 1.5;
+    
+    // Set the app channel to deployment
+    config.channel = @"Bugly";
+    
+    // NOTE:Required
+    // Start the Bugly sdk with APP_ID and your config
+    [Bugly startWithAppId:BUGLY_APP_ID config:config];
+    
+    // Set the customizd tag thats config in your APP registerd on the  bugly.qq.com
+    [Bugly setTag:1799];
+    
+    [Bugly setUserIdentifier:[NSString stringWithFormat:@"User: %@", [NSProcessInfo processInfo].hostName]];
+    
+    [Bugly setUserValue:[NSProcessInfo processInfo].processName forKey:@"App"];
+    
+    // NOTE: This is only TEST code for BuglyLog , please UNCOMMENT it in your code.
+    //    [self performSelectorInBackground:@selector(testLogOnBackground) withObject:nil];
+}
+
+/**
+ *    @brief TEST method for BuglyLog
+ */
+- (void)testLogOnBackground {
+    int cnt = 0;
+    while (1) {
+        cnt++;
+        
+        switch (cnt % 5) {
+            case 0:
+                BLYLogError(@"Test Log Print %d", cnt);
+                break;
+            case 4:
+                BLYLogWarn(@"Test Log Print %d", cnt);
+                break;
+            case 3:
+                BLYLogInfo(@"Test Log Print %d", cnt);
+                BLYLogv(BuglyLogLevelWarn, @"BLLogv: Test", NULL);
+                break;
+            case 2:
+                BLYLogDebug(@"Test Log Print %d", cnt);
+                BLYLog(BuglyLogLevelError, @"BLLog : %@", @"Test BLLog");
+                break;
+            case 1:
+            default:
+                BLYLogVerbose(@"Test Log Print %d", cnt);
+                break;
+        }
+        
+        // print log interval 1 sec.
+        sleep(1);
+    }
+}
+
+
+// 本地通知回调
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    // 更新显示的徽章个数
+    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    badge--;
+    badge = badge >= 0 ? badge : 0;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
+    // 这里真实需要处理交互的地方
+    // 获取通知所带的数据
+    //    本地通知(前台)
+    
+    BOOL ifNeedShowAlert = YES;
+    if ([(UINavigationController *)[Utils getCurrentVC].childViewControllers.lastObject isKindOfClass:[ChatViewController class]]) {
+        ifNeedShowAlert = NO;
+    }
+    
+    NSString *notMess = [notification.userInfo objectForKey:@"from"];
+    /*
+     for (UIWindow *window in [UIApplication sharedApplication].windows) {
+     if (window.windowLevel == UIWindowLevelAlert) {
+     //有弹窗就不再弹了
+     ifNeedShowAlert = NO;
+     }
+     }
+     
+     if (ifNeedShowAlert) {
+     NSString *notMess = [notification.userInfo objectForKey:@"from"];
+     [PXAlertView showAlertWithTitle:nil message:[NSString stringWithFormat:@"来自%@的消息",notMess] completion:^(BOOL cancelled, NSInteger buttonIndex) {
+     if (cancelled) {
+     NSLog(@"进入聊天");
+     ChatViewController *chaVC=[[ChatViewController alloc]initWithConversationChatter:notMess conversationType:eConversationTypeChat];
+     chaVC.title= [NSString stringWithFormat:@"%@",notMess];
+     [(UINavigationController *)[Utils getCurrentVC] pushViewController:chaVC animated:YES];
+     }
+     }];
+     }
+     */
+    
+    //    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"来自%@的消息",notMess] preferredStyle:UIAlertControllerStyleAlert];
+    //
+    //    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"进入聊天" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    //        if ([(UINavigationController *)[Utils getCurrentVC].childViewControllers.lastObject isKindOfClass:[ChatViewController class]]) {
+    //            return ;
+    //        }
+    //        ChatViewController *chaVC=[[ChatViewController alloc]initWithConversationChatter:notMess conversationType:eConversationTypeChat];
+    //        chaVC.title= [NSString stringWithFormat:@"%@",notMess];
+    //        [(UINavigationController *)[Utils getCurrentVC] pushViewController:chaVC animated:YES];
+    //    }];
+    //    [alert addAction:sureAction];
+    
+    //    if (ifNeedShowAlert) {
+    //        [[Utils getCurrentVC] presentViewController:alert animated:YES completion:nil];
+    //
+    //    }
+    if (ifNeedShowAlert) {
+        [JKNotifier showNotifer:[NSString stringWithFormat:@"来自%@的消息",notMess]  name:@"我要" icon:[UIImage imageNamed:@"icon"] dismissAfter:100.0];
+        
+        [JKNotifier handleClickAction:^(NSString *name, NSString *detail, JKNotifier *notifier) {
+            if ([(UINavigationController *)[Utils getCurrentVC].childViewControllers.lastObject isKindOfClass:[ChatViewController class]]) {
+                return ;
+            }
+            [JKNotifier dismiss];
+            ChatViewController *chaVC=[[ChatViewController alloc]initWithConversationChatter:notMess conversationType:eConversationTypeChat];
+            chaVC.title= [NSString stringWithFormat:@"%@",notMess];
+            [(UINavigationController *)[Utils getCurrentVC] pushViewController:chaVC animated:YES];
+        }];
+    }
+    
+    // 在不需要再推送时，可以取消推送
+    //    [UtilNotif cancelLocalNotificationWithKey:@"key"];
+    
+}
+
+- (void)EaseMobLogin{
+    [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:[UserManager getDefaultUser].userId password:@"201218" withCompletion:^(NSString *username, NSString *password, EMError *error) {
+        NSLog(@"%@",error);
+        if (!error) {
+            NSLog(@"注册成功");
+            [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:[UserManager getDefaultUser].userId password:@"201218" completion:^(NSDictionary *loginInfo, EMError *error) {
+                NSLog(@"%@",error);
+                if (!error && loginInfo) {
+                    NSLog(@"环信登录成功");
+                    NSLog(@"%@",loginInfo);
+                    [[EaseMob sharedInstance].chatManager loadDataFromDatabase];
+                }
+            } onQueue:nil];
+        }else if (error.errorCode == EMErrorServerDuplicatedAccount){
+            //账号已存在
+            [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:[UserManager getDefaultUser].userId password:@"201218" completion:^(NSDictionary *loginInfo, EMError *error) {
+                NSLog(@"%@",error);
+                if (!error && loginInfo) {
+                    NSLog(@"环信登录成功");
+                    NSLog(@"%@",loginInfo);
+                    [[EaseMob sharedInstance].chatManager loadDataFromDatabase];
+                }
+            } onQueue:nil];
+        }
+    } onQueue:nil];
+}
+
+- (void)didReceiveMessage:(EMMessage *)message
+{
+    NSDictionary *dic = @{@"from":message.from,
+                          @"body":message.messageId};
+    [UtilNotif sendMess:0 body:@"您有新的消息" noticeDic:dic];
+}
+
+- (void)updateUser{
+    if ([UserManager getDefaultUser].userId) {
+        [RequestManager getuserinfoWithuserId:[UserManager getDefaultUser].userId success:^(NSString *reslut) {
+            NSLog(@"更新信息成功");
+        } Failed:^(NSString *error) {
+            NSLog(@"更新失败");
+        }];
+    }
+}
+
+#pragma mark-- updateLocation
+
+- (void)uploadLocation:(CLLocationCoordinate2D )loc{
+    NSDictionary *dic = @{k_USER_ID:[UserManager getDefaultUser].userId,
+                          k_USER_TYPE:[NSNumber numberWithInt:[UserManager getDefaultUser].userType],
+                          USER_LOCATION_LAT:[NSNumber numberWithDouble:loc.latitude],
+                          USER_LOCATION_LON:[NSNumber numberWithDouble:loc.longitude]};
+    [ExpressRequest sendWithParameters:dic MethodStr:API_LOCAT_UPLOAD reqType:k_POST success:^(id object) {
+        NSLog(@"后台上传位置成功");
+    } failed:^(NSString *error) {
+        NSLog(@"后台上传位置失败:%@",error);
+    }];
+}
+
+#pragma mark -  定位代理方法
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *loc = [locations objectAtIndex:0];
+    
+    NSLog(@"谷歌地球经纬度  %f  %f ",loc.coordinate.latitude,loc.coordinate.longitude);
+    
+    CLLocationCoordinate2D coor = loc.coordinate;//原始坐标
+    //转换GPS坐标至百度坐标(加密后的坐标)
+    NSDictionary* testdic = BMKConvertBaiduCoorFrom(coor,BMK_COORDTYPE_GPS);
+    
+    //解密加密后的坐标字典
+    CLLocationCoordinate2D baiduCoor = BMKCoorDictionaryDecode(testdic);//转换后的百度坐标
+    [self uploadLocation:baiduCoor];
+}
+
+- (void)onGetPermissionState:(int)iError{
+    NSLog(@"%d",iError);
+}
+- (void)onGetNetworkState:(int)iError{
+    NSLog(@"%d",iError);
+}
+
+
+@end

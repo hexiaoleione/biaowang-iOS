@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SelectTypeView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uug-g8-2Qv">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="cancelBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="OI5-ME-tOB"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4v7-vA-L9I">
+                    <rect key="frame" x="57.666666666666657" y="288" width="300" height="160"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择发货类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q45-lV-I7O">
+                            <rect key="frame" x="97.999999999999986" y="40" width="104.00000000000001" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Rz-EH-Zcy">
+                            <rect key="frame" x="171" y="96" width="108" height="32"/>
+                            <state key="normal" image="Fa_wuliu"/>
+                            <connections>
+                                <action selector="selectTypeBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="qW5-2O-cCw"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgf-da-Z3d">
+                            <rect key="frame" x="21" y="96" width="134" height="32"/>
+                            <state key="normal" image="Fa_tongcheng-"/>
+                            <connections>
+                                <action selector="selectTypeBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="LFh-9F-ucS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="35g-Xi-W9e"/>
+                        <constraint firstItem="Q45-lV-I7O" firstAttribute="top" secondItem="4v7-vA-L9I" secondAttribute="top" constant="40" id="7j3-sT-xwk"/>
+                        <constraint firstItem="8Rz-EH-Zcy" firstAttribute="centerX" secondItem="4v7-vA-L9I" secondAttribute="centerX" multiplier="3:2" id="NHc-Mg-wRQ"/>
+                        <constraint firstItem="vgf-da-Z3d" firstAttribute="centerX" secondItem="4v7-vA-L9I" secondAttribute="centerX" multiplier="1:2" constant="13" id="Sh5-c0-YuU"/>
+                        <constraint firstItem="8Rz-EH-Zcy" firstAttribute="centerY" secondItem="vgf-da-Z3d" secondAttribute="centerY" id="ltB-3b-VM9"/>
+                        <constraint firstItem="Q45-lV-I7O" firstAttribute="centerX" secondItem="4v7-vA-L9I" secondAttribute="centerX" id="oA1-Sk-YUd"/>
+                        <constraint firstItem="vgf-da-Z3d" firstAttribute="top" secondItem="Q45-lV-I7O" secondAttribute="bottom" constant="35" id="qOa-i0-2da"/>
+                        <constraint firstAttribute="width" secondItem="4v7-vA-L9I" secondAttribute="height" multiplier="15:8" id="tUT-UY-Pen"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.59620638420245398" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Uug-g8-2Qv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Fnv-Py-A7G"/>
+                <constraint firstItem="Uug-g8-2Qv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VL5-iz-JWm"/>
+                <constraint firstItem="Uug-g8-2Qv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a5z-1u-COq"/>
+                <constraint firstItem="4v7-vA-L9I" firstAttribute="centerY" secondItem="Uug-g8-2Qv" secondAttribute="centerY" id="hAA-dA-sF5"/>
+                <constraint firstItem="4v7-vA-L9I" firstAttribute="centerX" secondItem="Uug-g8-2Qv" secondAttribute="centerX" id="owZ-hP-deC"/>
+                <constraint firstItem="Uug-g8-2Qv" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tMU-jh-upR"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <connections>
+                <outlet property="distanceConstraint" destination="qOa-i0-2da" id="vOi-zs-gGc"/>
+                <outlet property="noticeL" destination="Q45-lV-I7O" id="ma3-Rr-8OY"/>
+                <outlet property="topHeightConstraint" destination="7j3-sT-xwk" id="pEa-fB-V0Y"/>
+                <outlet property="viewBg" destination="4v7-vA-L9I" id="0dq-l6-RqR"/>
+                <outlet property="viewWidthConstraint" destination="35g-Xi-W9e" id="R6J-Ub-go8"/>
+            </connections>
+            <point key="canvasLocation" x="86.5" y="57.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Fa_tongcheng-" width="134" height="32"/>
+        <image name="Fa_wuliu" width="108" height="32"/>
+    </resources>
+</document>

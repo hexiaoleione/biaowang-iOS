@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CouponAlertView">
+            <rect key="frame" x="0.0" y="0.0" width="305" height="170"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="couponbg" translatesAutoresizingMaskIntoConstraints="NO" id="PjW-5L-xdw">
+                    <rect key="frame" x="1" y="1" width="303" height="168"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜你获得" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgT-G2-n9v">
+                    <rect key="frame" x="101.5" y="10" width="102" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.98431372549999996" green="0.1647058824" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="顺风速送现金券" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POM-Zc-E7w">
+                    <rect key="frame" x="10" y="145.5" width="86" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期至：2016-12-30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uh7-4m-aRl">
+                    <rect key="frame" x="166" y="145.5" width="129" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plane_white" translatesAutoresizingMaskIntoConstraints="NO" id="ibX-pX-sbc">
+                    <rect key="frame" x="250" y="5" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="hpG-LS-fcC"/>
+                        <constraint firstAttribute="width" constant="35" id="ua8-fc-psT"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mX6-nn-jeD">
+                    <rect key="frame" x="123" y="39" width="59.5" height="92"/>
+                    <attributedString key="attributedText">
+                        <fragment content="¥">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="22" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="3">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="77" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="PjW-5L-xdw" secondAttribute="trailing" constant="1" id="7Zn-dU-AO4"/>
+                <constraint firstItem="mX6-nn-jeD" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BCS-v3-d85"/>
+                <constraint firstItem="mX6-nn-jeD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DQ7-zQ-bAD"/>
+                <constraint firstItem="dgT-G2-n9v" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="QuS-6W-V1k"/>
+                <constraint firstItem="ibX-pX-sbc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="WLE-h0-XEn"/>
+                <constraint firstAttribute="bottom" secondItem="PjW-5L-xdw" secondAttribute="bottom" constant="1" id="Zl0-dG-N6m"/>
+                <constraint firstItem="dgT-G2-n9v" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="a9N-EO-e8D"/>
+                <constraint firstItem="PjW-5L-xdw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="1" id="dIy-91-Rfm"/>
+                <constraint firstAttribute="bottom" secondItem="POM-Zc-E7w" secondAttribute="bottom" constant="10" id="efT-iY-dyn"/>
+                <constraint firstItem="POM-Zc-E7w" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="nd9-Pr-Oaq"/>
+                <constraint firstAttribute="trailing" secondItem="ibX-pX-sbc" secondAttribute="trailing" constant="20" id="szf-0A-hVo"/>
+                <constraint firstItem="PjW-5L-xdw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="1" id="v6r-lG-Eth"/>
+                <constraint firstAttribute="bottom" secondItem="uh7-4m-aRl" secondAttribute="bottom" constant="10" id="xBH-fb-Dab"/>
+                <constraint firstAttribute="trailing" secondItem="uh7-4m-aRl" secondAttribute="trailing" constant="10" id="xUs-oH-pz8"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="couponname" destination="POM-Zc-E7w" id="HjQ-Uj-PsX"/>
+                <outlet property="money" destination="mX6-nn-jeD" id="AtJ-Gp-X9K"/>
+                <outlet property="timeLbel" destination="uh7-4m-aRl" id="w1c-7N-lNj"/>
+                <outlet property="typeImg" destination="ibX-pX-sbc" id="QFa-b7-g7Y"/>
+            </connections>
+            <point key="canvasLocation" x="52.5" y="214"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="couponbg" width="140" height="86"/>
+        <image name="plane_white" width="34" height="34"/>
+    </resources>
+</document>

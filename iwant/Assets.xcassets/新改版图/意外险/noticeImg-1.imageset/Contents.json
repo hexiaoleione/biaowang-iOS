@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "通过本平台投保，保费300元，同意购买后，平台垫付保费，每日首次接单时扣除2元计入保费，每日只扣一次，自购买之日起，一年@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "通过本平台投保，保费300元，同意购买后，平台垫付保费，每日首次接单时扣除2元计入保费，每日只扣一次，自购买之日起，一年@3x.png",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

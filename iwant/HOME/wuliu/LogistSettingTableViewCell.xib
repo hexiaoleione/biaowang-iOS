@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="59" id="KGk-i7-Jjw" customClass="LogistSettingTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="59"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="321" height="58"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u6f-52-Kxj">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="37" id="CKr-lK-ijD"/>
+                            <constraint firstAttribute="width" constant="37" id="nIz-b1-SKs"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="附近货源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xS-qp-Vs6">
+                        <frame key="frameInset" minX="55" minY="8" width="68" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="关注当前位置附近资源" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U15-lw-bDR">
+                        <frame key="frameInset" minX="55" minY="32" width="120" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcI-iD-zhm">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="jfg-kG-2FI"/>
+                            <constraint firstAttribute="width" constant="30" id="tTV-r5-fU3"/>
+                        </constraints>
+                        <state key="normal" image="wuliu_lingdang"/>
+                        <state key="selected" image="wuliu_lingdang_pink"/>
+                        <connections>
+                            <action selector="click:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="apw-LD-fjp"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="U15-lw-bDR" firstAttribute="bottom" secondItem="u6f-52-Kxj" secondAttribute="bottom" id="7OD-U8-y0q"/>
+                    <constraint firstItem="9xS-qp-Vs6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="B32-El-gjZ"/>
+                    <constraint firstItem="9xS-qp-Vs6" firstAttribute="leading" secondItem="u6f-52-Kxj" secondAttribute="trailing" constant="8" id="Hbd-ig-pzH"/>
+                    <constraint firstItem="jcI-iD-zhm" firstAttribute="centerY" secondItem="u6f-52-Kxj" secondAttribute="centerY" id="KQy-0k-ZJt"/>
+                    <constraint firstItem="U15-lw-bDR" firstAttribute="top" secondItem="9xS-qp-Vs6" secondAttribute="bottom" id="f7z-tT-8Ba"/>
+                    <constraint firstItem="U15-lw-bDR" firstAttribute="leading" secondItem="u6f-52-Kxj" secondAttribute="trailing" constant="8" id="ifC-fr-r7y"/>
+                    <constraint firstItem="u6f-52-Kxj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ta3-5l-tFB"/>
+                    <constraint firstItem="u6f-52-Kxj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="yR7-Yh-6JA"/>
+                    <constraint firstItem="jcI-iD-zhm" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ytD-ve-dBG"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="f7z-tT-8Ba"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgView" destination="u6f-52-Kxj" id="V0g-LI-YrZ"/>
+                <outlet property="subTitle" destination="U15-lw-bDR" id="H0Q-yz-H2h"/>
+                <outlet property="tilBtn" destination="jcI-iD-zhm" id="Jmm-XL-Uuv"/>
+                <outlet property="title" destination="9xS-qp-Vs6" id="Dni-9g-Cdt"/>
+            </connections>
+            <point key="canvasLocation" x="166.5" y="136.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="wuliu_lingdang" width="24" height="24"/>
+        <image name="wuliu_lingdang_pink" width="24" height="24"/>
+    </resources>
+</document>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="104" id="KGk-i7-Jjw" customClass="activityNewCell">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="104"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="337" height="103.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QRs-RQ-Kvf">
+                        <rect key="frame" x="0.0" y="0.0" width="337" height="104"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="QRs-RQ-Kvf" secondAttribute="trailing" id="CCE-1m-e0H"/>
+                    <constraint firstItem="QRs-RQ-Kvf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="FjY-YY-JHC"/>
+                    <constraint firstAttribute="bottom" secondItem="QRs-RQ-Kvf" secondAttribute="bottom" id="j9q-QT-lXY"/>
+                    <constraint firstItem="QRs-RQ-Kvf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="p6z-Jk-37m"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="activityImg" destination="QRs-RQ-Kvf" id="Vd9-XA-lb9"/>
+            </connections>
+            <point key="canvasLocation" x="12.5" y="6"/>
+        </tableViewCell>
+    </objects>
+</document>

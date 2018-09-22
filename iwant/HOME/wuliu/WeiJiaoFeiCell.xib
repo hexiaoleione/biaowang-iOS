@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="135" id="KGk-i7-Jjw" customClass="WeiJiaoFeiCell">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="135"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="134.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="要求到达时间：2017-02-23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw5-Sh-qca">
+                        <rect key="frame" x="16" y="16" width="166" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="物品名称：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydj-vK-JS4">
+                        <rect key="frame" x="16" y="40" width="66.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtC-yW-DjA">
+                        <rect key="frame" x="16" y="64" width="53.5" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="53.5" id="iTm-WJ-IFP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHz-VT-F7J">
+                        <rect key="frame" x="131.5" y="92" width="80" height="30"/>
+                        <color key="backgroundColor" red="0.9539458155632019" green="0.46693825721740723" blue="0.088383086025714874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="h0A-4L-u2s"/>
+                        </constraints>
+                        <state key="normal" title="缴    费">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="jiaofeiBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LKK-im-BdX"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVE-4j-E15">
+                        <rect key="frame" x="69" y="64" width="265" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dingdan_detail" translatesAutoresizingMaskIntoConstraints="NO" id="FBY-gu-mw9">
+                        <rect key="frame" x="303" y="46" width="10" height="17"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ydj-vK-JS4" firstAttribute="top" secondItem="xw5-Sh-qca" secondAttribute="bottom" constant="8" id="2PQ-8y-uLh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="FVE-4j-E15" secondAttribute="trailing" id="785-Dv-m6c"/>
+                    <constraint firstItem="EHz-VT-F7J" firstAttribute="top" secondItem="FVE-4j-E15" secondAttribute="bottom" constant="12" id="Dnp-fC-x62"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="FBY-gu-mw9" secondAttribute="trailing" constant="21" id="Mnh-BE-cOh"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="xw5-Sh-qca" secondAttribute="leading" constant="-8" id="TOA-Rb-n0U"/>
+                    <constraint firstAttribute="topMargin" secondItem="xw5-Sh-qca" secondAttribute="top" constant="-8" id="bOA-89-Irn"/>
+                    <constraint firstItem="EHz-VT-F7J" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="gXU-7O-1fo"/>
+                    <constraint firstItem="KtC-yW-DjA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="kcf-RE-A3O"/>
+                    <constraint firstItem="KtC-yW-DjA" firstAttribute="top" secondItem="Ydj-vK-JS4" secondAttribute="bottom" constant="8" id="nsv-LK-DME"/>
+                    <constraint firstItem="FVE-4j-E15" firstAttribute="leading" secondItem="KtC-yW-DjA" secondAttribute="trailing" constant="-0.5" id="qvE-z7-OFn"/>
+                    <constraint firstItem="FVE-4j-E15" firstAttribute="top" secondItem="FBY-gu-mw9" secondAttribute="bottom" constant="1" id="tBH-GL-u0C"/>
+                    <constraint firstItem="Ydj-vK-JS4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="xY4-NV-ww2"/>
+                    <constraint firstItem="FVE-4j-E15" firstAttribute="centerY" secondItem="KtC-yW-DjA" secondAttribute="centerY" id="zNi-gu-Jap"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="endPlace" destination="FVE-4j-E15" id="BVH-nu-bxI"/>
+                <outlet property="jiaofeiBtn" destination="EHz-VT-F7J" id="7LL-ya-xQd"/>
+                <outlet property="nameLabel" destination="Ydj-vK-JS4" id="0kp-sW-nhy"/>
+                <outlet property="timeLabel" destination="xw5-Sh-qca" id="e4C-7h-mf4"/>
+            </connections>
+            <point key="canvasLocation" x="38" y="130.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dingdan_detail" width="10" height="17"/>
+    </resources>
+</document>

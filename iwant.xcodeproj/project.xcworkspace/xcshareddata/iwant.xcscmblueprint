@@ -1,0 +1,31 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "0ef9f33f-6527-4947-9a56-28b97596fcae++9320" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BBC11A4D2883DC4777974819C32B599B5F2EADCA" : 0,
+    "0ef9f33f-6527-4947-9a56-28b97596fcae++9320" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "37F1E55B-5F91-44A3-99B9-9274D6B6DF4F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BBC11A4D2883DC4777974819C32B599B5F2EADCA" : "..\/Downloads\/PasswordDemo",
+    "0ef9f33f-6527-4947-9a56-28b97596fcae++9320" : "Iwant\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iwant",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iwant.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.1.88\/ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0ef9f33f-6527-4947-9a56-28b97596fcae++9320"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/bing900717\/PasswordDemo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BBC11A4D2883DC4777974819C32B599B5F2EADCA"
+    }
+  ]
+}

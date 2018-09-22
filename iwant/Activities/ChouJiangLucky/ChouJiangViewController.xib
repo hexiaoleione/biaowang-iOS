@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChouJiangViewController">
+            <connections>
+                <outlet property="ecionLabel" destination="XU4-gy-Ozb" id="0Oo-FX-Xxm"/>
+                <outlet property="scrollView" destination="4Jo-La-Yhm" id="xHi-Yh-5l9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="nQh-ME-xSL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Jo-La-Yhm">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="choujiangBG" translatesAutoresizingMaskIntoConstraints="NO" id="h7V-LB-koh">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="750"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="750" id="9sB-CC-uy4"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CJrule.png" translatesAutoresizingMaskIntoConstraints="NO" id="3HF-pc-Z9n">
+                            <rect key="frame" x="37" y="190" width="264" height="52"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="52" id="HZD-6c-W0m"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEx-xa-Tsz">
+                            <rect key="frame" x="125" y="567" width="70" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" backgroundImage="抽奖规则.png"/>
+                            <connections>
+                                <action selector="goToRuleWeb:" destination="-1" eventType="touchUpInside" id="9hQ-6M-owO"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您总共剩余" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxl-bA-PKO">
+                            <rect key="frame" x="91" y="207.5" width="76.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XU4-gy-Ozb">
+                            <rect key="frame" x="175.5" y="206" width="10.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="0.099531024029999998" blue="0.1739948003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW5-oq-9pW">
+                            <rect key="frame" x="194" y="207" width="31" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="OW5-oq-9pW" firstAttribute="centerY" secondItem="XU4-gy-Ozb" secondAttribute="centerY" id="2B2-gT-aFp"/>
+                        <constraint firstItem="3HF-pc-Z9n" firstAttribute="leading" secondItem="h7V-LB-koh" secondAttribute="leading" multiplier="37.5:750" constant="37" id="3rq-wu-tAi"/>
+                        <constraint firstItem="3HF-pc-Z9n" firstAttribute="trailing" secondItem="h7V-LB-koh" secondAttribute="trailing" constant="-19" id="6ZJ-iP-GRC"/>
+                        <constraint firstItem="VEx-xa-Tsz" firstAttribute="top" secondItem="h7V-LB-koh" secondAttribute="bottom" constant="-183" id="7Oe-Th-uqi"/>
+                        <constraint firstItem="3HF-pc-Z9n" firstAttribute="top" secondItem="4Jo-La-Yhm" secondAttribute="top" multiplier="300:750" constant="190" id="CuM-QN-g7L"/>
+                        <constraint firstItem="h7V-LB-koh" firstAttribute="leading" secondItem="4Jo-La-Yhm" secondAttribute="leading" id="MH4-JF-Q2T"/>
+                        <constraint firstItem="oxl-bA-PKO" firstAttribute="centerX" secondItem="3HF-pc-Z9n" secondAttribute="centerX" constant="-40" id="PVr-QA-bVB"/>
+                        <constraint firstItem="oxl-bA-PKO" firstAttribute="centerY" secondItem="3HF-pc-Z9n" secondAttribute="centerY" id="Q4P-O1-p2e"/>
+                        <constraint firstItem="h7V-LB-koh" firstAttribute="width" secondItem="4Jo-La-Yhm" secondAttribute="width" id="WoL-Mb-cph"/>
+                        <constraint firstItem="OW5-oq-9pW" firstAttribute="leading" secondItem="XU4-gy-Ozb" secondAttribute="trailing" constant="8" id="eGW-Qh-Qlr"/>
+                        <constraint firstAttribute="trailing" secondItem="h7V-LB-koh" secondAttribute="trailing" id="gyY-mJ-PDU"/>
+                        <constraint firstItem="XU4-gy-Ozb" firstAttribute="centerY" secondItem="oxl-bA-PKO" secondAttribute="centerY" id="nXV-Bm-JiZ"/>
+                        <constraint firstItem="XU4-gy-Ozb" firstAttribute="leading" secondItem="oxl-bA-PKO" secondAttribute="trailing" constant="8" id="rDh-gF-rdw"/>
+                        <constraint firstAttribute="bottom" secondItem="h7V-LB-koh" secondAttribute="bottom" constant="-83" id="raU-od-yrG"/>
+                        <constraint firstItem="VEx-xa-Tsz" firstAttribute="centerX" secondItem="h7V-LB-koh" secondAttribute="centerX" id="tgc-Bw-6Sd"/>
+                        <constraint firstItem="h7V-LB-koh" firstAttribute="top" secondItem="4Jo-La-Yhm" secondAttribute="top" id="wy4-Dx-pww"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="4Jo-La-Yhm" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="0iN-0i-KUZ"/>
+                <constraint firstItem="4Jo-La-Yhm" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="H7M-QI-YdU"/>
+                <constraint firstItem="4Jo-La-Yhm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="KjY-sG-158"/>
+                <constraint firstItem="4Jo-La-Yhm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="tu2-H1-bkT"/>
+            </constraints>
+            <point key="canvasLocation" x="-1032" y="-2089"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CJrule.png" width="321" height="52"/>
+        <image name="choujiangBG" width="375" height="607"/>
+        <image name="抽奖规则.png" width="70" height="16"/>
+    </resources>
+</document>

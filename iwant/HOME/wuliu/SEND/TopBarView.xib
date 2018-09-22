@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TopBarView">
+            <rect key="frame" x="0.0" y="0.0" width="356" height="36"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCj-Q2-m6x">
+                    <rect key="frame" x="0.0" y="0.0" width="356" height="36"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Qc-JD-n88" customClass="XPQScrollLabel">
+                            <rect key="frame" x="91" y="5" width="265" height="26"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="MVI-e9-GxM"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="text" value="您的物流将由多家物流公司报价，请留意系统提示， 选择最合适的物流公司。"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="time">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="gestureEnable" value="YES"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                    <color key="value" red="0.98013921609999999" green="0.43897490620000001" blue="0.14228385769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yq0-gC-qAt">
+                            <rect key="frame" x="14" y="5" width="77" height="26"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="fMz-et-VOA"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="8Qc-JD-n88" secondAttribute="bottom" id="4Oo-2j-GBQ"/>
+                        <constraint firstAttribute="bottom" secondItem="yq0-gC-qAt" secondAttribute="bottom" id="5hB-ll-VUJ"/>
+                        <constraint firstItem="yq0-gC-qAt" firstAttribute="centerY" secondItem="UCj-Q2-m6x" secondAttribute="centerY" id="QAt-az-LFm"/>
+                        <constraint firstAttribute="height" constant="36" id="RQ9-bw-i7i"/>
+                        <constraint firstAttribute="height" constant="35" id="VgU-ky-5K9"/>
+                        <constraint firstAttribute="trailing" secondItem="8Qc-JD-n88" secondAttribute="trailing" id="ZSd-xi-zap"/>
+                        <constraint firstItem="yq0-gC-qAt" firstAttribute="top" secondItem="UCj-Q2-m6x" secondAttribute="top" id="aLx-08-bPX"/>
+                        <constraint firstItem="yq0-gC-qAt" firstAttribute="leading" secondItem="UCj-Q2-m6x" secondAttribute="leading" constant="14" id="blr-6h-qMw"/>
+                        <constraint firstItem="8Qc-JD-n88" firstAttribute="leading" secondItem="yq0-gC-qAt" secondAttribute="trailing" id="dlv-ui-dkI"/>
+                        <constraint firstItem="8Qc-JD-n88" firstAttribute="top" secondItem="UCj-Q2-m6x" secondAttribute="top" id="u2G-1V-SWZ"/>
+                        <constraint firstItem="8Qc-JD-n88" firstAttribute="centerY" secondItem="UCj-Q2-m6x" secondAttribute="centerY" id="u2Q-LL-EdG"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="VgU-ky-5K9"/>
+                            <exclude reference="5hB-ll-VUJ"/>
+                            <exclude reference="aLx-08-bPX"/>
+                            <exclude reference="4Oo-2j-GBQ"/>
+                            <exclude reference="u2G-1V-SWZ"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="UCj-Q2-m6x" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AVa-Se-1wk"/>
+                <constraint firstItem="UCj-Q2-m6x" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="XLN-HJ-IIG"/>
+                <constraint firstAttribute="trailing" secondItem="UCj-Q2-m6x" secondAttribute="trailing" id="aDo-0o-xlF"/>
+                <constraint firstItem="UCj-Q2-m6x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aIC-is-P17"/>
+                <constraint firstAttribute="bottom" secondItem="UCj-Q2-m6x" secondAttribute="bottom" id="eG8-Az-b6n"/>
+                <constraint firstItem="UCj-Q2-m6x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="lwQ-bP-XeQ"/>
+                <constraint firstAttribute="trailing" secondItem="UCj-Q2-m6x" secondAttribute="trailing" constant="11" id="vMo-f5-8ae"/>
+                <constraint firstAttribute="bottom" secondItem="UCj-Q2-m6x" secondAttribute="bottom" constant="9" id="vqR-Cn-f6p"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="XLN-HJ-IIG"/>
+                    <exclude reference="lwQ-bP-XeQ"/>
+                    <exclude reference="vMo-f5-8ae"/>
+                    <exclude reference="vqR-Cn-f6p"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="contentView" destination="UCj-Q2-m6x" id="p7s-Da-7pb"/>
+                <outlet property="tipsLabel" destination="8Qc-JD-n88" id="pdf-FE-Scq"/>
+                <outlet property="titleLabel" destination="yq0-gC-qAt" id="LUJ-XS-w1A"/>
+            </connections>
+            <point key="canvasLocation" x="86" y="19"/>
+        </view>
+    </objects>
+</document>

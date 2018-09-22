@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AddressMapView">
+            <rect key="frame" x="0.0" y="0.0" width="105" height="58"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YND-Zy-iDt">
+                    <rect key="frame" x="5" y="5" width="95" height="38.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在搜索" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnW-vu-e51">
+                    <rect key="frame" x="5" y="27" width="95" height="14.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜索中..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sd0-T0-B6O">
+                    <rect key="frame" x="5" y="5" width="95" height="17"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantouImg" translatesAutoresizingMaskIntoConstraints="NO" id="YxU-3E-XUJ">
+                    <rect key="frame" x="38.5" y="43.5" width="28" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="28" id="PcK-nS-f3l"/>
+                        <constraint firstAttribute="height" constant="14" id="aNc-wZ-vbS"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="YxU-3E-XUJ" firstAttribute="top" secondItem="YND-Zy-iDt" secondAttribute="bottom" id="8Ty-jj-g6h"/>
+                <constraint firstItem="YxU-3E-XUJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8Wf-eE-8Yv"/>
+                <constraint firstItem="YND-Zy-iDt" firstAttribute="top" secondItem="sd0-T0-B6O" secondAttribute="top" id="9XX-d3-ajV"/>
+                <constraint firstAttribute="trailing" secondItem="sd0-T0-B6O" secondAttribute="trailing" constant="5" id="QOk-Qp-JfT"/>
+                <constraint firstItem="gnW-vu-e51" firstAttribute="top" secondItem="sd0-T0-B6O" secondAttribute="bottom" constant="5" id="R3f-hx-twV"/>
+                <constraint firstItem="YND-Zy-iDt" firstAttribute="trailing" secondItem="gnW-vu-e51" secondAttribute="trailing" id="Ua1-Pr-qiO"/>
+                <constraint firstItem="YND-Zy-iDt" firstAttribute="leading" secondItem="gnW-vu-e51" secondAttribute="leading" id="Ww3-fM-vYO"/>
+                <constraint firstItem="YND-Zy-iDt" firstAttribute="bottom" secondItem="gnW-vu-e51" secondAttribute="bottom" constant="2" id="XAT-jR-hKB"/>
+                <constraint firstItem="sd0-T0-B6O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Xua-6G-hok"/>
+                <constraint firstItem="gnW-vu-e51" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="erk-KU-0qi"/>
+                <constraint firstItem="sd0-T0-B6O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="iEw-oz-VSK"/>
+                <constraint firstAttribute="trailing" secondItem="gnW-vu-e51" secondAttribute="trailing" constant="5" id="jD0-Jt-6u3"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addressL" destination="gnW-vu-e51" id="4ut-fx-fYX"/>
+                <outlet property="detailL" destination="sd0-T0-B6O" id="vDn-p4-HYx"/>
+                <outlet property="imgView" destination="YxU-3E-XUJ" id="rdX-Yg-nCE"/>
+            </connections>
+            <point key="canvasLocation" x="26.5" y="-91"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="jiantouImg" width="22" height="11"/>
+    </resources>
+</document>

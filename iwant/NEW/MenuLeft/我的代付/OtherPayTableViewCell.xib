@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="136" id="KGk-i7-Jjw" customClass="OtherPayTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="136"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="395" height="135.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布时间：2017-02-23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeX-tn-lac">
+                        <rect key="frame" x="24" y="41" width="149.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="物品名称：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkK-4F-hJe">
+                        <rect key="frame" x="24" y="66" width="71.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本宫娘娘找您代付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="za0-hL-uUY">
+                        <rect key="frame" x="24" y="16" width="114.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="代付金额:288882元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-ko-87K">
+                        <rect key="frame" x="251.5" y="41" width="127.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PZ-8P-hDR">
+                        <rect key="frame" x="153.5" y="99" width="88" height="31"/>
+                        <state key="normal" image="fukuan"/>
+                        <connections>
+                            <action selector="btnClickPay:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="c3N-rM-UVV"/>
+                        </connections>
+                    </button>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已付款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSA-Lu-2sH">
+                        <rect key="frame" x="176" y="106" width="43" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="vcs-ko-87K" secondAttribute="trailing" constant="8" id="6eH-3G-2pP"/>
+                    <constraint firstItem="ZeX-tn-lac" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="JwJ-Cm-t4m"/>
+                    <constraint firstItem="vcs-ko-87K" firstAttribute="centerY" secondItem="ZeX-tn-lac" secondAttribute="centerY" id="Lov-5p-kwH"/>
+                    <constraint firstItem="qSA-Lu-2sH" firstAttribute="centerY" secondItem="6PZ-8P-hDR" secondAttribute="centerY" id="Pyg-1L-P2n"/>
+                    <constraint firstItem="za0-hL-uUY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="RGd-NU-krg"/>
+                    <constraint firstItem="kkK-4F-hJe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="RrG-nw-ELV"/>
+                    <constraint firstItem="6PZ-8P-hDR" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="aju-RJ-Yjo"/>
+                    <constraint firstItem="6PZ-8P-hDR" firstAttribute="top" secondItem="kkK-4F-hJe" secondAttribute="bottom" constant="16" id="gXJ-Tu-ZbR"/>
+                    <constraint firstItem="ZeX-tn-lac" firstAttribute="top" secondItem="za0-hL-uUY" secondAttribute="bottom" constant="8" id="gk9-wZ-nLG"/>
+                    <constraint firstItem="za0-hL-uUY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="rRA-4V-dBV"/>
+                    <constraint firstItem="qSA-Lu-2sH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="xZX-Xm-AEk"/>
+                    <constraint firstItem="kkK-4F-hJe" firstAttribute="top" secondItem="ZeX-tn-lac" secondAttribute="bottom" constant="8" id="xcX-lO-OeD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cargoNameL" destination="kkK-4F-hJe" id="VPW-JK-TiY"/>
+                <outlet property="daifuNameL" destination="za0-hL-uUY" id="1sC-wm-skV"/>
+                <outlet property="moneyL" destination="vcs-ko-87K" id="baJ-cH-Scw"/>
+                <outlet property="payBtn" destination="6PZ-8P-hDR" id="857-pt-vR7"/>
+                <outlet property="statusL" destination="qSA-Lu-2sH" id="jOi-yj-J2f"/>
+                <outlet property="timeL" destination="ZeX-tn-lac" id="5us-6L-lGV"/>
+            </connections>
+            <point key="canvasLocation" x="71.5" y="155"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="fukuan" width="88" height="31"/>
+    </resources>
+</document>

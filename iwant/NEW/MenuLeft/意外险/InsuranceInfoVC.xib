@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InsuranceInfoVC">
+            <connections>
+                <outlet property="donBtnTwo" destination="aMS-AL-6z7" id="BcW-HH-CPe"/>
+                <outlet property="downBtnOne" destination="dtM-JB-Jzw" id="6Sx-d6-pWb"/>
+                <outlet property="noticingBtn" destination="BG9-p5-IX7" id="PRa-fe-oAm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noticeImg-1" translatesAutoresizingMaskIntoConstraints="NO" id="zCx-rM-LrF">
+                    <rect key="frame" x="38" y="25" width="299" height="55"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InsureImg1" translatesAutoresizingMaskIntoConstraints="NO" id="ao9-hd-nHJ">
+                    <rect key="frame" x="33" y="115" width="122" height="156"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InsureImg2" translatesAutoresizingMaskIntoConstraints="NO" id="OqX-47-V4y">
+                    <rect key="frame" x="220.5" y="115" width="122" height="155"/>
+                </imageView>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtM-JB-Jzw">
+                    <rect key="frame" x="32" y="287" width="125" height="39"/>
+                    <state key="normal" image="InsureBtn1"/>
+                    <connections>
+                        <action selector="downBtnClick:" destination="-1" eventType="touchUpInside" id="Nfl-mT-MYr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-AL-6z7">
+                    <rect key="frame" x="218.5" y="287" width="125" height="39"/>
+                    <state key="normal" image="InsureBtn2"/>
+                    <connections>
+                        <action selector="downBtnClick:" destination="-1" eventType="touchUpInside" id="xYn-9T-vGc"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-p5-IX7">
+                    <rect key="frame" x="46" y="287" width="283" height="39"/>
+                    <state key="normal" image="正在办理中..."/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgView3" translatesAutoresizingMaskIntoConstraints="NO" id="VOk-0r-IO8">
+                    <rect key="frame" x="100.5" y="569" width="173" height="54"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="OqX-47-V4y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="3:2" id="26F-Md-ds0"/>
+                <constraint firstItem="dtM-JB-Jzw" firstAttribute="top" secondItem="ao9-hd-nHJ" secondAttribute="bottom" constant="16" id="3ZA-mG-GIX"/>
+                <constraint firstItem="zCx-rM-LrF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="3yM-g1-NS2"/>
+                <constraint firstItem="aMS-AL-6z7" firstAttribute="centerX" secondItem="OqX-47-V4y" secondAttribute="centerX" id="571-w2-rIG"/>
+                <constraint firstItem="BG9-p5-IX7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GhH-wC-Wjv"/>
+                <constraint firstItem="ao9-hd-nHJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="1:2" id="Kb3-qM-sWe"/>
+                <constraint firstItem="BG9-p5-IX7" firstAttribute="top" secondItem="dtM-JB-Jzw" secondAttribute="top" id="L3g-9D-O9b"/>
+                <constraint firstItem="dtM-JB-Jzw" firstAttribute="centerX" secondItem="ao9-hd-nHJ" secondAttribute="centerX" id="Wkg-0E-zNd"/>
+                <constraint firstItem="OqX-47-V4y" firstAttribute="top" secondItem="ao9-hd-nHJ" secondAttribute="top" id="XsU-03-nEu"/>
+                <constraint firstItem="aMS-AL-6z7" firstAttribute="centerY" secondItem="dtM-JB-Jzw" secondAttribute="centerY" id="fwa-Go-z3x"/>
+                <constraint firstAttribute="bottom" secondItem="VOk-0r-IO8" secondAttribute="bottom" constant="44" id="nKL-Ka-Wdp"/>
+                <constraint firstItem="ao9-hd-nHJ" firstAttribute="top" secondItem="zCx-rM-LrF" secondAttribute="bottom" constant="35" id="nlC-3t-Qnz"/>
+                <constraint firstItem="zCx-rM-LrF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="t85-ci-7X9"/>
+                <constraint firstItem="VOk-0r-IO8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tdC-Vw-LNz"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="InsureBtn1" width="125" height="39"/>
+        <image name="InsureBtn2" width="125" height="39"/>
+        <image name="InsureImg1" width="122" height="156"/>
+        <image name="InsureImg2" width="122" height="155"/>
+        <image name="imgView3" width="173" height="54"/>
+        <image name="noticeImg-1" width="299" height="55"/>
+        <image name="正在办理中..." width="283" height="39"/>
+    </resources>
+</document>

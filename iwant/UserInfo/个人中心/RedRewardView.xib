@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RedRewardView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Reward_bg" translatesAutoresizingMaskIntoConstraints="NO" id="98A-0q-qKp">
+                    <rect key="frame" x="15.5" y="195" width="344" height="277"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CUY-QD-dQn">
+                    <rect key="frame" x="15.5" y="194.5" width="344" height="277"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPa-vR-quX">
+                            <rect key="frame" x="103.5" y="211.5" width="137" height="28"/>
+                            <state key="normal" image="Reward_goBack"/>
+                            <connections>
+                                <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="XLH-jr-V1R"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜您获得0.08元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTd-NK-W6y">
+                            <rect key="frame" x="99" y="160" width="146.5" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvg-RQ-pVY">
+                            <rect key="frame" x="277" y="0.0" width="22" height="22"/>
+                            <state key="normal" image="Reward_guanbi"/>
+                            <connections>
+                                <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="bFv-GG-loi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="YPa-vR-quX" firstAttribute="top" secondItem="XTd-NK-W6y" secondAttribute="bottom" constant="30" id="BFz-hC-6Z8"/>
+                        <constraint firstItem="XTd-NK-W6y" firstAttribute="top" secondItem="CUY-QD-dQn" secondAttribute="top" constant="160" id="Fg0-ec-ueV"/>
+                        <constraint firstItem="YPa-vR-quX" firstAttribute="centerX" secondItem="CUY-QD-dQn" secondAttribute="centerX" id="IxH-32-1lc"/>
+                        <constraint firstAttribute="trailing" secondItem="hvg-RQ-pVY" secondAttribute="trailing" constant="45" id="LBy-Hn-8fE"/>
+                        <constraint firstItem="hvg-RQ-pVY" firstAttribute="top" secondItem="CUY-QD-dQn" secondAttribute="top" id="cHb-Je-FDs"/>
+                        <constraint firstItem="XTd-NK-W6y" firstAttribute="centerX" secondItem="CUY-QD-dQn" secondAttribute="centerX" id="nOM-aP-Gzx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.35066382285276071" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="CUY-QD-dQn" firstAttribute="width" secondItem="98A-0q-qKp" secondAttribute="width" id="GMN-fK-kR6"/>
+                <constraint firstItem="CUY-QD-dQn" firstAttribute="centerY" secondItem="98A-0q-qKp" secondAttribute="centerY" id="N8H-qe-oM5"/>
+                <constraint firstItem="CUY-QD-dQn" firstAttribute="height" secondItem="98A-0q-qKp" secondAttribute="height" id="crN-CJ-OlG"/>
+                <constraint firstItem="98A-0q-qKp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dlu-Y4-Yze"/>
+                <constraint firstItem="CUY-QD-dQn" firstAttribute="centerX" secondItem="98A-0q-qKp" secondAttribute="centerX" id="rgm-r7-brZ"/>
+                <constraint firstItem="98A-0q-qKp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="u8Y-QV-ZOc"/>
+            </constraints>
+            <connections>
+                <outlet property="noticeLabel" destination="XTd-NK-W6y" id="Ig1-8S-Bf2"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Reward_bg" width="344" height="277"/>
+        <image name="Reward_goBack" width="137" height="28"/>
+        <image name="Reward_guanbi" width="22" height="22"/>
+    </resources>
+</document>

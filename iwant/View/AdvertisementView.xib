@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AdvertisementView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H8s-eQ-nDo">
+                    <rect key="frame" x="30" y="34.5" width="260" height="411"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="260" id="4sE-3x-Nb8"/>
+                        <constraint firstAttribute="width" secondItem="H8s-eQ-nDo" secondAttribute="height" multiplier="505:800" id="TNk-07-gKi"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNE-ZB-SKG">
+                    <rect key="frame" x="30" y="34.5" width="260" height="411"/>
+                    <connections>
+                        <action selector="goToSeeDetail:" destination="iN0-l3-epB" eventType="touchUpInside" id="hgh-mp-k7g"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="de4-ez-iOI">
+                    <rect key="frame" x="266" y="17.5" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="de4-ez-iOI" secondAttribute="height" multiplier="1:1" id="JzI-xS-BOD"/>
+                        <constraint firstAttribute="width" constant="35" id="vWc-4y-raF"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="guanbi"/>
+                    <connections>
+                        <action selector="turnOffClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="1B6-Bh-Rq8"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.39859327070552147" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mNE-ZB-SKG" firstAttribute="width" secondItem="H8s-eQ-nDo" secondAttribute="width" id="3Jh-gK-YHQ"/>
+                <constraint firstItem="mNE-ZB-SKG" firstAttribute="centerY" secondItem="H8s-eQ-nDo" secondAttribute="centerY" id="6Fl-0e-LNW"/>
+                <constraint firstItem="de4-ez-iOI" firstAttribute="centerY" secondItem="H8s-eQ-nDo" secondAttribute="centerY" constant="-204.5" id="Q6w-7G-7pI"/>
+                <constraint firstItem="mNE-ZB-SKG" firstAttribute="centerX" secondItem="H8s-eQ-nDo" secondAttribute="centerX" id="WAt-NU-OE2"/>
+                <constraint firstItem="mNE-ZB-SKG" firstAttribute="height" secondItem="H8s-eQ-nDo" secondAttribute="height" id="fuN-Rh-ms3"/>
+                <constraint firstItem="H8s-eQ-nDo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jjI-ak-k3a"/>
+                <constraint firstItem="de4-ez-iOI" firstAttribute="centerX" secondItem="H8s-eQ-nDo" secondAttribute="centerX" constant="123" id="k2t-fd-JMG"/>
+                <constraint firstItem="H8s-eQ-nDo" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="so8-xJ-svQ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <connections>
+                <outlet property="adImageView" destination="H8s-eQ-nDo" id="8gh-BD-eo6"/>
+            </connections>
+            <point key="canvasLocation" x="-610" y="-2721.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="guanbi" width="17" height="17"/>
+    </resources>
+</document>

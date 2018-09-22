@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="118"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="货物名称：就舒服吧" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QA-Iy-0Qd">
+                    <rect key="frame" x="8" y="10" width="119.5" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="XmK-Rb-tQj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="重量:50吨" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1B-8m-RGa">
+                    <rect key="frame" x="10" y="35" width="180" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体积：100立方" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVa-fH-4tB">
+                    <rect key="frame" x="190" y="35" width="180" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="wRD-j2-CH9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京市昌平区回龙观东大街100号楼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKq-au-u8H">
+                    <rect key="frame" x="57" y="61" width="213" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京市昌平区回龙观东大街100号楼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kz-7m-mDe">
+                    <rect key="frame" x="57" y="87" width="213" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需要送货" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2n-SX-GHK">
+                    <rect key="frame" x="315" y="87" width="60" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需要取货" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgT-6y-pFC">
+                    <rect key="frame" x="315" y="61" width="60" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="r1h-de-xJh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="p2n-SX-GHK" firstAttribute="width" secondItem="KgT-6y-pFC" secondAttribute="width" id="1mP-hH-m04"/>
+                <constraint firstItem="KgT-6y-pFC" firstAttribute="leading" secondItem="aKq-au-u8H" secondAttribute="trailing" constant="45" id="5hc-MO-SfS"/>
+                <constraint firstItem="6QA-Iy-0Qd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="8JO-EH-KHm"/>
+                <constraint firstItem="6QA-Iy-0Qd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="8j8-RP-Ko8"/>
+                <constraint firstItem="vVa-fH-4tB" firstAttribute="leading" secondItem="G1B-8m-RGa" secondAttribute="trailing" id="AtK-tr-x07"/>
+                <constraint firstItem="aKq-au-u8H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="57" id="BV8-Ph-KyP"/>
+                <constraint firstItem="8Kz-7m-mDe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="57" id="Jk8-Rc-rrR"/>
+                <constraint firstAttribute="trailing" secondItem="vVa-fH-4tB" secondAttribute="trailing" constant="10" id="Puu-uC-LHN"/>
+                <constraint firstItem="aKq-au-u8H" firstAttribute="top" secondItem="G1B-8m-RGa" secondAttribute="bottom" constant="10" id="QDW-dK-QXg"/>
+                <constraint firstAttribute="trailing" secondItem="p2n-SX-GHK" secondAttribute="trailing" constant="5" id="Ry7-5x-r74"/>
+                <constraint firstItem="vVa-fH-4tB" firstAttribute="top" secondItem="6QA-Iy-0Qd" secondAttribute="bottom" constant="9" id="V9E-Mb-mEe"/>
+                <constraint firstItem="p2n-SX-GHK" firstAttribute="top" secondItem="KgT-6y-pFC" secondAttribute="bottom" constant="10" id="WF2-ML-bOt"/>
+                <constraint firstItem="p2n-SX-GHK" firstAttribute="leading" secondItem="8Kz-7m-mDe" secondAttribute="trailing" constant="45" id="bl8-Rh-5rP"/>
+                <constraint firstItem="G1B-8m-RGa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="e8v-Jz-wcE"/>
+                <constraint firstItem="aKq-au-u8H" firstAttribute="width" secondItem="8Kz-7m-mDe" secondAttribute="width" id="fhl-K7-Cn5"/>
+                <constraint firstItem="8Kz-7m-mDe" firstAttribute="top" secondItem="aKq-au-u8H" secondAttribute="bottom" constant="10" id="maH-np-xZh"/>
+                <constraint firstAttribute="trailing" secondItem="KgT-6y-pFC" secondAttribute="trailing" constant="5" id="pqi-EZ-qsH"/>
+                <constraint firstItem="KgT-6y-pFC" firstAttribute="top" secondItem="vVa-fH-4tB" secondAttribute="bottom" constant="10" id="xcf-WB-7Ay"/>
+                <constraint firstItem="G1B-8m-RGa" firstAttribute="top" secondItem="6QA-Iy-0Qd" secondAttribute="top" constant="25" id="z2Z-GC-DhD"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="70" y="-97"/>
+        </view>
+    </objects>
+</document>

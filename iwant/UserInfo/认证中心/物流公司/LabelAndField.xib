@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LabelAndFieldView">
+            <rect key="frame" x="0.0" y="0.0" width="310" height="39"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司名称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3G-pe-JiW">
+                    <rect key="frame" x="8" y="8" width="76.5" height="15"/>
+                    <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3wP-qJ-mpY">
+                    <rect key="frame" x="86.5" y="7" width="223.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8A-q1-0HA">
+                    <rect key="frame" x="86.5" y="27.5" width="223.5" height="1"/>
+                    <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="ZjP-um-cgt"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3wP-qJ-mpY" secondAttribute="trailing" id="KQp-tA-Ccd"/>
+                <constraint firstItem="e3G-pe-JiW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="MbQ-Wr-Hi6"/>
+                <constraint firstItem="e3G-pe-JiW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Nh1-rJ-fCL"/>
+                <constraint firstItem="3wP-qJ-mpY" firstAttribute="leading" secondItem="S8A-q1-0HA" secondAttribute="leading" id="OGr-WB-JNS"/>
+                <constraint firstItem="3wP-qJ-mpY" firstAttribute="width" secondItem="S8A-q1-0HA" secondAttribute="width" id="T2c-7L-kMt"/>
+                <constraint firstItem="3wP-qJ-mpY" firstAttribute="centerY" secondItem="e3G-pe-JiW" secondAttribute="centerY" id="Zz0-ud-x5b"/>
+                <constraint firstItem="3wP-qJ-mpY" firstAttribute="leading" secondItem="e3G-pe-JiW" secondAttribute="trailing" constant="2" id="gmt-ke-acw"/>
+                <constraint firstItem="S8A-q1-0HA" firstAttribute="top" secondItem="3wP-qJ-mpY" secondAttribute="bottom" constant="3" id="sXX-Ry-k03"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentField" destination="3wP-qJ-mpY" id="Xhi-P3-t6m"/>
+                <outlet property="name" destination="e3G-pe-JiW" id="E7L-fN-KQg"/>
+            </connections>
+            <point key="canvasLocation" x="618" y="-119.5"/>
+        </view>
+    </objects>
+</document>

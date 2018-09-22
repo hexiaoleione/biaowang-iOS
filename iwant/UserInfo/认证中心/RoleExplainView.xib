@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RoleExplainView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JN2-yR-wTj">
+                    <rect key="frame" x="57.5" y="247" width="260" height="173"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快递员是做什么的？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20J-ee-RIU">
+                            <rect key="frame" x="47.5" y="32" width="165.5" height="21"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="接通知，上门取件，在线收款。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nT6-2f-WlR">
+                            <rect key="frame" x="20" y="73" width="220" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJc-5B-P7i">
+                            <rect key="frame" x="79.5" y="127" width="100" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="M7m-Fy-F6W"/>
+                            </constraints>
+                            <state key="normal" title="我知道了">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="guanbiBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="bIk-w1-HiO"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="AJc-5B-P7i" firstAttribute="centerX" secondItem="JN2-yR-wTj" secondAttribute="centerX" id="72J-Y0-tfV"/>
+                        <constraint firstAttribute="bottom" secondItem="AJc-5B-P7i" secondAttribute="bottom" constant="16" id="9Ar-og-H2h"/>
+                        <constraint firstItem="20J-ee-RIU" firstAttribute="top" secondItem="JN2-yR-wTj" secondAttribute="top" constant="32" id="9jN-uh-cIs"/>
+                        <constraint firstAttribute="width" secondItem="JN2-yR-wTj" secondAttribute="height" multiplier="3:2" id="CVO-dz-3Rl"/>
+                        <constraint firstItem="nT6-2f-WlR" firstAttribute="leading" secondItem="JN2-yR-wTj" secondAttribute="leading" constant="20" id="JS1-MP-hVo"/>
+                        <constraint firstItem="20J-ee-RIU" firstAttribute="centerX" secondItem="JN2-yR-wTj" secondAttribute="centerX" id="ToI-74-geo"/>
+                        <constraint firstAttribute="trailing" secondItem="nT6-2f-WlR" secondAttribute="trailing" constant="20" id="Uu0-tt-qax"/>
+                        <constraint firstItem="nT6-2f-WlR" firstAttribute="top" secondItem="20J-ee-RIU" secondAttribute="bottom" constant="20" id="kLi-K7-Pwt"/>
+                        <constraint firstAttribute="width" constant="260" id="sjA-Ui-Epk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.4962007705479452" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="JN2-yR-wTj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0RK-8K-ObR"/>
+                <constraint firstItem="JN2-yR-wTj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="raz-lM-VKw"/>
+            </constraints>
+            <connections>
+                <outlet property="detailLabel" destination="nT6-2f-WlR" id="tHz-HY-RSK"/>
+                <outlet property="guanbiBtn" destination="AJc-5B-P7i" id="6iX-BU-jVk"/>
+                <outlet property="titleLabel" destination="20J-ee-RIU" id="1vR-ou-CMI"/>
+                <outlet property="view" destination="JN2-yR-wTj" id="Xt0-Ed-qOP"/>
+            </connections>
+            <point key="canvasLocation" x="32.5" y="79.5"/>
+        </view>
+    </objects>
+</document>

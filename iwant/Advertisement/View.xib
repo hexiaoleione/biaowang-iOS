@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AdView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0R-6o-xzT">
+                    <rect key="frame" x="36.5" y="146" width="302" height="375"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WaC-yr-Dqb" customClass="SDCycleScrollView">
+                            <rect key="frame" x="0.0" y="0.0" width="302" height="375"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Q0R-6o-xzT" secondAttribute="height" multiplier="604:750" id="Bg5-DW-wkf"/>
+                        <constraint firstItem="WaC-yr-Dqb" firstAttribute="centerX" secondItem="Q0R-6o-xzT" secondAttribute="centerX" id="Csa-XE-Jgu"/>
+                        <constraint firstItem="WaC-yr-Dqb" firstAttribute="width" secondItem="Q0R-6o-xzT" secondAttribute="width" id="Npd-O5-pt4"/>
+                        <constraint firstItem="WaC-yr-Dqb" firstAttribute="height" secondItem="Q0R-6o-xzT" secondAttribute="height" id="Ubv-Bw-AzJ"/>
+                        <constraint firstItem="WaC-yr-Dqb" firstAttribute="centerY" secondItem="Q0R-6o-xzT" secondAttribute="centerY" id="hFa-Wm-XBd"/>
+                        <constraint firstAttribute="width" constant="302" id="iTf-QK-z36"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spf-Wl-s0i">
+                    <rect key="frame" x="321" y="128.5" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="0lb-2g-UZ7"/>
+                        <constraint firstAttribute="width" secondItem="Spf-Wl-s0i" secondAttribute="height" multiplier="1:1" id="A9k-6E-i6w"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="Home_AdOff"/>
+                    <connections>
+                        <action selector="cancelBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="2Ha-dd-svz"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.42974741180981596" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Q0R-6o-xzT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7gb-cG-idJ"/>
+                <constraint firstItem="Q0R-6o-xzT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8G2-Ck-n6w"/>
+                <constraint firstItem="Spf-Wl-s0i" firstAttribute="width" secondItem="Spf-Wl-s0i" secondAttribute="height" multiplier="1:1" id="Nau-MH-1VI"/>
+                <constraint firstItem="Spf-Wl-s0i" firstAttribute="top" secondItem="WaC-yr-Dqb" secondAttribute="top" constant="-17.5" id="dZ8-6T-dar"/>
+                <constraint firstItem="Spf-Wl-s0i" firstAttribute="trailing" secondItem="WaC-yr-Dqb" secondAttribute="trailing" constant="17.5" id="oxI-Ts-nFV"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <connections>
+                <outlet property="adViewWidthConstraint" destination="iTf-QK-z36" id="fkn-Nk-V1G"/>
+                <outlet property="cycleScrollView" destination="WaC-yr-Dqb" id="qnw-Vq-LgO"/>
+                <outlet property="viewBG" destination="Q0R-6o-xzT" id="mpD-4s-a8G"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="Home_AdOff" width="27" height="27"/>
+    </resources>
+</document>
