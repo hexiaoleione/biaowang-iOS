@@ -184,7 +184,7 @@
 
     _ChangeBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_headImageView.frame)+10, WINDOW_WIDTH, WGiveHeight(30))];
     if (self.courentbtnTag == 2) {
-        [_ChangeBtn setTitle:@"上传手持身份证照片" forState:UIControlStateNormal];
+        [_ChangeBtn setTitle:@"上传身份证或者驾照" forState:UIControlStateNormal];
     }else{
         [_ChangeBtn setTitle:@"请点击此处上传身份证照片" forState:UIControlStateNormal];
     }

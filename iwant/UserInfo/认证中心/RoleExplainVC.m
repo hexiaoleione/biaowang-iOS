@@ -151,14 +151,14 @@
             break;
         case 1:{
             //判断快递员是否已经认证,认证了快递员，就具有表示资格，不需要认证
-            if ([UserManager getDefaultUser].userType == 3) {
-                [SVProgressHUD showInfoWithStatus:@"您已通过镖师审核"];
-                return;
-            }
-            if ([UserManager getDefaultUser].userType == 2) {
-                [SVProgressHUD showInfoWithStatus:@"您已通过快递员审核，已经具备了镖师资格"];
-                return;
-            }
+//            if ([UserManager getDefaultUser].userType == 3) {
+//                [SVProgressHUD showInfoWithStatus:@"您已通过镖师审核"];
+//                return;
+//            }
+//            if ([UserManager getDefaultUser].userType == 2) {
+//                [SVProgressHUD showInfoWithStatus:@"您已通过快递员审核，已经具备了镖师资格"];
+//                return;
+//            }
             UserNameViewController *VC = [[UserNameViewController alloc]init];
             VC.courentbtnTag = 2;
             [self.navigationController pushViewController:VC animated:YES];
