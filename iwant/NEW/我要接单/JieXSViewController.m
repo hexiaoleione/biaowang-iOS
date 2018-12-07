@@ -17,6 +17,7 @@
 #import "RoleExplainVC.h"
 #import "DepositVC.h"
 #import "AccidentInsuranceVC.h"
+#import "PRHomeWebViewController.h"
 @interface JieXSViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
     UITableView * _tableView;
@@ -200,93 +201,122 @@
                     return;
                 }
                 
-                NSString * messageStr;
-                if (model.ifReplaceMoney && model.replaceMoney.length >0 && ![model.replaceMoney isEqualToString:@""]) {
-                    messageStr = @"此订单为代收款订单，接镖后将冻结您账户相应金额，待收款成功后，冻结金额会支付给发货人。请务必在用户要求时间内到达";
-                }else{
-                    messageStr = @"请务必在用户要求时间内到达";
-                }
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:messageStr preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                NSString *URLStr = [NSString stringWithFormat:@"%@%@?answerDriverId=%@",BaseUrl,API_JD_AnswerRecord,[UserManager getDefaultUser].userId];
+                URLStr = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)URLStr, nil, nil, kCFStringEncodingUTF8));
+                
+                [ExpressRequest sendWithParameters:nil MethodStr:URLStr reqType:k_GET success:^(id object) {
+                   
+                    if ([[object objectForKey:@"errCode"] integerValue]==-1) {
+                        
+                        UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:@"提示" message:[object objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *cancle1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            
+                        }];
+                        UIAlertAction *confirm1 = [UIAlertAction actionWithTitle:@"去答题" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            
+                            PRHomeWebViewController *webVC = [[PRHomeWebViewController alloc] init];
+                            [self.navigationController pushViewController:webVC animated:YES];
+                        }];
+                        [alert1 addAction:cancle1];
+                        [alert1 addAction:confirm1];
+                        [self presentViewController:alert1 animated:YES completion:nil];
+                        
+                    }else {
+                        NSString * messageStr;
+                        if (model.ifReplaceMoney && model.replaceMoney.length >0 && ![model.replaceMoney isEqualToString:@""]) {
+                            messageStr = @"此订单为代收款订单，接镖后将冻结您账户相应金额，待收款成功后，冻结金额会支付给发货人。请务必在用户要求时间内到达";
+                        }else{
+                            messageStr = @"请务必在用户要求时间内到达";
+                        }
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:messageStr preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            
+                        }];
+                        UIAlertAction *update = [UIAlertAction actionWithTitle:@"确认接单" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            [SVProgressHUD show];
+                            [RequestManager biaoshiqiangdanWithuserId:[UserManager getDefaultUser].userId recId:model.recId success:^(NSMutableArray *result) {
+                                [SVProgressHUD dismiss];
+                                // 2假单  -2 真单被抢走
+                                NSInteger  errCode = [[result valueForKey:@"errCode"] integerValue];
+                                NSString * message = [result valueForKey:@"message"];
+                                if (errCode == 0) {
+                                    UIAlertController *alertTwo = [UIAlertController alertControllerWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"%@请您选择继续接单或查看详情",message] preferredStyle:UIAlertControllerStyleAlert];
+                                    UIAlertAction *cancleTwo = [UIAlertAction actionWithTitle:@"继续接单" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                        
+                                        [_tableView.header beginRefreshing];
+                                    }];
+                                    UIAlertAction *updateTwo = [UIAlertAction actionWithTitle:@"查看详情" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                        JieOrderDetailVC * vc= [[JieOrderDetailVC alloc]init];
+                                        //已被抢代取件
+                                        model.status = @"2";
+                                        vc.model = model;
+                                        [self.navigationController pushViewController:vc animated:YES];
+                                        NSLog(@"查看详情跳转界面!");
+                                    }];
+                                    [alertTwo addAction:cancleTwo];
+                                    [alertTwo addAction:updateTwo];
+                                    [self presentViewController:alertTwo animated:YES completion:nil];
+                                    
+                                }else if (errCode == 2||errCode == -2) {
+                                    NSLog(@"真假单被抢");
+                                }else if(errCode == 4){
+                                    //钱不够
+                                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+                                    
+                                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                                    }];
+                                    UIAlertAction *suerAction = [UIAlertAction actionWithTitle:@"去充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                        RechargeViewController * vc = [[RechargeViewController alloc]init];
+                                        [self.navigationController pushViewController:vc animated:YES];
+                                    }];
+                                    [alert addAction:cancelAction];
+                                    [alert addAction:suerAction];
+                                    [self presentViewController:alert animated:YES completion:nil];
+                                }else if(errCode == -4){
+                                    NSLog(@"需要跳转意外险界面呢");
+                                    AccidentInsuranceVC * vc = [[AccidentInsuranceVC alloc]init];
+                                    [self.navigationController pushViewController:vc animated:YES];
+                                }else if(errCode == -6){
+                                    //押金不够去充值
+                                    [SVProgressHUD show];
+                                    NSString * urlStr = [NSString stringWithFormat:@"%@driver/driverMoney?userId=%@",BaseUrl,[UserManager getDefaultUser].userId];
+                                    [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object) {
+                                        NSDictionary * dict = [object valueForKey:@"data"][0];
+                                        // NSInteger driverMoney = [[dict objectForKey:@"driverMoney"] integerValue];
+                                        NSString * money =[[dict objectForKey:@"money"] stringValue];
+                                        HHAlertView *alert = [[HHAlertView alloc]initWithTitle:nil detailText:message cancelButtonTitle:@"取消" otherButtonTitles:@[@"立即前往"]];
+                                        alert.mode = HHAlertViewModeWarning;
+                                        [alert showWithBlock:^(NSInteger index) {
+                                            if(index != 0){
+                                                DepositVC * vc = [[DepositVC alloc]init];
+                                                vc.money = money;
+                                                [self.navigationController pushViewController:vc  animated:YES];
+                                            }
+                                        }];
+                                    } failed:^(NSString *error) {
+                                        [SVProgressHUD showErrorWithStatus:error];
+                                    }];
+                                }else{
+                                    NSLog(@"其他~~");
+                                }
+                            }
+                                                               Failed:^(NSString *error)
+                             {
+                                 [SVProgressHUD showErrorWithStatus:error];
+                             }];
+                        }];
+                        
+                        [alert addAction:cancle];
+                        [alert addAction:update];
+                        [[Utils getCurrentVC] presentViewController:alert animated:YES completion:nil];
+                        
+                    }
+                    
+                } failed:^(NSString *error) {
+                   
                     
                 }];
-                UIAlertAction *update = [UIAlertAction actionWithTitle:@"确认接单" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    [SVProgressHUD show];
-                    [RequestManager biaoshiqiangdanWithuserId:[UserManager getDefaultUser].userId recId:model.recId success:^(NSMutableArray *result) {
-                        [SVProgressHUD dismiss];
-                        // 2假单  -2 真单被抢走
-                        NSInteger  errCode = [[result valueForKey:@"errCode"] integerValue];
-                        NSString * message = [result valueForKey:@"message"];
-                        if (errCode == 0) {
-                            UIAlertController *alertTwo = [UIAlertController alertControllerWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"%@请您选择继续接单或查看详情",message] preferredStyle:UIAlertControllerStyleAlert];
-                            UIAlertAction *cancleTwo = [UIAlertAction actionWithTitle:@"继续接单" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                
-                                [_tableView.header beginRefreshing];
-                            }];
-                            UIAlertAction *updateTwo = [UIAlertAction actionWithTitle:@"查看详情" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                JieOrderDetailVC * vc= [[JieOrderDetailVC alloc]init];
-                                //已被抢代取件
-                                model.status = @"2";
-                                vc.model = model;
-                                [self.navigationController pushViewController:vc animated:YES];
-                                NSLog(@"查看详情跳转界面!");
-                            }];
-                            [alertTwo addAction:cancleTwo];
-                            [alertTwo addAction:updateTwo];
-                            [self presentViewController:alertTwo animated:YES completion:nil];
-                            
-                        }else if (errCode == 2||errCode == -2) {
-                            NSLog(@"真假单被抢");
-                        }else if(errCode == 4){
-                            //钱不够
-                            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-                            
-                            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                            }];
-                            UIAlertAction *suerAction = [UIAlertAction actionWithTitle:@"去充值" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                RechargeViewController * vc = [[RechargeViewController alloc]init];
-                                [self.navigationController pushViewController:vc animated:YES];
-                            }];
-                            [alert addAction:cancelAction];
-                            [alert addAction:suerAction];
-                            [self presentViewController:alert animated:YES completion:nil];
-                        }else if(errCode == -4){
-                            NSLog(@"需要跳转意外险界面呢");
-                            AccidentInsuranceVC * vc = [[AccidentInsuranceVC alloc]init];
-                            [self.navigationController pushViewController:vc animated:YES];
-                        }else if(errCode == -6){
-                            //押金不够去充值
-                            [SVProgressHUD show];
-                            NSString * urlStr = [NSString stringWithFormat:@"%@driver/driverMoney?userId=%@",BaseUrl,[UserManager getDefaultUser].userId];
-                            [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object) {
-                                NSDictionary * dict = [object valueForKey:@"data"][0];
-                               // NSInteger driverMoney = [[dict objectForKey:@"driverMoney"] integerValue];
-                                NSString * money =[[dict objectForKey:@"money"] stringValue];
-                                HHAlertView *alert = [[HHAlertView alloc]initWithTitle:nil detailText:message cancelButtonTitle:@"取消" otherButtonTitles:@[@"立即前往"]];
-                                alert.mode = HHAlertViewModeWarning;
-                                [alert showWithBlock:^(NSInteger index) {
-                                    if(index != 0){
-                                        DepositVC * vc = [[DepositVC alloc]init];
-                                        vc.money = money;
-                                        [self.navigationController pushViewController:vc  animated:YES];
-                                    }
-                                }];
-                            } failed:^(NSString *error) {
-                                [SVProgressHUD showErrorWithStatus:error];
-                            }];
-                        }else{
-                            NSLog(@"其他~~");
-                        }
-                    }
-                        Failed:^(NSString *error)
-                     {
-                         [SVProgressHUD showErrorWithStatus:error];
-                     }];
-                }];
-                
-                [alert addAction:cancle];
-                [alert addAction:update];
-                [[Utils getCurrentVC] presentViewController:alert animated:YES completion:nil];
+               
             }
                 break;
             default:

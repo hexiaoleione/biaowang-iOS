@@ -47,6 +47,7 @@
 		858FFF981DD57EE000F8565E /* AdvertisementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858FFF971DD57EE000F8565E /* AdvertisementView.xib */; };
 		85F28DEE1DD856EA004CAF2E /* ChangeNumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F28DEC1DD856EA004CAF2E /* ChangeNumViewController.m */; };
 		85F28DEF1DD856EA004CAF2E /* ChangeNumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85F28DED1DD856EA004CAF2E /* ChangeNumViewController.xib */; };
+		A625AB5721896CA900320927 /* wr_city.txt in Resources */ = {isa = PBXBuildFile; fileRef = A625AB5621896CA900320927 /* wr_city.txt */; };
 		A67CD4E921213B9A00D426D6 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = A67CD4D621213B9A00D426D6 /* MJRefreshConst.m */; };
 		A67CD4EA21213B9A00D426D6 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = A67CD4D721213B9A00D426D6 /* MJRefreshFooter.m */; };
 		A67CD4EB21213B9A00D426D6 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A67CD4D921213B9A00D426D6 /* MJRefreshHeader.m */; };
@@ -100,6 +101,7 @@
 		A67CD911212176E600D426D6 /* UIImage+EMMultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = A67CD910212176E500D426D6 /* UIImage+EMMultiFormat.m */; };
 		A67CD9142121775C00D426D6 /* UIImage+EMGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A67CD9122121775B00D426D6 /* UIImage+EMGIF.m */; };
 		A67CD9172121777B00D426D6 /* NSData+EMImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = A67CD9152121777A00D426D6 /* NSData+EMImageContentType.m */; };
+		A67FDEF821B946F1007D461C /* PRHomeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67FDEF621B946F0007D461C /* PRHomeWebViewController.m */; };
 		A69170B0210D99B100BF5F57 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A69170AC210D99B100BF5F57 /* Reachability.m */; };
 		A69170B1210D99B100BF5F57 /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A69170AD210D99B100BF5F57 /* LICENCE.txt */; };
 		A69170B2210D99B100BF5F57 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A69170AE210D99B100BF5F57 /* README.md */; };
@@ -648,7 +650,6 @@
 		E58E56571C9BE5FA00272BCB /* AddressDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E58E56561C9BE5FA00272BCB /* AddressDetailViewController.m */; };
 		E58E565B1C9BEB7B00272BCB /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E58E565A1C9BEB7B00272BCB /* CityViewController.m */; };
 		E58E56611C9BED1200272BCB /* expcomp.txt in Resources */ = {isa = PBXBuildFile; fileRef = E58E565D1C9BED1200272BCB /* expcomp.txt */; };
-		E58E56621C9BED1200272BCB /* wr_city.txt in Resources */ = {isa = PBXBuildFile; fileRef = E58E565E1C9BED1200272BCB /* wr_city.txt */; };
 		E58E56631C9BED1200272BCB /* wr_province.txt in Resources */ = {isa = PBXBuildFile; fileRef = E58E565F1C9BED1200272BCB /* wr_province.txt */; };
 		E58E56641C9BED1200272BCB /* wr_town.txt in Resources */ = {isa = PBXBuildFile; fileRef = E58E56601C9BED1200272BCB /* wr_town.txt */; };
 		E5937A221DB0A5F600C6CC2C /* PayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5937A211DB0A5F600C6CC2C /* PayView.m */; };
@@ -807,6 +808,7 @@
 		85F28DEB1DD856EA004CAF2E /* ChangeNumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeNumViewController.h; sourceTree = "<group>"; };
 		85F28DEC1DD856EA004CAF2E /* ChangeNumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeNumViewController.m; sourceTree = "<group>"; };
 		85F28DED1DD856EA004CAF2E /* ChangeNumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeNumViewController.xib; sourceTree = "<group>"; };
+		A625AB5621896CA900320927 /* wr_city.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wr_city.txt; sourceTree = "<group>"; };
 		A67CD4D621213B9A00D426D6 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
 		A67CD4D721213B9A00D426D6 /* MJRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooter.m; sourceTree = "<group>"; };
 		A67CD4D821213B9A00D426D6 /* MJRefreshComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshComponent.h; sourceTree = "<group>"; };
@@ -917,6 +919,8 @@
 		A67CD9132121775C00D426D6 /* UIImage+EMGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+EMGIF.h"; sourceTree = "<group>"; };
 		A67CD9152121777A00D426D6 /* NSData+EMImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+EMImageContentType.m"; sourceTree = "<group>"; };
 		A67CD9162121777A00D426D6 /* NSData+EMImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+EMImageContentType.h"; sourceTree = "<group>"; };
+		A67FDEF621B946F0007D461C /* PRHomeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRHomeWebViewController.m; sourceTree = "<group>"; };
+		A67FDEF721B946F0007D461C /* PRHomeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRHomeWebViewController.h; sourceTree = "<group>"; };
 		A69170AC210D99B100BF5F57 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A69170AD210D99B100BF5F57 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
 		A69170AE210D99B100BF5F57 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -1943,7 +1947,6 @@
 		E58E56591C9BEB7B00272BCB /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
 		E58E565A1C9BEB7B00272BCB /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
 		E58E565D1C9BED1200272BCB /* expcomp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = expcomp.txt; sourceTree = "<group>"; };
-		E58E565E1C9BED1200272BCB /* wr_city.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wr_city.txt; sourceTree = "<group>"; };
 		E58E565F1C9BED1200272BCB /* wr_province.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wr_province.txt; sourceTree = "<group>"; };
 		E58E56601C9BED1200272BCB /* wr_town.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wr_town.txt; sourceTree = "<group>"; };
 		E5937A201DB0A5F600C6CC2C /* PayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayView.h; sourceTree = "<group>"; };
@@ -2739,6 +2742,8 @@
 		C14421581EE2603300BE7A92 /* 我要接单 */ = {
 			isa = PBXGroup;
 			children = (
+				A67FDEF721B946F0007D461C /* PRHomeWebViewController.h */,
+				A67FDEF621B946F0007D461C /* PRHomeWebViewController.m */,
 				C144214A1EDFE72100BE7A92 /* JieViewController.h */,
 				C144214B1EDFE72100BE7A92 /* JieViewController.m */,
 				C14421591EE2605F00BE7A92 /* JieSFViewController.h */,
@@ -4580,6 +4585,7 @@
 		E58E565C1C9BED1200272BCB /* resuse */ = {
 			isa = PBXGroup;
 			children = (
+				A625AB5621896CA900320927 /* wr_city.txt */,
 				15FEEEF21D3F72D800299223 /* 附近镖件.jpg */,
 				15FEEEF01D3F72D000299223 /* 镖师行程.jpg */,
 				15FEEEEA1D3E17A700299223 /* line_img.png */,
@@ -4593,7 +4599,6 @@
 				15662CFC1CBE5CFF00B0BE08 /* fuck0.jpg */,
 				15662CF01CBE5C1500B0BE08 /* fuck1.jpg */,
 				E58E565D1C9BED1200272BCB /* expcomp.txt */,
-				E58E565E1C9BED1200272BCB /* wr_city.txt */,
 				E58E565F1C9BED1200272BCB /* wr_province.txt */,
 				E58E56601C9BED1200272BCB /* wr_town.txt */,
 			);
@@ -4963,7 +4968,7 @@
 					E58C1E991C8C48AF00AFDB94 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = G8A3MV3A4M;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -5084,7 +5089,6 @@
 				C11D83AF1DEFB4FF004B9BC9 /* icon_sure@2x.png in Resources */,
 				C1E39FF61F5F912900F43CFB /* zhuanpan.png in Resources */,
 				C12A62411DF7A1C000281791 /* companyMyWLTableViewCell.xib in Resources */,
-				E58E56621C9BED1200272BCB /* wr_city.txt in Resources */,
 				C11D44D21E1FA41A00DFCDF0 /* WLUserPay.xib in Resources */,
 				C16BBB181DED35A3006087DE /* 未到达@2x.png in Resources */,
 				15662CF81CBE5C6B00B0BE08 /* )-拷贝-2@2x.png in Resources */,
@@ -5181,6 +5185,7 @@
 				C11E515C1E63D96B003542E2 /* WeiJiaoFeiCell.xib in Resources */,
 				E5703A6E1D40C2F900AA2873 /* matView.xib in Resources */,
 				C19111761E652F9000A4ACC1 /* MyEcoinCell.xib in Resources */,
+				A625AB5721896CA900320927 /* wr_city.txt in Resources */,
 				C144217F1EE69C6300BE7A92 /* WLFaViewController.xib in Resources */,
 				C16BBAF51DEC23BC006087DE /* shaixuan.png in Resources */,
 				C19111571E652BB100A4ACC1 /* SysMsgPopView.xib in Resources */,
@@ -5262,6 +5267,7 @@
 				C1911A621E6540EF00A4ACC1 /* MASLayoutConstraint.m in Sources */,
 				C1911A8E1E6540EF00A4ACC1 /* SVIndefiniteAnimatedView.m in Sources */,
 				C1911A991E6540EF00A4ACC1 /* CAAnimation+WAnimation.m in Sources */,
+				A67FDEF821B946F1007D461C /* PRHomeWebViewController.m in Sources */,
 				A67CD4F021213B9A00D426D6 /* MJRefreshGifHeader.m in Sources */,
 				E57F06D51DBEF7BC004947A2 /* LBLogistCompanyController.m in Sources */,
 				C19111431E652AEF00A4ACC1 /* InforWebViewController.m in Sources */,
@@ -5832,10 +5838,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets-2";
 				CODE_SIGN_ENTITLEMENTS = iwant/IWant.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = G8A3MV3A4M;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iwant/framework",
@@ -5870,8 +5876,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SanChuan.Express;
 				PRODUCT_NAME = IWant;
-				PROVISIONING_PROFILE = "a01469bd-b18d-42b4-8542-0887b407c85b";
-				PROVISIONING_PROFILE_SPECIFIER = Express_Distribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -5882,11 +5888,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets-2";
 				CODE_SIGN_ENTITLEMENTS = iwant/IWant.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = G8A3MV3A4M;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iwant/framework",
@@ -5920,8 +5926,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SanChuan.Express;
 				PRODUCT_NAME = IWant;
-				PROVISIONING_PROFILE = "a01469bd-b18d-42b4-8542-0887b407c85b";
-				PROVISIONING_PROFILE_SPECIFIER = Express_Distribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

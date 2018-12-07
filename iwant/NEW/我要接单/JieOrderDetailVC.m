@@ -173,7 +173,8 @@
         case 2:{
             self.quhuoBtn.hidden = NO;
             self.jiuweiBtn.hidden = YES;
-            self.weiguiBtn.hidden = NO;
+            /////////
+//            self.weiguiBtn.hidden = NO;
             self.shoukuanBtn.hidden  = YES;
             self.songdaBtn.hidden = YES;
             self.noPassWordBtn.hidden = YES;

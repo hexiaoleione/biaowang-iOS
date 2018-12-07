@@ -76,7 +76,7 @@ typedef enum status_type{
         case 2:
             _titleLabel.text = @"等待取件";
             _cancelBtn.hidden = NO;
-            _StateGif.image =[UIImage imageNamed:@"zhuangtai1"];
+            _StateGif.image =[UIImage imageNamed:@"zhuangtai5"];
             _driverLabel.text = [NSString stringWithFormat:@"收件人：%@",model.personNameTo];
             break;
         case 3:
@@ -91,7 +91,7 @@ typedef enum status_type{
                 _titleLabel.text = @"镖师取消订单";
             }
             _titleLabel.textColor = [UIColor redColor];
-            _StateGif.image = [UIImage imageNamed:@"zhuangtai4"];
+            _StateGif.image = [UIImage imageNamed:@"zhuangtai6"];
             _driverLabel.text = [NSString stringWithFormat:@"收件人：%@",model.personNameTo];
             break;
         case 5:
@@ -119,7 +119,7 @@ typedef enum status_type{
         case 9:
             _titleLabel.text =@"货物违规";
             _titleLabel.textColor = [UIColor redColor];
-            _StateGif.image = [UIImage imageNamed:@"zhuangtai4"];
+            _StateGif.image = [UIImage imageNamed:@"zhuangtai6"];
             _driverLabel.text = [NSString stringWithFormat:@"收件人：%@",model.personNameTo];
             break;
         case 10:

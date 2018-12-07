@@ -136,6 +136,28 @@
         _wlModel.weight = _matWeight;
         _wlModel.cargoSize = _cargoSize;
         _startPlaceL.text = [NSString stringWithFormat:@"%@",_model.address];
+        
+        NSString * urlStr = [NSString stringWithFormat:@"%@%@?userId=%@",BaseUrl,API_FD_LatesAddress,[UserManager getDefaultUser].userId];
+        [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object){
+        
+            if ([[object objectForKey:@"errCode"] integerValue] == 0) {
+                
+               _startPlaceL.text = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"locationAddress"] ];
+                _startPlaceDetailL.text = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"address"] ];
+                _model.cityCode = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"cityCode"] ];
+                _model.fromLongitude= [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"fromLongitude"] ];
+                _model.fromLatitude = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"fromLatitude"] ];;
+                _cityName = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"cityName"]];
+                _wlModel.latitude = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"fromLatitude"] ];;
+                _wlModel.longitude = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"fromLongitude"] ];;
+                _wlModel.startPlaceCityCode = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"cityCode"] ];
+            }
+            
+        }failed:^(NSString *error) {
+            
+        }
+         ];
+        
     }
     
     //默认选择一小时之后的时间
@@ -194,6 +216,7 @@
             LocationViewController * vc =[[LocationViewController alloc]init];
             vc.passBlock  = ^(NSString *address, NSString *name, NSString *lat, NSString *lon, NSString *cityCode, NSString *cityName, NSString *townCode, NSString *townName) {
                 self.startPlaceL.text = [NSString stringWithFormat:@"%@%@",address,name];
+                self.startPlaceDetailL.text = @"";
                 _model.cityCode = cityCode;
                 _model.fromLongitude= lon;
                 _model.fromLatitude = lat;
@@ -553,11 +576,11 @@
             /*********
              showType 字段来控制啊
              ************/
-            if ([self.model.matWeight intValue] == 5) {
-             [self tuijianWithShowType:2 withchitType:chitType withlimitPrice:limitPrice withDowPrice:dowPrice withLogisPrice:logisPrice withDistance:distance withWeatherMessage:weatherMessage];
-            }else{
+//            if ([self.model.matWeight intValue] == 5) {
+//             [self tuijianWithShowType:2 withchitType:chitType withlimitPrice:limitPrice withDowPrice:dowPrice withLogisPrice:logisPrice withDistance:distance withWeatherMessage:weatherMessage];
+//            }else{
             [self tuijianWithShowType:showType withchitType:chitType withlimitPrice:limitPrice withDowPrice:dowPrice withLogisPrice:logisPrice withDistance:distance withWeatherMessage:weatherMessage];
-            }
+//            }
         }
     } failed:^(NSString *error) {
         [SVProgressHUD showErrorWithStatus:error];

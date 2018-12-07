@@ -2,4 +2,291 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iwant/NEW/&#x6211;&#x8981;&#x63a5;&#x5355;/JieXSViewController.m"
+            timestampString = "565793743.869742"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[JieXSViewController tableView:cellForRowAtIndexPath:]_block_invoke.240"
+                  moduleName = "IWant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heuhimin/Desktop/IwantNew/iwant/NEW/%E6%88%91%E8%A6%81%E6%8E%A5%E5%8D%95/JieXSViewController.m"
+                  timestampString = "565839115.651069"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "315"
+                  endingLineNumber = "315"
+                  offsetFromSymbolStart = "1761">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.374"
+                  moduleName = "IWant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heuhimin/Desktop/IwantNew/iwant/NEW/%E6%88%91%E8%A6%81%E6%8E%A5%E5%8D%95/JieXSViewController.m"
+                  timestampString = "565839115.653465"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[JieXSViewController tableView:cellForRowAtIndexPath:]_block_invoke.377"
+                  moduleName = "IWant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heuhimin/Desktop/IwantNew/iwant/NEW/%E6%88%91%E8%A6%81%E6%8E%A5%E5%8D%95/JieXSViewController.m"
+                  timestampString = "565839115.655432"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "318"
+                  endingLineNumber = "318"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iwant/NEW/&#x6211;&#x8981;&#x63a5;&#x5355;/JieXSViewController.m"
+            timestampString = "565793743.870039"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[JieXSViewController tableView:cellForRowAtIndexPath:]_block_invoke"
+                  moduleName = "IWant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heuhimin/Desktop/IwantNew/iwant/NEW/%E6%88%91%E8%A6%81%E6%8E%A5%E5%8D%95/JieXSViewController.m"
+                  timestampString = "565839115.660876"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "1073">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__55-[JieXSViewController tableView:cellForRowAtIndexPath:]_block_invoke.240"
+                  moduleName = "IWant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heuhimin/Desktop/IwantNew/iwant/NEW/%E6%88%91%E8%A6%81%E6%8E%A5%E5%8D%95/JieXSViewController.m"
+                  timestampString = "565839115.66275"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.375"
+                  moduleName = "IWant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heuhimin/Desktop/IwantNew/iwant/NEW/%E6%88%91%E8%A6%81%E6%8E%A5%E5%8D%95/JieXSViewController.m"
+                  timestampString = "565839115.664645"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iwant/NEW/&#x6211;&#x8981;&#x63a5;&#x5355;/JieXSViewController.m"
+            timestampString = "565793743.8700891"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iwant/NEW/FaViewConstroller.m"
+            timestampString = "565793743.870157"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iwant/NEW/FaViewConstroller.m"
+            timestampString = "565793743.870351"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iwant/NEW/FaViewConstroller.m"
+            timestampString = "565793743.870404"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iwant/NEW/FaViewConstroller.m"
+            timestampString = "565793743.870448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-getChapmanData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FaViewConstroller getChapmanData]"
+                  moduleName = "IWant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heuhimin/Desktop/IwantNew/iwant/NEW/FaViewConstroller.m"
+                  timestampString = "565839115.684052"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "231">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__35-[FaViewConstroller getChapmanData]_block_invoke"
+                  moduleName = "IWant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heuhimin/Desktop/IwantNew/iwant/NEW/FaViewConstroller.m"
+                  timestampString = "565839115.68582"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.250"
+                  moduleName = "IWant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/heuhimin/Desktop/IwantNew/iwant/NEW/FaViewConstroller.m"
+                  timestampString = "565839115.687561"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iwant/NEW/FaViewConstroller.m"
+            timestampString = "565793743.870489"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "-getChapmanData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iwant/NEW/&#x6211;&#x8981;&#x53d1;&#x5355;/FaOtherViewConstroller.m"
+            timestampString = "565793743.8705339"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -163,7 +163,10 @@
 #define API_WL_HUOCHANG_DELECT                  @"logistics/task/updateComAdd"//修改、删除，设置为默认货场地址
 #define API_WL_HUOCHANG_DEFAULT                 @"logistics/task/defaultComAdd"//获取默认货场地址
 #define API_WL_AddInsurance                     @"logistics/task/logAddInsurance"//添加货物价值(投保需要做的操作)
-
+//查询镖师接单时是否需要先完成答题培训（get请求）
+#define API_JD_AnswerRecord                     @"system/question/getIfHaveAnswerRecord"//查询镖师接单时是否需要先完成答题培训
+#define API_FD_LatesAddress                     @"system/question/getLatesAddress"//获取用户最近一次发单地址
+#define API_DT_AnswerResult                     @"system/question/saveAnswerResult"//答完培训题目后保存接口地址
 #pragma mark -- iwant 参数
 
 #define APP_VERSION                              @"version"
