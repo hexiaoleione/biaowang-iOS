@@ -29,25 +29,34 @@
 }
 -(void)initUI{
     UILabel * topLabel = [[UILabel alloc]init];
-    topLabel.text = @"是否通过镖王上意外险";
+    topLabel.text = @"镖师接单必须已经在保险机构购买交通意外险。";
     topLabel.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:topLabel];
     
-    UIImageView * imgView1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"imgView1"]];
-    UIImageView * imgView2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"imgView2"]];
+//    UIImageView * imgView1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"imgView1"]];
+//    UIImageView * imgView2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"imgView2"]];
     UIImageView * imgView3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"imgView3"]];
     UIButton * btn = [[UIButton alloc]init];
     btn.tag = 0;
-    [btn setImage:[UIImage imageNamed:@"helpBtn"] forState:UIControlStateNormal];
+    [btn setTitle:@"我已购买意外险" forState:(UIControlStateNormal)];
+    btn.backgroundColor = [UIColor colorWithRed:84/255.0 green:146/255.0 blue:227/255.0 alpha:1];
+    [btn setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+//    [btn setImage:[UIImage imageNamed:@"helpBtn"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton * btn1 = [[UIButton alloc]init];
     btn1.tag = 1;
-    [btn1 setImage:[UIImage imageNamed:@"helpBtnNo"] forState:UIControlStateNormal];
+    [btn1 setTitle:@"我没有意外险" forState:(UIControlStateNormal)];
+//    btn1.backgroundColor = [UIColor blueColor];
+     btn1.backgroundColor = [UIColor colorWithRed:84/255.0 green:146/255.0 blue:227/255.0 alpha:1];
+    [btn1 setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    btn1.titleLabel.font = [UIFont systemFontOfSize:15];
+//    [btn1 setImage:[UIImage imageNamed:@"helpBtnNo"] forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
 
-    [self.view addSubview:imgView1];
-    [self.view addSubview:imgView2];
+//    [self.view addSubview:imgView1];
+//    [self.view addSubview:imgView2];
     [self.view addSubview:imgView3];
     [self.view addSubview:btn];
     [self.view addSubview:btn1];
@@ -59,28 +68,32 @@
         make.height.mas_equalTo(25);
     }];
     
-    [imgView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(topLabel.mas_bottom).offset(16);
-        make.centerX.equalTo(self.view.mas_centerX).offset(0);
-        make.height.mas_equalTo(110*RATIO_HEIGHT);
-    }];
+//    [imgView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(topLabel.mas_bottom).offset(16);
+//        make.centerX.equalTo(self.view.mas_centerX).offset(0);
+//        make.height.mas_equalTo(110*RATIO_HEIGHT);
+//    }];
     
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(imgView1.mas_bottom).offset(8);
-        make.centerX.equalTo(self.view.mas_centerX).offset(0);
-        make.height.mas_equalTo(44*RATIO_HEIGHT);
+        make.top.equalTo(topLabel.mas_bottom).offset(8);
+        make.left.equalTo(self.view).offset(10);
+        make.right.equalTo(self.view).offset(-10);
+//        make.centerX.equalTo(self.view.mas_centerX).offset(0);
+        make.height.mas_equalTo(40*RATIO_HEIGHT);
     }];
 
-    [imgView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(btn.mas_bottom).offset(25);
-        make.centerX.equalTo(self.view.mas_centerX).offset(0);
-        make.height.mas_equalTo(77*RATIO_HEIGHT);
-    }];
+//    [imgView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(btn.mas_bottom).offset(25);
+//        make.centerX.equalTo(self.view.mas_centerX).offset(0);
+//        make.height.mas_equalTo(77*RATIO_HEIGHT);
+//    }];
     
     [btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(imgView2.mas_bottom).offset(8);
-        make.centerX.equalTo(self.view.mas_centerX).offset(0);
-        make.height.mas_equalTo(44*RATIO_HEIGHT);
+        make.top.equalTo(btn.mas_bottom).offset(8);
+        make.left.equalTo(self.view).offset(10);
+        make.right.equalTo(self.view).offset(-10);
+//        make.centerX.equalTo(self.view.mas_centerX).offset(0);
+        make.height.mas_equalTo(40*RATIO_HEIGHT);
     }];
     
     [imgView3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -89,10 +102,10 @@
         make.height.mas_equalTo(54*RATIO_HEIGHT);
     }];
     
-    if (_needHidden == YES) {
-        imgView2.hidden = YES;
-        btn1.hidden = YES;
-    }
+//    if (_needHidden == YES) {
+////        imgView2.hidden = YES;
+//        btn1.hidden = YES;
+//    }
 }
 -(void)refreshData{
     [SVProgressHUD show];

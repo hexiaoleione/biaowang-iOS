@@ -141,16 +141,16 @@
         [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object){
         
             if ([[object objectForKey:@"errCode"] integerValue] == 0) {
-                
-               _startPlaceL.text = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"locationAddress"] ];
-                _startPlaceDetailL.text = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"address"] ];
-                _model.cityCode = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"cityCode"] ];
-                _model.fromLongitude= [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"fromLongitude"] ];
-                _model.fromLatitude = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"fromLatitude"] ];;
-                _cityName = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"cityName"]];
-                _wlModel.latitude = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"fromLatitude"] ];;
-                _wlModel.longitude = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"fromLongitude"] ];;
-                _wlModel.startPlaceCityCode = [NSString stringWithFormat:@"%@",[[object objectForKey:@"data"]objectForKey:@"cityCode"] ];
+                NSDictionary *data = [object objectForKey:@"data"][0];
+               _startPlaceL.text = [NSString stringWithFormat:@"%@",[data objectForKey:@"locationAddress"] ];
+                _startPlaceDetailL.text = [NSString stringWithFormat:@"%@",[data objectForKey:@"address"] ];
+                _model.cityCode = [NSString stringWithFormat:@"%@",[data objectForKey:@"cityCode"] ];
+                _model.fromLongitude= [NSString stringWithFormat:@"%@",[data objectForKey:@"fromLongitude"] ];
+                _model.fromLatitude = [NSString stringWithFormat:@"%@",[data objectForKey:@"fromLatitude"] ];;
+                _cityName = [NSString stringWithFormat:@"%@",[data objectForKey:@"cityName"]];
+                _wlModel.latitude = [NSString stringWithFormat:@"%@",[data objectForKey:@"fromLatitude"] ];;
+                _wlModel.longitude = [NSString stringWithFormat:@"%@",[data objectForKey:@"fromLongitude"] ];;
+                _wlModel.startPlaceCityCode = [NSString stringWithFormat:@"%@",[data objectForKey:@"cityCode"] ];
             }
             
         }failed:^(NSString *error) {
@@ -644,11 +644,11 @@
         [SVProgressHUD showErrorWithStatus:@"请选择要求到达时间"];
         return NO;
     }
-    _model.address = [NSString stringWithFormat:@"%@%@",self.startPlaceL.text,self.startPlaceDetailL.text];
-    _model.addressTo = [NSString stringWithFormat:@"%@%@", self.endPlaceL.text,self.endPlaceDetailL.text];
+    _model.address = [NSString stringWithFormat:@"%@ · %@",self.startPlaceL.text,self.startPlaceDetailL.text];
+    _model.addressTo = [NSString stringWithFormat:@"%@ · %@", self.endPlaceL.text,self.endPlaceDetailL.text];
     
-    _wlModel.startPlace = [NSString stringWithFormat:@"%@%@",self.startPlaceL.text,self.startPlaceDetailL.text];
-    _wlModel.entPlace = [NSString stringWithFormat:@"%@%@", self.endPlaceL.text,self.endPlaceDetailL.text];
+    _wlModel.startPlace = [NSString stringWithFormat:@"%@ · %@",self.startPlaceL.text,self.startPlaceDetailL.text];
+    _wlModel.entPlace = [NSString stringWithFormat:@"%@ · %@", self.endPlaceL.text,self.endPlaceDetailL.text];
     return YES;
 }
 
