@@ -7,8 +7,11 @@
 //
 
 #import "BaseLeftViewController.h"
-
+typedef void(^Dismiss)(void);
 @interface AccidentInsuranceVC : BaseLeftViewController
+@property (nonatomic, copy) Dismiss dismiss;
 
 @property (nonatomic,assign)BOOL needHidden;
+- (instancetype)initWithDismissOpration:(void(^)(void))dismissfn;
+
 @end

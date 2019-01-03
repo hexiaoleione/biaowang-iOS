@@ -169,6 +169,7 @@
             break;
         case k_GET:
         {
+             NSLog(@"get地址=====%@",methodStr);
             [manager GET:methodStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
                 
                 NSLog(@"收到的数据:%@",responseObject);
@@ -216,6 +217,7 @@
             break;
         case k_PUT:
         {
+           
             [manager PUT:URLWithMethod(methodStr) parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
                 
                 NSLog(@"收到的数据:%@",responseObject);

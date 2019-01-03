@@ -170,13 +170,14 @@
         
     //12.1号 有个判断，意外险的显示问题，镖师没交意外险也要显示出来。把判断修改。判断条件只判断是否是镖师
 //        if ([UserManager getDefaultUser].driverMoney == 1) {
-           imageNameArr = [NSArray arrayWithObjects:@"jifenImg",@"XJquanImg",@"BSjiang",@"dengluImg",@"biaoshiyajin",@"yiwaixian",nil];
-               titleArr = [NSArray arrayWithObjects:@"我的积分",@"现金券",@"镖师奖励",@"登录奖励",@"保证金",@"意外险",nil];
+        //,@"yiwaixian"
+           imageNameArr = [NSArray arrayWithObjects:@"jifenImg",@"XJquanImg",@"BSjiang",@"dengluImg",@"biaoshiyajin",nil];
+               titleArr = [NSArray arrayWithObjects:@"我的积分",@"现金券",@"镖师奖励",@"登录奖励",@"保证金",nil];//,@"意外险"
 //        }else{
 //            imageNameArr = [NSArray arrayWithObjects:@"jifenImg",@"XJquanImg",@"BSjiang",@"dengluImg",@"biaoshiyajin",@"threePoints",nil];
 //            titleArr = [NSArray arrayWithObjects:@"我的积分",@"现金券",@"镖师奖励",@"登录奖励",@"保证金",@"  ",nil];
 //        }
-        for (int i = 0 ; i < 6; i++) {
+        for (int i = 0 ; i < 5; i++) {
             NSInteger index = i % 3;
             NSInteger page = i / 3;
             UIButton *btn = [[UIButton alloc]init];

@@ -19,6 +19,15 @@
 
 @implementation AccidentInsuranceVC
 
+- (instancetype)initWithDismissOpration:(void (^)(void))dismissfn
+{
+    self = [super init];
+    if (self) {
+        self.dismiss = dismissfn;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -122,53 +131,71 @@
 
 -(void)btnClick:(UIButton *)btn{
     if (btn.tag == 0) {
-        //请求是否交纳押金的接口  缴纳了直接交保险 ，未缴纳弹框跳转
+        
         [SVProgressHUD show];
-        NSString * urlStr = [NSString stringWithFormat:@"%@driver/driverMoney?userId=%@",BaseUrl,[UserManager getDefaultUser].userId];
+        NSString * urlStr = [NSString stringWithFormat:@"%@%@?userId=%@&ifHaveBuyInsure=1",BaseUrl,IfHaveBuyInsure,[UserManager getDefaultUser].userId];
         [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object) {
             [SVProgressHUD dismiss];
-            NSDictionary * dict = [object valueForKey:@"data"][0];
-            self.money =[[dict objectForKey:@"money"] stringValue];
-            NSInteger driverMoney = [[dict objectForKey:@"driverMoney"] integerValue];
-//            private Integer driverMoney;// 镖师押金     0 默认      1    已充值    2  退款中   3  已退款
-            if (driverMoney == 1) {
-                //跳转下一个界面  然后确认身份证信息。
-                MakeSureInfoVC * VC = [[MakeSureInfoVC alloc]init];
-                [self.navigationController pushViewController:VC animated:YES];
-            }else{
-                //提示意外险 先交纳保证金
-                LCFAccidentAlert * alertView =[[LCFAccidentAlert alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-                __weak typeof(LCFAccidentAlert *)alert = alertView;
-                alert.Block  = ^(NSInteger tag) {
-                    if (tag == 1) {
-                        if (driverMoney == 2) {
-                            DepositHaveVC * vc = [[DepositHaveVC alloc]init];
-                            vc.money =self.money;
-                            vc.status = driverMoney;
-                            [self.navigationController pushViewController:vc animated:YES];
-                        }else{
-                            DepositVC * vc = [[DepositVC alloc]init];
-                            vc.money = self.money;
-                            [self.navigationController pushViewController:vc animated:YES];
-                        }
-                    }
-                };
-                [[UIApplication sharedApplication].keyWindow addSubview:alertView];
-            }
+            self.dismiss();
+            [self.navigationController popViewControllerAnimated:YES];
+            
         } failed:^(NSString *error) {
             [SVProgressHUD showErrorWithStatus:error];
+           
         }];
         
+       
+        //请求是否交纳押金的接口  缴纳了直接交保险 ，未缴纳弹框跳转
+//        [SVProgressHUD show];
+//        NSString * urlStr = [NSString stringWithFormat:@"%@driver/driverMoney?userId=%@",BaseUrl,[UserManager getDefaultUser].userId];
+//        [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object) {
+//            [SVProgressHUD dismiss];
+//            NSDictionary * dict = [object valueForKey:@"data"][0];
+//            self.money =[[dict objectForKey:@"money"] stringValue];
+//            NSInteger driverMoney = [[dict objectForKey:@"driverMoney"] integerValue];
+////            private Integer driverMoney;// 镖师押金     0 默认      1    已充值    2  退款中   3  已退款
+//            if (driverMoney == 1) {
+//                //跳转下一个界面  然后确认身份证信息。
+//                MakeSureInfoVC * VC = [[MakeSureInfoVC alloc]init];
+//                [self.navigationController pushViewController:VC animated:YES];
+//            }else{
+//                //提示意外险 先交纳保证金
+//                LCFAccidentAlert * alertView =[[LCFAccidentAlert alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+//                __weak typeof(LCFAccidentAlert *)alert = alertView;
+//                alert.Block  = ^(NSInteger tag) {
+//                    if (tag == 1) {
+//                        if (driverMoney == 2) {
+//                            DepositHaveVC * vc = [[DepositHaveVC alloc]init];
+//                            vc.money =self.money;
+//                            vc.status = driverMoney;
+//                            [self.navigationController pushViewController:vc animated:YES];
+//                        }else{
+//                            DepositVC * vc = [[DepositVC alloc]init];
+//                            vc.money = self.money;
+//                            [self.navigationController pushViewController:vc animated:YES];
+//                        }
+//                    }
+//                };
+//                [[UIApplication sharedApplication].keyWindow addSubview:alertView];
+//            }
+//        } failed:^(NSString *error) {
+//            [SVProgressHUD showErrorWithStatus:error];
+//        }];
+        
     }else{
-        NSString * urlStr =[NSString stringWithFormat:@"%@driver/driveSafe?userId=%@&ifBuyInsure=2&userName=%@&idCard=%@",BaseUrl,[UserManager getDefaultUser].userId,[UserManager getDefaultUser].userName,[UserManager getDefaultUser].userId];
-        urlStr = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)urlStr, nil, nil, kCFStringEncodingUTF8));
-        [SVProgressHUD show];
-        [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object) {
-            [SVProgressHUD dismiss];
-            [self.navigationController popViewControllerAnimated:YES];
-        } failed:^(NSString *error) {
-            [SVProgressHUD showErrorWithStatus:error];
-        }];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+
+        
+//        NSString * urlStr =[NSString stringWithFormat:@"%@driver/driveSafe?userId=%@&ifBuyInsure=2&userName=%@&idCard=%@",BaseUrl,[UserManager getDefaultUser].userId,[UserManager getDefaultUser].userName,[UserManager getDefaultUser].userId];
+//        urlStr = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)urlStr, nil, nil, kCFStringEncodingUTF8));
+//        [SVProgressHUD show];
+//        [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object) {
+//            [SVProgressHUD dismiss];
+//            [self.navigationController popViewControllerAnimated:YES];
+//        } failed:^(NSString *error) {
+//            [SVProgressHUD showErrorWithStatus:error];
+//        }];
     }
 }
 
