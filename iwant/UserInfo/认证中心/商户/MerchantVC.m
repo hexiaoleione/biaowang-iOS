@@ -76,6 +76,8 @@
     _imgThree.layer.cornerRadius =0;
     _imgTwo.layer.cornerRadius =0;
     _imgOne.layer.cornerRadius =0;
+    
+    
 }
 
 

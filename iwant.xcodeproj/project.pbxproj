@@ -42,6 +42,7 @@
 		15FEEEEB1D3E17A700299223 /* line_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FEEEEA1D3E17A700299223 /* line_img.png */; };
 		15FEEEF11D3F72D100299223 /* 镖师行程.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15FEEEF01D3F72D000299223 /* 镖师行程.jpg */; };
 		15FEEEF31D3F72D800299223 /* 附近镖件.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15FEEEF21D3F72D800299223 /* 附近镖件.jpg */; };
+		3DEDA9D6C1EB4DB7E9BECF6D /* Pods_iwant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A1194F042637AD4E2509D8 /* Pods_iwant.framework */; };
 		57ECE84D1FE3BDB0006923C0 /* LCFAccidentAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECE84C1FE3BDB0006923C0 /* LCFAccidentAlert.m */; };
 		57ECE8521FE3BFFB006923C0 /* QuickControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 57ECE8511FE3BFFB006923C0 /* QuickControl.m */; };
 		858FFF981DD57EE000F8565E /* AdvertisementView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858FFF971DD57EE000F8565E /* AdvertisementView.xib */; };
@@ -79,6 +80,31 @@
 		A69CF61021D213CA0061DA48 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A69CF60C21D2130B0061DA48 /* libstdc++.tbd */; };
 		A69CF61121D214500061DA48 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E5517A8A1CD0D8110000CB78 /* libstdc++.6.0.9.tbd */; };
 		A69CF61221D218D50061DA48 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A69CF60E21D2131A0061DA48 /* libstdc++.6.tbd */; };
+		A6EFF83021F0545200DC1AC8 /* DesUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF7F821F0545200DC1AC8 /* DesUtils.m */; };
+		A6EFF83121F0545200DC1AC8 /* MD5Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF7FA21F0545200DC1AC8 /* MD5Utils.m */; };
+		A6EFF83221F0545200DC1AC8 /* SGQRCodeScanningVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF7FF21F0545200DC1AC8 /* SGQRCodeScanningVC.m */; };
+		A6EFF83321F0545200DC1AC8 /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF80121F0545200DC1AC8 /* OverlayView.m */; };
+		A6EFF83421F0545200DC1AC8 /* XLIDScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF80421F0545200DC1AC8 /* XLIDScanViewController.m */; };
+		A6EFF83521F0545200DC1AC8 /* XLScanBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF80721F0545200DC1AC8 /* XLScanBaseViewController.m */; };
+		A6EFF83621F0545200DC1AC8 /* XLScanManagerInitialize.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF80821F0545200DC1AC8 /* XLScanManagerInitialize.m */; };
+		A6EFF83721F0545200DC1AC8 /* XLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF80921F0545200DC1AC8 /* XLBaseViewController.m */; };
+		A6EFF83821F0545200DC1AC8 /* XLScanResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF80A21F0545200DC1AC8 /* XLScanResultModel.m */; };
+		A6EFF83921F0545200DC1AC8 /* BankCardSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF80C21F0545200DC1AC8 /* BankCardSearch.m */; };
+		A6EFF83A21F0545200DC1AC8 /* RectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF80D21F0545200DC1AC8 /* RectManager.m */; };
+		A6EFF83B21F0545200DC1AC8 /* IDOverLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF80E21F0545200DC1AC8 /* IDOverLayerView.m */; };
+		A6EFF83C21F0545200DC1AC8 /* libexidcardios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6EFF81021F0545200DC1AC8 /* libexidcardios.a */; };
+		A6EFF83D21F0545200DC1AC8 /* zocr0.lib in Resources */ = {isa = PBXBuildFile; fileRef = A6EFF81221F0545200DC1AC8 /* zocr0.lib */; };
+		A6EFF83F21F0545200DC1AC8 /* UIImage+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF81C21F0545200DC1AC8 /* UIImage+Extend.m */; };
+		A6EFF84021F0545200DC1AC8 /* XLBankScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF81E21F0545200DC1AC8 /* XLBankScanViewController.m */; };
+		A6EFF84121F0545200DC1AC8 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF81F21F0545200DC1AC8 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		A6EFF84221F0545200DC1AC8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF82121F0545200DC1AC8 /* MBProgressHUD.m */; };
+		A6EFF84321F0545200DC1AC8 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF82221F0545200DC1AC8 /* MBProgressHUD+Add.m */; };
+		A6EFF84421F0545200DC1AC8 /* XLScanBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF82621F0545200DC1AC8 /* XLScanBaseManager.m */; };
+		A6EFF84521F0545200DC1AC8 /* XLScanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF82721F0545200DC1AC8 /* XLScanManager.m */; };
+		A6EFF84621F0545200DC1AC8 /* XLScanManagerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF82921F0545200DC1AC8 /* XLScanManagerControl.m */; };
+		A6EFF84721F0545200DC1AC8 /* XLTableDelegateObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF82A21F0545200DC1AC8 /* XLTableDelegateObj.m */; };
+		A6EFF84821F0545200DC1AC8 /* XLNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EFF82C21F0545200DC1AC8 /* XLNavigationViewController.m */; };
+		A6EFF84A21F0572A00DC1AC8 /* libbankcard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6EFF84921F0572A00DC1AC8 /* libbankcard.a */; };
 		A6F1380021D22085007F1A89 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F137C521D22085007F1A89 /* UIImage+WebP.m */; };
 		A6F1380121D22085007F1A89 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F137C621D22085007F1A89 /* MKAnnotationView+WebCache.m */; };
 		A6F1380221D22085007F1A89 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F137CD21D22085007F1A89 /* SDWebImageManager.m */; };
@@ -802,10 +828,12 @@
 		15FEEEEA1D3E17A700299223 /* line_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line_img.png; sourceTree = "<group>"; };
 		15FEEEF01D3F72D000299223 /* 镖师行程.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "镖师行程.jpg"; sourceTree = "<group>"; };
 		15FEEEF21D3F72D800299223 /* 附近镖件.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "附近镖件.jpg"; sourceTree = "<group>"; };
+		25858DC8DE45D5C27D6FEB04 /* Pods-iwant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iwant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iwant/Pods-iwant.debug.xcconfig"; sourceTree = "<group>"; };
 		57ECE84B1FE3BDB0006923C0 /* LCFAccidentAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCFAccidentAlert.h; sourceTree = "<group>"; };
 		57ECE84C1FE3BDB0006923C0 /* LCFAccidentAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCFAccidentAlert.m; sourceTree = "<group>"; };
 		57ECE8501FE3BFFB006923C0 /* QuickControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickControl.h; sourceTree = "<group>"; };
 		57ECE8511FE3BFFB006923C0 /* QuickControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickControl.m; sourceTree = "<group>"; };
+		73A1194F042637AD4E2509D8 /* Pods_iwant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iwant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		858FFF971DD57EE000F8565E /* AdvertisementView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvertisementView.xib; path = ../View/AdvertisementView.xib; sourceTree = "<group>"; };
 		85F28DEB1DD856EA004CAF2E /* ChangeNumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeNumViewController.h; sourceTree = "<group>"; };
 		85F28DEC1DD856EA004CAF2E /* ChangeNumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeNumViewController.m; sourceTree = "<group>"; };
@@ -872,6 +900,58 @@
 		A69170AF210D99B100BF5F57 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A69CF60C21D2130B0061DA48 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		A69CF60E21D2131A0061DA48 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
+		A6EFF7F721F0545200DC1AC8 /* MD5Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Utils.h; sourceTree = "<group>"; };
+		A6EFF7F821F0545200DC1AC8 /* DesUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesUtils.m; sourceTree = "<group>"; };
+		A6EFF7F921F0545200DC1AC8 /* DesUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesUtils.h; sourceTree = "<group>"; };
+		A6EFF7FA21F0545200DC1AC8 /* MD5Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Utils.m; sourceTree = "<group>"; };
+		A6EFF7FB21F0545200DC1AC8 /* RectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectManager.h; sourceTree = "<group>"; };
+		A6EFF7FC21F0545200DC1AC8 /* IDOverLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDOverLayerView.h; sourceTree = "<group>"; };
+		A6EFF7FD21F0545200DC1AC8 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		A6EFF7FE21F0545200DC1AC8 /* XLBankScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBankScanViewController.h; sourceTree = "<group>"; };
+		A6EFF7FF21F0545200DC1AC8 /* SGQRCodeScanningVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeScanningVC.m; sourceTree = "<group>"; };
+		A6EFF80021F0545200DC1AC8 /* UIImage+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extend.h"; sourceTree = "<group>"; };
+		A6EFF80121F0545200DC1AC8 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
+		A6EFF80221F0545200DC1AC8 /* XLTableDelegateObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLTableDelegateObj.h; sourceTree = "<group>"; };
+		A6EFF80321F0545200DC1AC8 /* XLScanManagerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLScanManagerControl.h; sourceTree = "<group>"; };
+		A6EFF80421F0545200DC1AC8 /* XLIDScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLIDScanViewController.m; sourceTree = "<group>"; };
+		A6EFF80521F0545200DC1AC8 /* XLScanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLScanManager.h; sourceTree = "<group>"; };
+		A6EFF80621F0545200DC1AC8 /* XLScanBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLScanBaseManager.h; sourceTree = "<group>"; };
+		A6EFF80721F0545200DC1AC8 /* XLScanBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLScanBaseViewController.m; sourceTree = "<group>"; };
+		A6EFF80821F0545200DC1AC8 /* XLScanManagerInitialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLScanManagerInitialize.m; sourceTree = "<group>"; };
+		A6EFF80921F0545200DC1AC8 /* XLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBaseViewController.m; sourceTree = "<group>"; };
+		A6EFF80A21F0545200DC1AC8 /* XLScanResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLScanResultModel.m; sourceTree = "<group>"; };
+		A6EFF80B21F0545200DC1AC8 /* XLNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLNavigationViewController.h; sourceTree = "<group>"; };
+		A6EFF80C21F0545200DC1AC8 /* BankCardSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCardSearch.m; sourceTree = "<group>"; };
+		A6EFF80D21F0545200DC1AC8 /* RectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectManager.m; sourceTree = "<group>"; };
+		A6EFF80E21F0545200DC1AC8 /* IDOverLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDOverLayerView.m; sourceTree = "<group>"; };
+		A6EFF81021F0545200DC1AC8 /* libexidcardios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libexidcardios.a; sourceTree = "<group>"; };
+		A6EFF81221F0545200DC1AC8 /* zocr0.lib */ = {isa = PBXFileReference; lastKnownFileType = file; path = zocr0.lib; sourceTree = "<group>"; };
+		A6EFF81321F0545200DC1AC8 /* commondef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commondef.h; sourceTree = "<group>"; };
+		A6EFF81421F0545200DC1AC8 /* excards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = excards.h; sourceTree = "<group>"; };
+		A6EFF81621F0545200DC1AC8 /* exbankcard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exbankcard.h; sourceTree = "<group>"; };
+		A6EFF81821F0545200DC1AC8 /* exbankcardcore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exbankcardcore.h; sourceTree = "<group>"; };
+		A6EFF81A21F0545200DC1AC8 /* BankCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCard.h; sourceTree = "<group>"; };
+		A6EFF81B21F0545200DC1AC8 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
+		A6EFF81C21F0545200DC1AC8 /* UIImage+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extend.m"; sourceTree = "<group>"; };
+		A6EFF81D21F0545200DC1AC8 /* SGQRCodeScanningVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCodeScanningVC.h; sourceTree = "<group>"; };
+		A6EFF81E21F0545200DC1AC8 /* XLBankScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBankScanViewController.m; sourceTree = "<group>"; };
+		A6EFF81F21F0545200DC1AC8 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		A6EFF82121F0545200DC1AC8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		A6EFF82221F0545200DC1AC8 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		A6EFF82321F0545200DC1AC8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		A6EFF82421F0545200DC1AC8 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		A6EFF82521F0545200DC1AC8 /* XLScanBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLScanBaseViewController.h; sourceTree = "<group>"; };
+		A6EFF82621F0545200DC1AC8 /* XLScanBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLScanBaseManager.m; sourceTree = "<group>"; };
+		A6EFF82721F0545200DC1AC8 /* XLScanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLScanManager.m; sourceTree = "<group>"; };
+		A6EFF82821F0545200DC1AC8 /* XLIDScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLIDScanViewController.h; sourceTree = "<group>"; };
+		A6EFF82921F0545200DC1AC8 /* XLScanManagerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLScanManagerControl.m; sourceTree = "<group>"; };
+		A6EFF82A21F0545200DC1AC8 /* XLTableDelegateObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLTableDelegateObj.m; sourceTree = "<group>"; };
+		A6EFF82B21F0545200DC1AC8 /* BankCardSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardSearch.h; sourceTree = "<group>"; };
+		A6EFF82C21F0545200DC1AC8 /* XLNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLNavigationViewController.m; sourceTree = "<group>"; };
+		A6EFF82D21F0545200DC1AC8 /* XLScanResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLScanResultModel.h; sourceTree = "<group>"; };
+		A6EFF82E21F0545200DC1AC8 /* XLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBaseViewController.h; sourceTree = "<group>"; };
+		A6EFF82F21F0545200DC1AC8 /* XLScanManagerInitialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLScanManagerInitialize.h; sourceTree = "<group>"; };
+		A6EFF84921F0572A00DC1AC8 /* libbankcard.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbankcard.a; sourceTree = "<group>"; };
 		A6F137C421D22085007F1A89 /* SDAnimatedImageRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAnimatedImageRep.h; sourceTree = "<group>"; };
 		A6F137C521D22085007F1A89 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		A6F137C621D22085007F1A89 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
@@ -1755,6 +1835,7 @@
 		C1FB6DCD1EFD075400542E8F /* OtherPayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherPayTableViewCell.h; sourceTree = "<group>"; };
 		C1FB6DCE1EFD075500542E8F /* OtherPayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherPayTableViewCell.m; sourceTree = "<group>"; };
 		C1FB6DCF1EFD075500542E8F /* OtherPayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherPayTableViewCell.xib; sourceTree = "<group>"; };
+		DFD731E87BE8D9396682837E /* Pods-iwant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iwant.release.xcconfig"; path = "Pods/Target Support Files/Pods-iwant/Pods-iwant.release.xcconfig"; sourceTree = "<group>"; };
 		E501E3291D7D020F001D4448 /* ReceiveInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveInfo.xib; sourceTree = "<group>"; };
 		E502B44D1C8D17B60084CA22 /* MainHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainHeader.h; sourceTree = "<group>"; };
 		E50377541C9A824500378EAA /* MyMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMD5.h; sourceTree = "<group>"; };
@@ -2110,7 +2191,10 @@
 				C1911A2E1E6540EE00A4ACC1 /* AlipaySDK.framework in Frameworks */,
 				C1256EEF1E7FDE3400C8AD95 /* libssl.a in Frameworks */,
 				C1E39FDD1F5CF4BD00F43CFB /* iflyMSC.framework in Frameworks */,
+				A6EFF84A21F0572A00DC1AC8 /* libbankcard.a in Frameworks */,
 				E5824D741C95A95100930438 /* JavaScriptCore.framework in Frameworks */,
+				3DEDA9D6C1EB4DB7E9BECF6D /* Pods_iwant.framework in Frameworks */,
+				A6EFF83C21F0545200DC1AC8 /* libexidcardios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2131,6 +2215,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BF2C98043A1C2C14340EC0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25858DC8DE45D5C27D6FEB04 /* Pods-iwant.debug.xcconfig */,
+				DFD731E87BE8D9396682837E /* Pods-iwant.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		15265D8F1CCB031600EA0B0E /* 货主 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2399,6 +2492,113 @@
 				A69170AF210D99B100BF5F57 /* Reachability.h */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		A6EFF7F521F0545200DC1AC8 /* IDCardScan */ = {
+			isa = PBXGroup;
+			children = (
+				A6EFF7F621F0545200DC1AC8 /* Encryption */,
+				A6EFF7FB21F0545200DC1AC8 /* RectManager.h */,
+				A6EFF7FC21F0545200DC1AC8 /* IDOverLayerView.h */,
+				A6EFF7FD21F0545200DC1AC8 /* UINavigationController+FDFullscreenPopGesture.h */,
+				A6EFF7FE21F0545200DC1AC8 /* XLBankScanViewController.h */,
+				A6EFF7FF21F0545200DC1AC8 /* SGQRCodeScanningVC.m */,
+				A6EFF80021F0545200DC1AC8 /* UIImage+Extend.h */,
+				A6EFF80121F0545200DC1AC8 /* OverlayView.m */,
+				A6EFF80221F0545200DC1AC8 /* XLTableDelegateObj.h */,
+				A6EFF80321F0545200DC1AC8 /* XLScanManagerControl.h */,
+				A6EFF80421F0545200DC1AC8 /* XLIDScanViewController.m */,
+				A6EFF80521F0545200DC1AC8 /* XLScanManager.h */,
+				A6EFF80621F0545200DC1AC8 /* XLScanBaseManager.h */,
+				A6EFF80721F0545200DC1AC8 /* XLScanBaseViewController.m */,
+				A6EFF80821F0545200DC1AC8 /* XLScanManagerInitialize.m */,
+				A6EFF80921F0545200DC1AC8 /* XLBaseViewController.m */,
+				A6EFF80A21F0545200DC1AC8 /* XLScanResultModel.m */,
+				A6EFF80B21F0545200DC1AC8 /* XLNavigationViewController.h */,
+				A6EFF80C21F0545200DC1AC8 /* BankCardSearch.m */,
+				A6EFF80D21F0545200DC1AC8 /* RectManager.m */,
+				A6EFF80E21F0545200DC1AC8 /* IDOverLayerView.m */,
+				A6EFF80F21F0545200DC1AC8 /* libexidcard */,
+				A6EFF81521F0545200DC1AC8 /* bank_io */,
+				A6EFF81B21F0545200DC1AC8 /* OverlayView.h */,
+				A6EFF81C21F0545200DC1AC8 /* UIImage+Extend.m */,
+				A6EFF81D21F0545200DC1AC8 /* SGQRCodeScanningVC.h */,
+				A6EFF81E21F0545200DC1AC8 /* XLBankScanViewController.m */,
+				A6EFF81F21F0545200DC1AC8 /* UINavigationController+FDFullscreenPopGesture.m */,
+				A6EFF82021F0545200DC1AC8 /* MBProgressHUD */,
+				A6EFF82521F0545200DC1AC8 /* XLScanBaseViewController.h */,
+				A6EFF82621F0545200DC1AC8 /* XLScanBaseManager.m */,
+				A6EFF82721F0545200DC1AC8 /* XLScanManager.m */,
+				A6EFF82821F0545200DC1AC8 /* XLIDScanViewController.h */,
+				A6EFF82921F0545200DC1AC8 /* XLScanManagerControl.m */,
+				A6EFF82A21F0545200DC1AC8 /* XLTableDelegateObj.m */,
+				A6EFF82B21F0545200DC1AC8 /* BankCardSearch.h */,
+				A6EFF82C21F0545200DC1AC8 /* XLNavigationViewController.m */,
+				A6EFF82D21F0545200DC1AC8 /* XLScanResultModel.h */,
+				A6EFF82E21F0545200DC1AC8 /* XLBaseViewController.h */,
+				A6EFF82F21F0545200DC1AC8 /* XLScanManagerInitialize.h */,
+			);
+			path = IDCardScan;
+			sourceTree = "<group>";
+		};
+		A6EFF7F621F0545200DC1AC8 /* Encryption */ = {
+			isa = PBXGroup;
+			children = (
+				A6EFF7F721F0545200DC1AC8 /* MD5Utils.h */,
+				A6EFF7F821F0545200DC1AC8 /* DesUtils.m */,
+				A6EFF7F921F0545200DC1AC8 /* DesUtils.h */,
+				A6EFF7FA21F0545200DC1AC8 /* MD5Utils.m */,
+			);
+			path = Encryption;
+			sourceTree = "<group>";
+		};
+		A6EFF80F21F0545200DC1AC8 /* libexidcard */ = {
+			isa = PBXGroup;
+			children = (
+				A6EFF81021F0545200DC1AC8 /* libexidcardios.a */,
+				A6EFF81121F0545200DC1AC8 /* dicts */,
+				A6EFF81321F0545200DC1AC8 /* commondef.h */,
+				A6EFF81421F0545200DC1AC8 /* excards.h */,
+			);
+			path = libexidcard;
+			sourceTree = "<group>";
+		};
+		A6EFF81121F0545200DC1AC8 /* dicts */ = {
+			isa = PBXGroup;
+			children = (
+				A6EFF81221F0545200DC1AC8 /* zocr0.lib */,
+			);
+			path = dicts;
+			sourceTree = "<group>";
+		};
+		A6EFF81521F0545200DC1AC8 /* bank_io */ = {
+			isa = PBXGroup;
+			children = (
+				A6EFF81621F0545200DC1AC8 /* exbankcard.h */,
+				A6EFF81721F0545200DC1AC8 /* exbankcardcore */,
+				A6EFF81A21F0545200DC1AC8 /* BankCard.h */,
+			);
+			path = bank_io;
+			sourceTree = "<group>";
+		};
+		A6EFF81721F0545200DC1AC8 /* exbankcardcore */ = {
+			isa = PBXGroup;
+			children = (
+				A6EFF84921F0572A00DC1AC8 /* libbankcard.a */,
+				A6EFF81821F0545200DC1AC8 /* exbankcardcore.h */,
+			);
+			path = exbankcardcore;
+			sourceTree = "<group>";
+		};
+		A6EFF82021F0545200DC1AC8 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				A6EFF82121F0545200DC1AC8 /* MBProgressHUD.m */,
+				A6EFF82221F0545200DC1AC8 /* MBProgressHUD+Add.m */,
+				A6EFF82321F0545200DC1AC8 /* MBProgressHUD.h */,
+				A6EFF82421F0545200DC1AC8 /* MBProgressHUD+Add.h */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		A6F137C321D22085007F1A89 /* SDWebImage */ = {
@@ -4441,6 +4641,7 @@
 				E58C1EC11C8C48AF00AFDB94 /* iwantUITests */,
 				E58C1E9B1C8C48AF00AFDB94 /* Products */,
 				E5A1784E1DAC935900F55EC2 /* Frameworks */,
+				0BF2C98043A1C2C14340EC0B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -4457,6 +4658,7 @@
 		E58C1E9C1C8C48AF00AFDB94 /* iwant */ = {
 			isa = PBXGroup;
 			children = (
+				A6EFF7F521F0545200DC1AC8 /* IDCardScan */,
 				A6F137C321D22085007F1A89 /* SDWebImage */,
 				A67CD6CC2121435000D426D6 /* HyphenateSDK */,
 				A67CD6C5212140DF00D426D6 /* NSdate+Category */,
@@ -4735,6 +4937,7 @@
 				C1256ED71E7FDCE600C8AD95 /* libsqlite3.0.tbd */,
 				E5A178511DAC94A900F55EC2 /* UserNotifications.framework */,
 				E5A1784F1DAC935A00F55EC2 /* PushKit.framework */,
+				73A1194F042637AD4E2509D8 /* Pods_iwant.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -4925,10 +5128,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E58C1EC71C8C48AF00AFDB94 /* Build configuration list for PBXNativeTarget "iwant" */;
 			buildPhases = (
+				33B95F1F865DD99F7795A2F5 /* [CP] Check Pods Manifest.lock */,
 				E58C1E961C8C48AF00AFDB94 /* Sources */,
 				E58C1E971C8C48AF00AFDB94 /* Frameworks */,
 				E58C1E981C8C48AF00AFDB94 /* Resources */,
 				A67CD6D12121436B00D426D6 /* Embed Frameworks */,
+				565CF40D2094C3EE30838628 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -4981,13 +5186,13 @@
 		E58C1E921C8C48AF00AFDB94 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = FatherDong;
 				TargetAttributes = {
 					E58C1E991C8C48AF00AFDB94 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = G8A3MV3A4M;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -5177,6 +5382,7 @@
 				C1C09C091EF8DA1A00BA44F3 /* BaoJiaViewController.xib in Resources */,
 				C11928221DE520490048666D /* centerBtn.png in Resources */,
 				C1FB6DC91EFCEC7B00542E8F /* FinishDetailView.xib in Resources */,
+				A6EFF83D21F0545200DC1AC8 /* zocr0.lib in Resources */,
 				E58E56631C9BED1200272BCB /* wr_province.txt in Resources */,
 				C193907E1E2C935D00582216 /* HuowuWeiguiView.xib in Resources */,
 				C11928601DE6EEF80048666D /* centerbtnNone@2x.png in Resources */,
@@ -5229,13 +5435,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		33B95F1F865DD99F7795A2F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iwant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		565CF40D2094C3EE30838628 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iwant/Pods-iwant-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/SGQRCode/SGQRCode.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGQRCode.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iwant/Pods-iwant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E58C1E961C8C48AF00AFDB94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6EFF83521F0545200DC1AC8 /* XLScanBaseViewController.m in Sources */,
 				E5FF8BB71D79607A00812CF3 /* LogistUploadViewController.m in Sources */,
 				C1911A9A1E6540EF00A4ACC1 /* UIView+WZLBadge.m in Sources */,
+				A6EFF83221F0545200DC1AC8 /* SGQRCodeScanningVC.m in Sources */,
 				E5F713FB1CD9AECD004994C1 /* MarkLabel.m in Sources */,
 				C14421511EE14F8200BE7A92 /* SFFaViewConstroller.m in Sources */,
 				C1911A1E1E6540EE00A4ACC1 /* AFNetworkReachabilityManager.m in Sources */,
@@ -5278,6 +5527,7 @@
 				C11D83C21DF02157004B9BC9 /* LCFPayView.m in Sources */,
 				C1911A451E6540EF00A4ACC1 /* LeadingPage.m in Sources */,
 				E503BBEC1D001148001D3423 /* PasswordView.m in Sources */,
+				A6EFF84621F0545200DC1AC8 /* XLScanManagerControl.m in Sources */,
 				C1911A621E6540EF00A4ACC1 /* MASLayoutConstraint.m in Sources */,
 				A6F1380621D22085007F1A89 /* SDWebImageCodersManager.m in Sources */,
 				C1911A8E1E6540EF00A4ACC1 /* SVIndefiniteAnimatedView.m in Sources */,
@@ -5327,6 +5577,7 @@
 				C19111551E652BB100A4ACC1 /* MyMessageViewController.m in Sources */,
 				C115B7A91DE169EC00F6E95E /* SCouponVC.m in Sources */,
 				C1C09C1C1EFBA0B400BA44F3 /* TakeCargoDetailViewController.m in Sources */,
+				A6EFF84821F0545200DC1AC8 /* XLNavigationViewController.m in Sources */,
 				E5950D151CF9853C0017B9F3 /* Promote.m in Sources */,
 				E55028FB1CC228FB003A93B1 /* BigButton.m in Sources */,
 				C14421461EDE5CFD00BE7A92 /* LeftMenuViewController.m in Sources */,
@@ -5384,17 +5635,21 @@
 				C134AAC91E31AC5600513CF6 /* CarNumModel.m in Sources */,
 				A6F1381321D22085007F1A89 /* NSData+ImageContentType.m in Sources */,
 				C1911AA41E65457B00A4ACC1 /* WMKeyChain.m in Sources */,
+				A6EFF83021F0545200DC1AC8 /* DesUtils.m in Sources */,
 				C1EB36471F04F5680017EE08 /* LookMyDetailVC.m in Sources */,
 				C10D49461DDEBD0A001183CF /* advermentModel.m in Sources */,
 				E5E1A2741D112B9800430B9B /* CityModel.m in Sources */,
 				E57F11DA1CE45E58001325AB /* UITextView+placeholder.m in Sources */,
+				A6EFF84021F0545200DC1AC8 /* XLBankScanViewController.m in Sources */,
 				E503BBD91CFED448001D3423 /* kuangView.m in Sources */,
+				A6EFF83321F0545200DC1AC8 /* OverlayView.m in Sources */,
 				A67CD6CA212140DF00D426D6 /* NSDate+Category.m in Sources */,
 				E582C0F41D8E35550008624D /* CompanyOrderView.m in Sources */,
 				C1911A921E6540EF00A4ACC1 /* ApiXml.mm in Sources */,
 				C1911A661E6540EF00A4ACC1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				C160A67A1F9079350084BCAB /* BaoXianViewController.m in Sources */,
 				E582C0ED1D8D32A60008624D /* LogistCompany.m in Sources */,
+				A6EFF83121F0545200DC1AC8 /* MD5Utils.m in Sources */,
 				E528C5CD1CEEE84E00BCEDF7 /* UIButton+imagePosistion.m in Sources */,
 				C1EA6C0D1EAED86500BAB000 /* ExchangeJiFenVC.m in Sources */,
 				E5E1A27C1D112C2200430B9B /* CitysViewController.m in Sources */,
@@ -5430,6 +5685,7 @@
 				C19111E81E65324000A4ACC1 /* TransferViewController.m in Sources */,
 				C1911A261E6540EE00A4ACC1 /* UIAlertView+AFNetworking.m in Sources */,
 				E593EE491D70291900AB8AB1 /* OrderDetailViewController.m in Sources */,
+				A6EFF83921F0545200DC1AC8 /* BankCardSearch.m in Sources */,
 				A6F1380B21D22085007F1A89 /* SDWebImageCompat.m in Sources */,
 				E593EE3B1D6FEA0900AB8AB1 /* OfferViewController.m in Sources */,
 				E5F713E31CD8BE64004994C1 /* YLImageView.m in Sources */,
@@ -5455,6 +5711,7 @@
 				C12A622D1DF6AB0900281791 /* ShaiXuanViewController.m in Sources */,
 				C10E11681DE2F0D20019D56F /* AdvertisementView.m in Sources */,
 				E555368A1C8FD71500D5FCBA /* Ecoin.m in Sources */,
+				A6EFF83F21F0545200DC1AC8 /* UIImage+Extend.m in Sources */,
 				E5F539A51CAE6E7E000AC123 /* ExpressCViewController.m in Sources */,
 				C125FC5A1EBAB69400EE2539 /* BiaoShiRewardVC.m in Sources */,
 				C1C09C0D1EF92A7500BA44F3 /* jiaoFeiDetailViewController.m in Sources */,
@@ -5466,6 +5723,7 @@
 				C19111BA1E65311700A4ACC1 /* LogistCompanyViewController.m in Sources */,
 				A67CD4EF21213B9A00D426D6 /* MJRefreshComponent.m in Sources */,
 				C1911A751E6540EF00A4ACC1 /* TXTradePasswordView.m in Sources */,
+				A6EFF84521F0545200DC1AC8 /* XLScanManager.m in Sources */,
 				E509135A1D925CCB00737FD8 /* TAAbstractDotView.m in Sources */,
 				C1EE661F1FA1710E0072BBF3 /* AccidentInsuranceVC.m in Sources */,
 				A67CD4ED21213B9A00D426D6 /* MJRefreshLegendHeader.m in Sources */,
@@ -5473,6 +5731,7 @@
 				A6F1381B21D22085007F1A89 /* UIButton+WebCache.m in Sources */,
 				C1EE104D1F4E87DF0002E914 /* FaOtherViewConstroller.m in Sources */,
 				E509135D1D925CCB00737FD8 /* TAPageControl.m in Sources */,
+				A6EFF83B21F0545200DC1AC8 /* IDOverLayerView.m in Sources */,
 				C144214C1EDFE72100BE7A92 /* JieViewController.m in Sources */,
 				E5AEFFD51D1E87D00081E46D /* RouteAnnotation.m in Sources */,
 				A6F1380821D22085007F1A89 /* UIImage+GIF.m in Sources */,
@@ -5510,6 +5769,7 @@
 				C11140621E07B1220041EA15 /* ActivityNewVC.m in Sources */,
 				E509135B1D925CCB00737FD8 /* TAAnimatedDotView.m in Sources */,
 				C120C7A91ECD9FB9003495C3 /* TouBaoRuleVC.m in Sources */,
+				A6EFF83421F0545200DC1AC8 /* XLIDScanViewController.m in Sources */,
 				C1256ED01E7ACD7900C8AD95 /* SWActionSheet.m in Sources */,
 				A67CD4EE21213B9A00D426D6 /* MJRefreshLegendFooter.m in Sources */,
 				E50913601D925CCB00737FD8 /* UIView+SDExtension.m in Sources */,
@@ -5572,6 +5832,7 @@
 				E5BF86FC1D318A7D0078845D /* JKNotifierBar.m in Sources */,
 				E50377561C9A824500378EAA /* MyMD5.m in Sources */,
 				C12A621E1DF5400B00281791 /* FinishLookViewController.m in Sources */,
+				A6EFF84721F0545200DC1AC8 /* XLTableDelegateObj.m in Sources */,
 				C14421641EE2733100BE7A92 /* AutoScrollLabel.m in Sources */,
 				A6F1381C21D22085007F1A89 /* SDWebImageWebPCoder.m in Sources */,
 				A6F1380D21D22085007F1A89 /* SDWebImageCoder.m in Sources */,
@@ -5598,6 +5859,8 @@
 				C1911A391E6540EF00A4ACC1 /* RSADataSigner.m in Sources */,
 				C1911A3D1E6540EF00A4ACC1 /* FMDatabaseAdditions.m in Sources */,
 				C1911A731E6540EF00A4ACC1 /* CustomAlert.m in Sources */,
+				A6EFF83821F0545200DC1AC8 /* XLScanResultModel.m in Sources */,
+				A6EFF83621F0545200DC1AC8 /* XLScanManagerInitialize.m in Sources */,
 				C1911A3A1E6540EF00A4ACC1 /* RSADataVerifier.m in Sources */,
 				C1202E4E1DE03BB0006DB198 /* ActivityModel.m in Sources */,
 				A67CD90B2121759200D426D6 /* UIView+EMWebCacheOperation.m in Sources */,
@@ -5612,6 +5875,8 @@
 				C1911A641E6540EF00A4ACC1 /* MASViewConstraint.m in Sources */,
 				C19111B81E65311700A4ACC1 /* LogistCompanyInfo.m in Sources */,
 				E503BBD81CFED448001D3423 /* enterPwdView.m in Sources */,
+				A6EFF84121F0545200DC1AC8 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				A6EFF84221F0545200DC1AC8 /* MBProgressHUD.m in Sources */,
 				C19111E61E65324000A4ACC1 /* AliWithdrawCashViewController.m in Sources */,
 				C1911A581E6540EF00A4ACC1 /* IQToolbar.m in Sources */,
 				C11565C31E078455001E85BE /* SignInVC.m in Sources */,
@@ -5626,6 +5891,7 @@
 				C16BBB091DED2BBD006087DE /* companyMyWLTableViewCell.m in Sources */,
 				C1911A951E6540EF00A4ACC1 /* WechatPayRequestConfig.m in Sources */,
 				C1256EF51E7FE23300C8AD95 /* LocationViewController.m in Sources */,
+				A6EFF83721F0545200DC1AC8 /* XLBaseViewController.m in Sources */,
 				E503BBDA1CFED448001D3423 /* NNInPassWordView.m in Sources */,
 				C1911A2C1E6540EE00A4ACC1 /* AlipayRequestConfig.m in Sources */,
 				E555368C1C8FD71500D5FCBA /* Message.m in Sources */,
@@ -5643,6 +5909,7 @@
 				E555365E1C8FCDE000D5FCBA /* UIViewController+show.m in Sources */,
 				E5FF8BB41D79067100812CF3 /* CompanyLogistViewController.m in Sources */,
 				C19111A81E65311700A4ACC1 /* MydriverViewController.m in Sources */,
+				A6EFF83A21F0545200DC1AC8 /* RectManager.m in Sources */,
 				C19111F01E65324000A4ACC1 /* HistoricalbillViewController.m in Sources */,
 				E5BF86FA1D318A7D0078845D /* JKNotifier.m in Sources */,
 				15ADD3A01D1E786F00031EF7 /* ShunFengBiaoShi.m in Sources */,
@@ -5675,6 +5942,7 @@
 				E555368F1C8FD71500D5FCBA /* Package.m in Sources */,
 				C1911A4C1E6540EF00A4ACC1 /* IQDropDownTextField.m in Sources */,
 				C193907C1E2C934000582216 /* HuowuWeiguiView.m in Sources */,
+				A6EFF84321F0545200DC1AC8 /* MBProgressHUD+Add.m in Sources */,
 				C144215B1EE2605F00BE7A92 /* JieSFViewController.m in Sources */,
 				C160A6631F8F4DF80084BCAB /* BaoDanCell.m in Sources */,
 				E55536081C8FB9E400D5FCBA /* ExpressRequest.m in Sources */,
@@ -5720,6 +5988,7 @@
 				E555365B1C8FCDE000D5FCBA /* UIImage+Persistence.m in Sources */,
 				C11928231DE520490048666D /* HYPWheelView.m in Sources */,
 				C1E39FF11F5D38FF00F43CFB /* IATConfig.m in Sources */,
+				A6EFF84421F0545200DC1AC8 /* XLScanBaseManager.m in Sources */,
 				E51C32A21D13891B00BF31DC /* SendExpress.m in Sources */,
 				A6F1380421D22085007F1A89 /* SDWebImageFrame.m in Sources */,
 			);
@@ -5762,17 +6031,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -5782,7 +6062,7 @@
 				DEVELOPMENT_TEAM = G8A3MV3A4M;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INPUT_FILETYPE = automatic;
@@ -5804,6 +6084,7 @@
 				OTHER_LDFLAGS = "";
 				PROVISIONING_PROFILE = "66c7cbb5-3b6c-4ad8-81b4-e444d0b1c9f7";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -5811,17 +6092,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -5833,6 +6125,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -5848,19 +6141,23 @@
 				PROVISIONING_PROFILE = "66c7cbb5-3b6c-4ad8-81b4-e444d0b1c9f7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Release;
 		};
 		E58C1EC81C8C48AF00AFDB94 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25858DC8DE45D5C27D6FEB04 /* Pods-iwant.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets-2";
 				CODE_SIGN_ENTITLEMENTS = iwant/IWant.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = G8A3MV3A4M;
+				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iwant/framework",
@@ -5879,39 +6176,47 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(PROJECT_DIR)/iwant/3dlibrary/alipay",
-					"$(PROJECT_DIR)/iwant/EaseMobSDK/lib",
-					"$(PROJECT_DIR)/iwant/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
-					"$(PROJECT_DIR)/iwant/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/iwant/3dlibrary/weixinSdk",
-					"$(PROJECT_DIR)/iwant/3dlibrary/BaiduNavi_iOSSDK_v2.0.7_Lib/BaiduStatistics",
-					"$(PROJECT_DIR)/iwant/3dlibrary/BaiduNavi_iOSSDK_v2.0.7_Lib",
 					"$(PROJECT_DIR)/iwant/3dlibrary/BaiduMapAPI/thirdlibs",
+					"$(PROJECT_DIR)/iwant/IDCardScan/libexidcard",
+					"$(PROJECT_DIR)/iwant/IDCardScan/bank_io/exbankcardcore",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
+					"-all_load",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"sqlite3.0\"",
+					"-l\"z\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SanChuan.Express;
 				PRODUCT_NAME = IWant;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Express_Distribution;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Debug;
 		};
 		E58C1EC91C8C48AF00AFDB94 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFD731E87BE8D9396682837E /* Pods-iwant.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets-2";
 				CODE_SIGN_ENTITLEMENTS = iwant/IWant.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = G8A3MV3A4M;
+				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iwant/framework",
@@ -5930,24 +6235,29 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
 					"$(PROJECT_DIR)/iwant/3dlibrary/alipay",
-					"$(PROJECT_DIR)/iwant/EaseMobSDK/lib",
-					"$(PROJECT_DIR)/iwant/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
-					"$(PROJECT_DIR)/iwant/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/iwant/3dlibrary/weixinSdk",
-					"$(PROJECT_DIR)/iwant/3dlibrary/BaiduNavi_iOSSDK_v2.0.7_Lib/BaiduStatistics",
-					"$(PROJECT_DIR)/iwant/3dlibrary/BaiduNavi_iOSSDK_v2.0.7_Lib",
 					"$(PROJECT_DIR)/iwant/3dlibrary/BaiduMapAPI/thirdlibs",
+					"$(PROJECT_DIR)/iwant/IDCardScan/libexidcard",
+					"$(PROJECT_DIR)/iwant/IDCardScan/bank_io/exbankcardcore",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
+					"-all_load",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"sqlite3.0\"",
+					"-l\"z\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SanChuan.Express;
 				PRODUCT_NAME = IWant;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Express_Distribution;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Release;
 		};

@@ -7,12 +7,12 @@
 //
 
 #import "UserNameViewController.h"
-#import "YMHeaderView.h"
+//#import "YMHeaderView.h"
 #import "Masonry.h"
 #import "MainHeader.h"
 #import "RealnameView.h"
 #import "RealnameViewController.h"
-
+#import "XLIDScanViewController.h"
 #define ROTIO  WINDOW_HEIGHT/736.0
 //按比例获取高度
 #define  WGiveHeight(HEIGHT) HEIGHT * [UIScreen mainScreen].bounds.size.height/568.0
@@ -30,7 +30,7 @@
 #define Button_Height    30.0f    // 高
 #define Button_Width    WINDOW_WIDTH/4 + 5    // 宽
 
-@interface UserNameViewController ()<UITextFieldDelegate,UIScrollViewDelegate,YMHeaderViewDelegate>
+@interface UserNameViewController ()<UITextFieldDelegate,UIScrollViewDelegate>
 {
     
     UIScrollView *_backScrollView;
@@ -43,15 +43,15 @@
     //当前选中btn
     UIButton * _currentBtn;
     //头像
-    YMHeaderView *_headImageView;
+//    UIImageView *_headImageView;
     
     //姓名
     UILabel *_nameLabel;
-    UITextField *_nameField;
+//    UITextField *_nameField;
     
     //身份证号
     UILabel *_idCardNumbereLabel;
-    UITextField *_idCardNumbereField;
+//    UITextField *_idCardNumbereField;
     
   //提示语
     UILabel *_regsiteInfoLabel;
@@ -64,6 +64,9 @@
     NSString *_filePath;
     NSString *_midStr;//身份证号的星星代表的东西
 }
+JProperty(UIImageView *headImageView, headImageView);
+JProperty(UITextField *nameField, nameField);
+JProperty(UITextField *idCardNumbereField, idCardNumbereField);
 
 @end
 
@@ -165,16 +168,22 @@
         [carTypeBtn addTarget:self action:@selector(carTypeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 
-    _headImageView = [[YMHeaderView alloc]initWithFrame:CGRectMake(WINDOW_WIDTH/2 -WGiveWidth(75), Start_Y+ Height_Space + Button_Height*2 + 10, WGiveWidth(200), WGiveHeight(150))];
+    _headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(WINDOW_WIDTH/2 -WGiveWidth(75), Start_Y+ Height_Space + Button_Height*2 + 10, WGiveWidth(300), WGiveHeight(150))];
     _headImageView.centerX = self.view.centerX;
     _headImageView.backgroundColor = [UIColor grayColor];
     _headImageView.layer.cornerRadius = 25;
-    _headImageView.delagate = self;
-    if (self.courentbtnTag ==2) {
-         [_headImageView sd_setImageWithURL:[NSURL URLWithString:[UserManager getDefaultUser].idCardPath] placeholderImage:[UIImage imageNamed:@"personJsz"]];
-    }else{
-     [_headImageView sd_setImageWithURL:[NSURL URLWithString:[UserManager getDefaultUser].idCardPath] placeholderImage:[UIImage imageNamed:@"lizi"]];
-    }
+//    _headImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _headImageView.clipsToBounds = YES;
+//    _headImageView.layer.cornerRadius = _headImageView.frame.size.width /2.0f;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTaped:)];
+    [_headImageView setUserInteractionEnabled:YES];
+    [_headImageView addGestureRecognizer:tap];
+//    _headImageView.delagate = self;
+//    if (self.courentbtnTag ==2) {
+         [_headImageView sd_setImageWithURL:[NSURL URLWithString:[UserManager getDefaultUser].idCardPath] placeholderImage:[UIImage imageNamed:@"shenfenzheng"]];
+//    }else{
+//     [_headImageView sd_setImageWithURL:[NSURL URLWithString:[UserManager getDefaultUser].idCardPath] placeholderImage:[UIImage imageNamed:@"lizi"]];
+//    }
     [contentView addSubview:_headImageView];
     if (self.courentbtnTag != 2) {
         _headImageView.y = 16;
@@ -182,25 +191,25 @@
         carTypeBtn.hidden = YES;
     }
 
-    _ChangeBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_headImageView.frame)+10, WINDOW_WIDTH, WGiveHeight(30))];
-    if (self.courentbtnTag == 2) {
-        [_ChangeBtn setTitle:@"上传身份证或者驾照" forState:UIControlStateNormal];
-    }else{
-        [_ChangeBtn setTitle:@"请点击此处上传身份证照片" forState:UIControlStateNormal];
-    }
-    _ChangeBtn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
-    [_ChangeBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [_ChangeBtn addTarget:self action:@selector(changeHeadImage) forControlEvents:UIControlEventTouchUpInside];
-    [contentView addSubview:_ChangeBtn];
+//    _ChangeBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_headImageView.frame)+10, WINDOW_WIDTH, WGiveHeight(30))];
+//    if (self.courentbtnTag == 2) {
+//        [_ChangeBtn setTitle:@"上传身份证" forState:UIControlStateNormal];
+//    }else{
+//        [_ChangeBtn setTitle:@"请点击此处上传身份证照片" forState:UIControlStateNormal];
+//    }
+//    _ChangeBtn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
+//    [_ChangeBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//    [_ChangeBtn addTarget:self action:@selector(changeHeadImage) forControlEvents:UIControlEventTouchUpInside];
+//    [contentView addSubview:_ChangeBtn];
 
  //姓名
-    _nameLabel =[[UILabel alloc]initWithFrame:CGRectMake(WGiveWidth(20), CGRectGetMaxY(_ChangeBtn.frame)+10, WGiveWidth(60), WGiveHeight(43))];
+    _nameLabel =[[UILabel alloc]initWithFrame:CGRectMake(WGiveWidth(20), CGRectGetMaxY(_headImageView.frame)+10, WGiveWidth(60), WGiveHeight(43))];
     _nameLabel.text =@"姓   名:";
     [_nameLabel setFont:[UIFont fontWithName:@"ArialMT" size:14.0]];
     [contentView addSubview:_nameLabel];
 
 
-    _nameField = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_nameLabel.frame), CGRectGetMaxY(_ChangeBtn.frame)+10, WINDOW_WIDTH-WGiveWidth(100), WGiveHeight(43))];
+    _nameField = [[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_nameLabel.frame), CGRectGetMaxY(_headImageView.frame)+10, WINDOW_WIDTH-WGiveWidth(100), WGiveHeight(43))];
     _nameField.placeholder = @"请输入真实姓名";
     _nameField.layer.borderWidth = 0.0f;
     _nameField.layer.cornerRadius = 10;
@@ -383,15 +392,65 @@
 
 - (void)changeHeadImage
 {
-    [_headImageView imageTaped:nil];
+//    [_headImageView imageTaped:nil];
+    __weak UserNameViewController *wself = self;
+
+    XLIDScanViewController *idScanViewController = [[XLIDScanViewController alloc] initWithBlock:^(BOOL status, XLScanResultModel *result) {
+        
+        NSLog(@"result == %@",result.toString);
+        wself.headImageView.image = [UIImage imageWithData: [[NSData alloc]initWithBase64EncodedString:result.imageData options:NSDataBase64DecodingIgnoreUnknownCharacters]];
+        NSLog(@"ddddddddddssss====%@\neeeeeeee===%@",result.imageData,[[NSData alloc]initWithBase64EncodedString:result.imageData options:NSDataBase64DecodingIgnoreUnknownCharacters]);
+        wself.nameField.text = result.name;
+        wself.idCardNumbereField.text = result.code;
+         [wself headerViewDidSelectWithImage:wself.headImageView.image];
+//        NSDictionary *retMap = @{@"errorCode":@"00",
+//                                 @"code":result.code,
+//                                 @"name":result.name,
+//                                 @"gender":result.gender,
+//                                 @"nation":result.name,
+//                                 @"address":result.address,
+//                                 @"imageData":result.imageData};
+        
+        
+        
+    } idcardType:1 ];
+    [self.navigationController presentViewController:idScanViewController animated:YES completion:nil];
 
 }
 
--(void)headerView:(YMHeaderView *)headerView didSelectWithImage:(UIImage *)image{
+-(void)imageTaped:(UITapGestureRecognizer*)sender {
+    __weak UserNameViewController *wself = self;
+    XLIDScanViewController *idScanViewController = [[XLIDScanViewController alloc] initWithBlock:^(BOOL status, XLScanResultModel *result) {
+        
+        NSLog(@"result == %@",result.toString);
+//        NSData *decodeData = [[NSData alloc] initWithBase64EncodedData:encodeData options:0];
+        wself.headImageView.image = [UIImage imageWithData: [[NSData alloc]initWithBase64EncodedString:result.imageData options:NSDataBase64DecodingIgnoreUnknownCharacters]];
+        NSLog(@"ddddddddddssss====%@\neeeeeeee===%@",result.imageData,[[NSData alloc]initWithBase64EncodedString:result.imageData options:NSDataBase64DecodingIgnoreUnknownCharacters]);
+        wself.nameField.text = result.name;
+        wself.idCardNumbereField.text = result.code;
+        [wself headerViewDidSelectWithImage:wself.headImageView.image];
+//        NSDictionary *retMap = @{@"errorCode":@"00",
+//                                 @"code":result.code,
+//                                 @"name":result.name,
+//                                 @"gender":result.gender,
+//                                 @"nation":result.name,
+//                                 @"address":result.address,
+//                                 @"imageData":result.imageData};
+        
+        
+        
+    } idcardType:1 ];
+    [self.navigationController presentViewController:idScanViewController animated:YES completion:nil];
+    
+}
+
+
+-(void)headerViewDidSelectWithImage:(UIImage *)image{
     [SVProgressHUD show];
+    
     [RequestManager uploadPictureWithUserId:[UserManager getDefaultUser].userId fileName:@"id_card.png" file:image Success:^(NSDictionary *result) {
-         _filePath = [([result objectForKey:@"data"][0]) valueForKey:@"filePath"];
-        _isUpdate = YES;
+        self->_filePath = [([result objectForKey:@"data"][0]) valueForKey:@"filePath"];
+        self->_isUpdate = YES;
         [SVProgressHUD showSuccessWithStatus:@"上传成功"];
     } Failed:^(NSString *error) {
         [SVProgressHUD showErrorWithStatus:error];

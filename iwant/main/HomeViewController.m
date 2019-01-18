@@ -22,7 +22,7 @@
 #import "FaViewConstroller.h"
 #import "FaOtherViewConstroller.h"
 #import "SelectTypeView.h"
-
+//#import "XLIDScanViewController.h"
 @interface HomeViewController ()<BMKMapViewDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UIAlertViewDelegate>{
     
     BMKLocationService * _locService;
@@ -69,6 +69,7 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [DwHelp updateUser];
+   
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -95,6 +96,8 @@
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"isJustLaunch"]) {
         [self addadsView];
     }
+    
+
 }
 
 //广告

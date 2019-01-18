@@ -1903,7 +1903,7 @@
 +(void)biaoshiqiangdanWithuserId:(NSString *)userId recId:(NSString *)recId success:(SuccessWithNSMutableArrayBlock)success Failed:(FailedErrorBlock)failed
 {
     
-    NSString *URLStr = [NSString stringWithFormat:@"%@%@?%@=%@&%@=%@",BaseUrl,API_DOWNWIND_TASK_ROBORDER,k_USER_ID,userId,K_recId,recId];
+    NSString *URLStr = [NSString stringWithFormat:@"%@%@?%@=%@&%@=%@",BaseUrl,API_DOWNWIND_TASK_ROBORDERNwew,k_USER_ID,userId,K_recId,recId];
     [ExpressRequest sendWithParameters:nil MethodStr:URLStr reqType:k_GET success:^(id object) {
        
         success(object);

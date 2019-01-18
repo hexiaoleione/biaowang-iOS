@@ -1,0 +1,6 @@
+framework module Pods_iwant {
+  umbrella header "Pods-iwant-umbrella.h"
+
+  export *
+  module * { export * }
+}

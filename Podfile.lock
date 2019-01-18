@@ -1,0 +1,26 @@
+PODS:
+  - ReactiveCocoa (2.3.1):
+    - ReactiveCocoa/UI (= 2.3.1)
+  - ReactiveCocoa/Core (2.3.1):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3.1)
+  - ReactiveCocoa/UI (2.3.1):
+    - ReactiveCocoa/Core
+  - SGQRCode (2.2.0)
+
+DEPENDENCIES:
+  - ReactiveCocoa (= 2.3.1)
+  - SGQRCode (~> 2.2.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ReactiveCocoa
+    - SGQRCode
+
+SPEC CHECKSUMS:
+  ReactiveCocoa: 3fe9b233ca6db810e86681b5749488564c1179a1
+  SGQRCode: 6cd7f03ea6b74d1267820d427b07d1451b387c79
+
+PODFILE CHECKSUM: 294647ccac2daf8c17be7d50e9c9c92c5829f206
+
+COCOAPODS: 1.5.3

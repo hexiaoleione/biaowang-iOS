@@ -266,6 +266,8 @@
         NSInteger  errCode = [[result valueForKey:@"errCode"] integerValue];
         NSString * message = [result valueForKey:@"message"];
         if (errCode == 0) {
+            
+            
             UIAlertController *alertTwo = [UIAlertController alertControllerWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"%@请您选择继续接单或查看详情",message] preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancleTwo = [UIAlertAction actionWithTitle:@"继续接单" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
