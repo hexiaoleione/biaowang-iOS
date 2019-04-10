@@ -165,7 +165,7 @@ JProperty(UITextField *idCardNumbereField, idCardNumbereField);
         }
         
         //按钮点击方法
-        [carTypeBtn addTarget:self action:@selector(carTypeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+     [carTypeBtn addTarget:self action:@selector(carTypeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
 
     _headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(WINDOW_WIDTH/2 -WGiveWidth(75), Start_Y+ Height_Space + Button_Height*2 + 10, WGiveWidth(300), WGiveHeight(150))];
@@ -274,6 +274,16 @@ JProperty(UITextField *idCardNumbereField, idCardNumbereField);
     _DoneBtn.layer.cornerRadius =15;
     [_DoneBtn addTarget:self action:@selector(doneBtn) forControlEvents:UIControlEventTouchUpInside];
     [contentView addSubview:_DoneBtn];
+    
+    UILabel *explainLable = [[UILabel alloc]initWithFrame:CGRectMake(10, CGRectGetMaxY(_DoneBtn.frame)+10, self.view.frame.size.width-20, WGiveHeight(80))];
+    //    explainLable.textAlignment = NSTextAlignmentCenter;
+    explainLable.numberOfLines = 0;
+    explainLable.text = @"如果出现闪退，请进入手机设置，充许“镖王”使用手机的摄像头，并一起打开“定位”等其它权限。";
+    explainLable.textColor=[UIColor grayColor];
+    explainLable.font = [UIFont systemFontOfSize:14];
+    [contentView addSubview:explainLable];
+    
+    
 }
 
 -(void)nextBtn
@@ -335,7 +345,7 @@ JProperty(UITextField *idCardNumbereField, idCardNumbereField);
                                    reqType:k_POST
                                    success:^(id object) {
                                        
-                                    if (_isRegist) {
+                                       if (self->_isRegist) {
                                         [self dismissViewControllerAnimated:YES completion:nil];
                                     }
                                     [SVProgressHUD showSuccessWithStatus:@"申请成功,我们会在24小时内审核完毕"];
@@ -419,6 +429,43 @@ JProperty(UITextField *idCardNumbereField, idCardNumbereField);
 }
 
 -(void)imageTaped:(UITapGestureRecognizer*)sender {
+    
+    
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType: AVMediaTypeVideo];
+    //读取设备授权状态
+    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+//        [SVProgressHUD showInfoWithStatus:@"应用相机权限受限,请在设置中启用"];
+//        [SVProgressHUD dismissWithDelay:1.5];
+      
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"应用相机权限受限,是否在设置中启用？" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *suerAction = [UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            
+            if ([[UIApplication sharedApplication]canOpenURL:url]) {
+                
+                [[UIApplication sharedApplication]openURL:url];
+                
+            }
+          
+            
+        }];
+       
+        
+        UIAlertAction *failAction = [UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            
+            
+        }];
+        [alert addAction:failAction];
+         [alert addAction:suerAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+      
+        
+        return;
+    }
+    
     __weak UserNameViewController *wself = self;
     XLIDScanViewController *idScanViewController = [[XLIDScanViewController alloc] initWithBlock:^(BOOL status, XLScanResultModel *result) {
         

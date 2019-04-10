@@ -22,6 +22,7 @@
 #define k_GET                                     101//查询
 #define k_PUT                                     102//更新
 #define k_DELETE                                  103//删除
+#define ShareSuccess                            @"system/question/updateAfterShare" //分享成功
 #define IfHaveBuyInsure                         @"system/question/updateIfHaveBuyInsure"//是否购买意外险
 #define PUBLISH_SUCCESS                         @"publishSuccess"
 #define API_USERS                               @"users/register"//注册

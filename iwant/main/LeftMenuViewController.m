@@ -40,8 +40,8 @@
 
 - (NSArray *)iconArray {
     if (!_iconArray) {
+        // @"left_btn_scan",
         self.iconArray = [NSArray arrayWithObjects:
-                          @"left_btn_scan",
                           @"left_btn_yuE",
                           @"left_btn_jie",
                           @"left_btn_fa",
@@ -56,7 +56,8 @@
 
 - (NSArray *)titleArray {
     if (!_titleArray) {
-        self.titleArray = [NSArray arrayWithObjects:@"加盟商扫码登录",@"账户余额",@"我的接单",@"我的发单",@"代付记录",@"角色认证",@"我要理赔",@"操作指南",@"关于", nil];
+        //@"加盟商扫码登录",
+        self.titleArray = [NSArray arrayWithObjects:@"账户余额",@"我的接单",@"我的发单",@"代付记录",@"角色认证",@"我要理赔",@"操作指南",@"关于", nil];
     }
     return _titleArray;
 }
@@ -142,6 +143,7 @@
     UINavigationController *cen = (UINavigationController *)drawerVC.centerViewController;
     [drawerVC closeDrawerAnimated:NO completion:nil];
     ShareViewController * shareVC =[[ShareViewController alloc]init];
+    shareVC.types = 0;
     [cen pushViewController:shareVC animated:YES];
 }
 
@@ -185,44 +187,45 @@
     [[UINavigationBar appearance] setTranslucent:NO];
     UINavigationController *cen = (UINavigationController *)drawerVC.centerViewController;
     [drawerVC closeDrawerAnimated:NO completion:nil];
-    if (indexPath.row == 0) {
-        NSLog(@"扫码登录");
-        ScanViewController *scanLogin = [[ScanViewController alloc]init];
-        scanLogin.isChoice = YES;
-        scanLogin.returnCodeBlock = ^(NSString *code){
-        [SVProgressHUD showWithStatus:@"代理登录中"];
-        NSDictionary *dic =@{@"codeId":code,@"idCard":[UserManager getDefaultUser].idCard};
-        [ExpressRequest sendWithParameters:dic MethodStr:@"system/agentNew/scanLogin" reqType:k_POST success:^(id object) {
-        [SVProgressHUD showSuccessWithStatus:[object valueForKey:@"message"]];
-        } failed:^(NSString *error) {
-        [SVProgressHUD showErrorWithStatus:error];
-        }];
-       };
-    [cen presentViewController:scanLogin animated:YES completion:nil];
-    }else if (indexPath.row == 1) {
+//    if (indexPath.row == 0) {
+//        NSLog(@"扫码登录");
+//        ScanViewController *scanLogin = [[ScanViewController alloc]init];
+//        scanLogin.isChoice = YES;
+//        scanLogin.returnCodeBlock = ^(NSString *code){
+//            [SVProgressHUD showWithStatus:@"代理登录中"];
+//            NSDictionary *dic =@{@"codeId":code,@"idCard":[UserManager getDefaultUser].idCard};
+//            [ExpressRequest sendWithParameters:dic MethodStr:@"system/agentNew/scanLogin" reqType:k_POST success:^(id object) {
+//                [SVProgressHUD showSuccessWithStatus:[object valueForKey:@"message"]];
+//            } failed:^(NSString *error) {
+//                [SVProgressHUD showErrorWithStatus:error];
+//            }];
+//        };
+//        [cen presentViewController:scanLogin animated:YES completion:nil];
+//    }else
+   if (indexPath.row == 0) {
         //账户余额
         PersonalWealthVC * personalWealthVC = [[PersonalWealthVC alloc]init];
         [cen  pushViewController:personalWealthVC animated:YES];
-    }else if(indexPath.row == 2){
+    }else if(indexPath.row == 1){
         //我的接单
         MyJieViewController  * vc =[[MyJieViewController alloc]init];
         [cen pushViewController:vc animated:YES];
-    }else if(indexPath.row == 3){
+    }else if(indexPath.row == 2){
         //我的发单
         MyFaViewController * vc =[[MyFaViewController alloc]init];
         [cen pushViewController:vc animated:YES];
-    }else if(indexPath.row == 4){
+    }else if(indexPath.row == 3){
         //代付记录
         OtherPayViewController * vc = [[OtherPayViewController alloc]init];
         [cen pushViewController:vc animated:YES];
-    }else if(indexPath.row == 5){
+    }else if(indexPath.row == 4){
         //角色认证
         RoleExplainVC * vc = [[RoleExplainVC alloc]init];
         [cen pushViewController:vc animated:YES];
-    }else if(indexPath.row == 6){
+    }else if(indexPath.row == 5){
         //我要理赔 95509
         [Utils callAction:@"4006095509"];
-    }else if(indexPath.row == 7){
+    }else if(indexPath.row == 6){
         //操作指南
         OperationRuleVC * vc = [[OperationRuleVC alloc]init];
         [cen pushViewController:vc animated:YES];
@@ -255,8 +258,8 @@
 }
 - (void)setNavi:(int)tag{
     if (tag == 0) {
+        // @"left_btn_scan",
         self.iconArray = [NSArray arrayWithObjects:
-                          @"left_btn_scan",
                           @"left_btn_yuE",
                           @"left_btn_jie",
                           @"left_btn_fa",
@@ -267,8 +270,8 @@
                           @"left_btn_about", nil];
         [_tableview reloadData];
     }else{
+        // @"left_btn_scan",
         self.iconArray = [NSArray arrayWithObjects:
-                          @"left_btn_scan",
                           @"left_btn_yuE",
                           @"left_btn_jie",
                           @"left_btn_fa",

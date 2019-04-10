@@ -43,15 +43,6 @@
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
-    },
-    {
-      "extent" : "full-screen",
-      "idiom" : "iphone",
-      "subtype" : "retina4",
-      "filename" : "640*1136.png",
-      "orientation" : "portrait",
-      "unassigned" : true,
-      "scale" : "2x"
     }
   ],
   "info" : {

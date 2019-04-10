@@ -215,9 +215,9 @@
             NSLog(@"%@",reslut);
             [SVProgressHUD dismiss];
         } Failed:^(NSString *error) {
-            [yzButton setTitle:@"重新获取验证码" forState:UIControlStateNormal];
-            if (_timer) {
-                [_timer invalidate];
+            [self->yzButton setTitle:@"重新获取验证码" forState:UIControlStateNormal];
+            if (self->_timer) {
+                [self->_timer invalidate];
             }
             [SVProgressHUD showErrorWithStatus:error];
         }];
@@ -228,9 +228,9 @@
             NSLog(@"%@",reslut);
             [SVProgressHUD dismiss];
         } Failed:^(NSString *error) {
-            [yzButton setTitle:@"重新获取验证码" forState:UIControlStateNormal];
-            if (_timer) {
-                [_timer invalidate];
+            [self->yzButton setTitle:@"重新获取验证码" forState:UIControlStateNormal];
+            if (self->_timer) {
+                [self->_timer invalidate];
             }
             [SVProgressHUD showErrorWithStatus:error];
         }];
@@ -241,9 +241,9 @@
 //            _oUserPhoneNum = [NSString stringWithFormat:@"%@",object[0]];
             [SVProgressHUD dismiss];
         } Failed:^(NSString *error) {
-            [yzButton setTitle:@"重新获取验证码" forState:UIControlStateNormal];
-            if (_timer) {
-                [_timer invalidate];
+            [self->yzButton setTitle:@"重新获取验证码" forState:UIControlStateNormal];
+            if (self->_timer) {
+                [self->_timer invalidate];
             }
             [SVProgressHUD showErrorWithStatus:error];
         }];
@@ -444,11 +444,11 @@
         //正常注册
         NSString * urlStr = [NSString stringWithFormat:@"%@sms/compare?mobile=%@&code=%@",BaseUrl,phone.text,code.text];
         [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object) {
-            [[NSUserDefaults standardUserDefaults] setValue:phone.text forKey:REGIST_PHONE];
+            [[NSUserDefaults standardUserDefaults] setValue:self->phone.text forKey:REGIST_PHONE];
             [[NSUserDefaults standardUserDefaults] synchronize];
             settingPassWardViewController *vc =  [[settingPassWardViewController alloc]init];
-            vc.otherPhone = otherPhone.text;
-            vc.code = code.text;
+            vc.otherPhone = self->otherPhone.text;
+            vc.code = self->code.text;
             [self.navigationController pushViewController:vc animated:YES];
         } failed:^(NSString *error) {
             [SVProgressHUD showErrorWithStatus:error];

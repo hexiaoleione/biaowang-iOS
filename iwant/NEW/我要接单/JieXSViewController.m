@@ -18,6 +18,7 @@
 #import "DepositVC.h"
 #import "AccidentInsuranceVC.h"
 #import "PRHomeWebViewController.h"
+#import "ShareViewController.h"
 @interface JieXSViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 {
     UITableView * _tableView;
@@ -52,7 +53,9 @@
     [self creatTableView];
     
     _bgv = [[NothingBGView alloc] initWithFrame:_tableView.frame];
-    _bgv.textLabel.text = @"暂无数据";
+    _bgv.textLabel.numberOfLines = 0;
+    _bgv.textLabel.font = [UIFont systemFontOfSize:15.f];
+    _bgv.textLabel.text = @"您来晚了，订单已被别的镖师抢走，继续加油！";
     _bgv.hidden = YES;
     [self.view addSubview:_bgv];
 }
@@ -134,25 +137,25 @@
         }
         
         [self endRefresh];
-        if (_pageNo == 1) {
-            _modelArray = [NSMutableArray array];
-            [_modelArray addObjectsFromArray:proArray];
+        if (self->_pageNo == 1) {
+            self->_modelArray = [NSMutableArray array];
+            [self->_modelArray addObjectsFromArray:proArray];
         }else{
-            [_modelArray addObjectsFromArray:proArray];
+            [self->_modelArray addObjectsFromArray:proArray];
         }
 
-        if (_modelArray.count == 0)
+        if (self->_modelArray.count == 0)
         {
-            _tableView.footer.hidden = YES;
-            _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-            _bgv.hidden = NO;
+            self->_tableView.footer.hidden = YES;
+            self->_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            self->_bgv.hidden = NO;
         }else{
-            _tableView.footer.hidden  = NO;
-            _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-            [_tableView  setSeparatorColor:UIColorFromRGB(0xc1c1fa)];  //设置分割线为紫色
-            _bgv.hidden = YES;
+            self->_tableView.footer.hidden  = NO;
+            self->_tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+            [self->_tableView  setSeparatorColor:UIColorFromRGB(0xc1c1fa)];  //设置分割线为紫色
+            self->_bgv.hidden = YES;
         }
-        [_tableView reloadData];
+        [self->_tableView reloadData];
     } failed:^(NSString *error) {
         [self endRefresh];
         [SVProgressHUD showErrorWithStatus:error];
@@ -265,13 +268,13 @@
         // 2假单  -2 真单被抢走
         NSInteger  errCode = [[result valueForKey:@"errCode"] integerValue];
         NSString * message = [result valueForKey:@"message"];
+        
         if (errCode == 0) {
-            
             
             UIAlertController *alertTwo = [UIAlertController alertControllerWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"%@请您选择继续接单或查看详情",message] preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancleTwo = [UIAlertAction actionWithTitle:@"继续接单" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
-                [_tableView.header beginRefreshing];
+                [self->_tableView.header beginRefreshing];
             }];
             UIAlertAction *updateTwo = [UIAlertAction actionWithTitle:@"查看详情" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 JieOrderDetailVC * vc= [[JieOrderDetailVC alloc]init];
@@ -301,14 +304,38 @@
             [alert addAction:suerAction];
             [self presentViewController:alert animated:YES completion:nil];
         }else if(errCode == -4){
-            __weak JieXSViewController *weakSelf = self;
-            AccidentInsuranceVC * vc = [[AccidentInsuranceVC alloc]initWithDismissOpration:^{
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"镖师接单必须已经在保险机构购买交通意外险。" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *suerAction = [UIAlertAction actionWithTitle:@"本人自己解决意外险问题" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
+                [SVProgressHUD show];
+                NSString * urlStr = [NSString stringWithFormat:@"%@%@?userId=%@&ifHaveBuyInsure=1",BaseUrl,IfHaveBuyInsure,[UserManager getDefaultUser].userId];
+                [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object) {
+                    [SVProgressHUD dismiss];
+                    [self confirmAcceptOrderModel:model];
+                    
+                    
+                    //                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                } failed:^(NSString *error) {
+                    [SVProgressHUD showErrorWithStatus:error];
+                    
+                }];
                 
-                [weakSelf confirmAcceptOrderModel:model];
                 
             }];
-            [self.navigationController pushViewController:vc animated:YES];
+            [alert addAction:suerAction];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+//            __weak JieXSViewController *weakSelf = self;
+//            AccidentInsuranceVC * vc = [[AccidentInsuranceVC alloc]initWithDismissOpration:^{
+//
+//
+//                [weakSelf confirmAcceptOrderModel:model];
+//                
+//            }];
+//            [self.navigationController pushViewController:vc animated:YES];
         }else if(errCode == -6){
             //押金不够去充值
             [SVProgressHUD show];
@@ -329,6 +356,54 @@
             } failed:^(NSString *error) {
                 [SVProgressHUD showErrorWithStatus:error];
             }];
+        }else if (errCode == -9) {
+            
+            [SVProgressHUD showErrorWithStatus:message];
+            
+        }else if (errCode == -10) {
+            
+            __weak JieXSViewController *weakSelf = self;
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *suerAction = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                MMDrawerController *drawerVC = (MMDrawerController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+                [[UINavigationBar appearance] setTranslucent:NO];
+                UINavigationController *cen = (UINavigationController *)drawerVC.centerViewController;
+                [drawerVC closeDrawerAnimated:NO completion:nil];
+                ShareViewController * shareVC = [[ShareViewController alloc]initWithDismissOpration:^{
+                    
+                    NSString * urlStr = [NSString stringWithFormat:@"%@%@?userId=%@",BaseUrl,ShareSuccess,[UserManager getDefaultUser].userId];
+                    [ExpressRequest sendWithParameters:nil MethodStr:urlStr reqType:k_GET success:^(id object) {
+                        
+                        [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+                        [self confirmAcceptOrderModel:model];
+                        
+                        
+                    } failed:^(NSString *error) {
+                        [SVProgressHUD showErrorWithStatus:error];
+                        
+                    }];
+                    
+                    [weakSelf confirmAcceptOrderModel:model];
+                    
+                }];
+                shareVC.types = 1;
+                
+                [cen pushViewController:shareVC animated:YES];
+                
+            }];
+            [alert addAction:suerAction];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alert addAction:cancelAction];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            
+            //            [SVProgressHUD showErrorWithStatus:message];
         }else{
             NSLog(@"其他~~");
         }

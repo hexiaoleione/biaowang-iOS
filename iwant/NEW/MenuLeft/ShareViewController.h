@@ -8,6 +8,12 @@
 
 #import "BaseLeftViewController.h"
 
+typedef void(^Dismiss)(void);
+
 @interface ShareViewController : BaseLeftViewController
+@property (nonatomic, copy) Dismiss dismiss;
+@property (nonatomic, assign) NSInteger types;
+
+- (instancetype)initWithDismissOpration:(void (^)(void))dismissfn;
 
 @end

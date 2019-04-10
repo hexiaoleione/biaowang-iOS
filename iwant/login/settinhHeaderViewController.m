@@ -11,6 +11,7 @@
 #import "MainHeader.h"
 #import "ChangeNumViewController.h"
 #import "changeInfoViewController.h"//修改个人信息
+#import "XLIDScanViewController.h"
 
 #define WINDOW_WIDTH                [[UIScreen mainScreen] bounds].size.width
 #define WINDOW_HEIGHT               [[UIScreen mainScreen] bounds].size.height
@@ -26,13 +27,17 @@
 {
     UIView *bgView;
     UIView *bgView1;
-    UITextField *username;   //昵称
-    UITextField *cardNo;//身份证号
+//    UITextField *username;   //昵称
+//    UITextField *cardNo;//身份证号
     NSString *_filePath;
     
     NSString *_midStr;//身份证号的星星代表的东西
 }
-@property (nonatomic,strong) YMHeaderView *head; //头像
+@property (nonatomic,strong) UIImageView *head; //头像
+JProperty(UITextField *username, username);
+JProperty(UITextField *cardNo, cardNo);
+
+
 //@property (nonatomic,strong) YMHeaderView *IDCard; //身份证照片
 
 
@@ -77,20 +82,20 @@
     bgView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:bgView];
     
-    username=[self createTextFielfFrame:CGRectMake(10, WGiveHeight(10), self.view.frame.size.width-20, WGiveHeight(30)) font:[UIFont systemFontOfSize:14] placeholder:@"请输入真实姓名"];
-    username.textAlignment=NSTextAlignmentCenter;
-    username.clearButtonMode = UITextFieldViewModeWhileEditing;
-    username.text = [UserManager getDefaultUser].userName;
+    _username=[self createTextFielfFrame:CGRectMake(10, WGiveHeight(10), self.view.frame.size.width-20, WGiveHeight(30)) font:[UIFont systemFontOfSize:14] placeholder:@"请输入真实姓名"];
+    _username.textAlignment=NSTextAlignmentCenter;
+    _username.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _username.text = [UserManager getDefaultUser].userName;
     
     
     
-    cardNo=[self createTextFielfFrame:CGRectMake(10, WGiveHeight(10), self.view.frame.size.width-20, WGiveHeight(30)) font:[UIFont systemFontOfSize:14] placeholder:@"请输入身份证号"];
-    cardNo.textAlignment=NSTextAlignmentCenter;
-    cardNo.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _cardNo=[self createTextFielfFrame:CGRectMake(10, WGiveHeight(10), self.view.frame.size.width-20, WGiveHeight(30)) font:[UIFont systemFontOfSize:14] placeholder:@"请输入身份证号"];
+    _cardNo.textAlignment=NSTextAlignmentCenter;
+    _cardNo.clearButtonMode = UITextFieldViewModeWhileEditing;
     if ([UserManager getDefaultUser].idCard.length > 0) {
-        cardNo.text = [self codeStr:[UserManager getDefaultUser].idCard];
+        _cardNo.text = [self codeStr:[UserManager getDefaultUser].idCard];
     }
-    cardNo.delegate = self;
+    _cardNo.delegate = self;
     
     
     bgView1=[[UIView alloc]initWithFrame:CGRectMake(0, WGiveHeight(330),frame.size.width, WGiveHeight(50))];
@@ -108,12 +113,24 @@
     UIImageView *imageV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"wenxin_img"]];
     imageV.frame = CGRectMake(10, CGRectGetMaxY(landBtn.frame)+20, self.view.frame.size.width-20, WGiveHeight(90));
     
-    [bgView addSubview:username];
+    [bgView addSubview:_username];
     
-    [bgView1 addSubview:cardNo];
+    [bgView1 addSubview:_cardNo];
     
     [self.view addSubview:landBtn];
     
+    UILabel *explainLable = [[UILabel alloc]initWithFrame:CGRectMake(10, CGRectGetMaxY(landBtn.frame)+20, self.view.frame.size.width-20, WGiveHeight(80))];
+//    explainLable.textAlignment = NSTextAlignmentCenter;
+    explainLable.numberOfLines = 0;
+    explainLable.text = @"如果出现闪退，请进入手机设置，充许“镖王”使用手机的摄像头，并一起打开“定位”等其它权限。";
+    explainLable.textColor=[UIColor grayColor];
+    explainLable.font = [UIFont systemFontOfSize:14];
+    [self.view addSubview:explainLable];
+    
+    
+    
+//    self.head.userInteractionEnabled = YES;
+
 //    [self.view addSubview:imageV];
     
     //判断是否实名认证
@@ -121,24 +138,24 @@
         self.head.userInteractionEnabled = NO;
     }
     if ([UserManager getDefaultUser].completed) {
-        username.userInteractionEnabled = NO;
-        cardNo.userInteractionEnabled = NO;
+        _username.userInteractionEnabled = NO;
+        _cardNo.userInteractionEnabled = NO;
     }
 }
 
 -(void)landClick
 {
     NSString *cardNOStr = nil;
-    if ([cardNo.text rangeOfString:@"*"].length >0) {
+    if ([_cardNo.text rangeOfString:@"*"].length >0) {
         cardNOStr = [UserManager getDefaultUser].idCard;
     }else{
-        cardNOStr = cardNo.text;
+        cardNOStr = _cardNo.text;
     }
 //    if (_filePath.length<=0) {
 //        [SVProgressHUD showInfoWithStatus:@"请上传身份证照片"];
 //        return;
 //    }
-    if (![username.text isValidUserName]) {
+    if (![_username.text isValidUserName]) {
         [SVProgressHUD showInfoWithStatus:@"请填写正确的姓名"];
         return;
     }
@@ -148,15 +165,16 @@
     }
     [SVProgressHUD show];
     
+    __weak settinhHeaderViewController *wself = self;
     [RequestManager userInfoWithUserId:[UserManager getDefaultUser].userId
-                              userName:username.text
+                              userName:_username.text
                                 idCard:cardNOStr
                                idCardPath:_filePath ? _filePath : [UserManager getDefaultUser].idCardPath
                                Success:^(id object) {
                                    [SVProgressHUD dismiss];
                                    NSString *message = [object valueForKey:@"message"];
                                    [SVProgressHUD showSuccessWithStatus:message];
-                                   if (_isRegist) {
+                                   if (wself.isRegist) {
                                        [self dissmissView];
                                        return ;
                                    }
@@ -237,15 +255,22 @@
     bg.backgroundColor = [UIColor clearColor];
     [self.view addSubview:bg];
     
-    _head = [[YMHeaderView alloc]initWithFrame:CGRectMake(WGiveWidth(60), WGiveHeight(44), WGiveWidth(320), WGiveHeight(200))];
+    
+    _head = [[UIImageView alloc]initWithFrame:CGRectMake(WGiveWidth(60), WGiveHeight(44), WGiveWidth(320), WGiveHeight(200))];
     _head.centerX = self.view.centerX;
     _head.backgroundColor = [UIColor grayColor];
     _head.layer.cornerRadius = 10;
-    _head.delagate = self;
-    [_head sd_setImageWithURL:[NSURL URLWithString:[UserManager getDefaultUser].idCardPath] placeholderImage:[UIImage imageNamed:@"lizi"]];
-    [self.view addSubview:_head];
-    
-    
+    //    _headImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _head.clipsToBounds = YES;
+    //    _headImageView.layer.cornerRadius = _headImageView.frame.size.width /2.0f;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTaped:)];
+    [_head setUserInteractionEnabled:YES];
+    [_head addGestureRecognizer:tap];
+    //    _headImageView.delagate = self;
+    //    if (self.courentbtnTag ==2) {
+    [_head sd_setImageWithURL:[NSURL URLWithString:[UserManager getDefaultUser].idCardPath] placeholderImage:[UIImage imageNamed:@"shenfenzheng"]];
+      [self.view addSubview:_head];
+
     
     UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake((self.view.frame.size.width-WGiveWidth(80))/2, WGiveHeight(180), WGiveWidth(100), WGiveHeight(80))];
     label.centerX = self.view.centerX;
@@ -256,7 +281,61 @@
     [self.view addSubview:label];
 }
 
-
+-(void)imageTaped:(UITapGestureRecognizer*)sender {
+    
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType: AVMediaTypeVideo];
+    //读取设备授权状态
+    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+        //        [SVProgressHUD showInfoWithStatus:@"应用相机权限受限,请在设置中启用"];
+        //        [SVProgressHUD dismissWithDelay:1.5];
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"应用相机权限受限,是否在设置中启用？" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *suerAction = [UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            
+            if ([[UIApplication sharedApplication]canOpenURL:url]) {
+                
+                [[UIApplication sharedApplication]openURL:url];
+                
+            }
+            
+            
+        }];
+        
+        
+        UIAlertAction *failAction = [UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            
+            
+        }];
+        [alert addAction:failAction];
+        [alert addAction:suerAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        
+        
+        return;
+    }
+    
+    __weak settinhHeaderViewController *wself = self;
+    XLIDScanViewController *idScanViewController = [[XLIDScanViewController alloc] initWithBlock:^(BOOL status, XLScanResultModel *result) {
+        
+        NSLog(@"result == %@",result.toString);
+        //        NSData *decodeData = [[NSData alloc] initWithBase64EncodedData:encodeData options:0];
+        wself.head.image = [UIImage imageWithData: [[NSData alloc]initWithBase64EncodedString:result.imageData options:NSDataBase64DecodingIgnoreUnknownCharacters]];
+        NSLog(@"ddddddddddssss====%@\neeeeeeee===%@",result.imageData,[[NSData alloc]initWithBase64EncodedString:result.imageData options:NSDataBase64DecodingIgnoreUnknownCharacters]);
+        wself.username.text = result.name;
+        wself.cardNo.text = result.code;
+        //上传头像
+        [self updatePhotoFor:wself.head.image];
+//        [wself headerViewDidSelectWithImage:wself.headImageView.image];
+        
+        
+    } idcardType:1 ];
+    [self.navigationController presentViewController:idScanViewController animated:YES completion:nil];
+    
+}
 
 -(void)changeHeadView1:(UIButton *)tap
 {
@@ -299,7 +378,7 @@
         //关闭相册界面
         [picker dismissViewControllerAnimated:YES completion:^{
             //设置头像
-            [_head setImage:image];
+            [self->_head setImage:image];
                         //上传头像
             [self updatePhotoFor:image];
         }];
@@ -310,7 +389,7 @@
 -(void)updatePhotoFor:(UIImage *)image{
         [SVProgressHUD show];
         [RequestManager uploadPictureWithUserId:[UserManager getDefaultUser].userId fileName:@"id_card.png" file:image Success:^(NSDictionary *result) {
-            _filePath = [([result objectForKey:@"data"][0]) valueForKey:@"filePath"];
+            self->_filePath = [([result objectForKey:@"data"][0]) valueForKey:@"filePath"];
             [SVProgressHUD showSuccessWithStatus:@"上传成功"];
         } Failed:^(NSString *error) {
             [SVProgressHUD showErrorWithStatus:error];
@@ -420,7 +499,7 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     if (_midStr.length > 0) {
-        cardNo.text = [UserManager getDefaultUser].idCard;
+        _cardNo.text = [UserManager getDefaultUser].idCard;
 //        cardNo.text = [self deCodeStr:cardNo.text];
     }
 }

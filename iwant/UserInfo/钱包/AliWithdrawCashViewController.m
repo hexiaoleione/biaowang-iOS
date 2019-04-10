@@ -76,8 +76,8 @@
     [RequestManager getWithDrawDefaultWithUserId:[UserManager getDefaultUser].userId
                                          success:^(NSDictionary *result) {
                                              [SVProgressHUD dismiss];
-                                             _ali_NameTextField .text= result[@"aliPayNickName"];
-                                             _ali_NumberField .text= result[@"aliPayAccount"];
+                                             self->_ali_NameTextField .text= result[@"aliPayNickName"];
+                                             self->_ali_NumberField .text= result[@"aliPayAccount"];
                                          } Failed:^(NSString *error) {
                                              [SVProgressHUD showErrorWithStatus:error];
                                          }];
@@ -90,14 +90,14 @@
          
          myBlance *model =object;
          if (model.withdrawableMoney.doubleValue == 0) {
-             _withdrawableMoney.text = @"0";
+             self->_withdrawableMoney.text = @"0";
          }else{
-             _withdrawableMoney.text = [NSString stringWithFormat:@"%0.2lf",[model.withdrawableMoney doubleValue]];
+             self->_withdrawableMoney.text = [NSString stringWithFormat:@"%0.2lf",[model.withdrawableMoney doubleValue]];
          }
          if (model.waitMoney.doubleValue == 0) {
-             _shenhe_MoneyLabel.text =[NSString stringWithFormat:@"正在审核资金：0"];
+             self->_shenhe_MoneyLabel.text =[NSString stringWithFormat:@"正在审核资金：0"];
          }else{
-             _shenhe_MoneyLabel.text = [NSString stringWithFormat:@"正在审核资金：%0.2lf",[model.waitMoney doubleValue]];
+             self->_shenhe_MoneyLabel.text = [NSString stringWithFormat:@"正在审核资金：%0.2lf",[model.waitMoney doubleValue]];
          }
      }
      
@@ -236,6 +236,21 @@
     else if(_aliMoneyTextFiled.text.doubleValue >_withdrawableMoney.text.doubleValue)
     {
         [SVProgressHUD showErrorWithStatus:@"您没有这么多可提现哦" ];
+        return;
+    }else if (_withdrawableMoney.text.doubleValue < 100 && _aliMoneyTextFiled.text.doubleValue >_withdrawableMoney.text.doubleValue*0.98) {
+        [SVProgressHUD showErrorWithStatus:@"提现有手续费（费率见右上角，点问号），您的费用不足，请减少提现金额再试。" ];
+        return;
+    }else if (_withdrawableMoney.text.doubleValue >= 100 && _withdrawableMoney.text.doubleValue < 1000 && _aliMoneyTextFiled.text.doubleValue >_withdrawableMoney.text.doubleValue*0.99) {
+        [SVProgressHUD showErrorWithStatus:@"提现有手续费（费率见右上角，点问号），您的费用不足，请减少提现金额再试。" ];
+        return;
+    }else if (_withdrawableMoney.text.doubleValue >= 1000 && _withdrawableMoney.text.doubleValue < 2000 && _aliMoneyTextFiled.text.doubleValue >_withdrawableMoney.text.doubleValue*0.995) {
+        [SVProgressHUD showErrorWithStatus:@"提现有手续费（费率见右上角，点问号），您的费用不足，请减少提现金额再试。" ];
+        return;
+    }else if (_withdrawableMoney.text.doubleValue >= 2000 && _withdrawableMoney.text.doubleValue < 5000 && _aliMoneyTextFiled.text.doubleValue >_withdrawableMoney.text.doubleValue*0.997) {
+        [SVProgressHUD showErrorWithStatus:@"提现有手续费（费率见右上角，点问号），您的费用不足，请减少提现金额再试。" ];
+        return;
+    }else if (_withdrawableMoney.text.doubleValue >= 5000 && _aliMoneyTextFiled.text.doubleValue >_withdrawableMoney.text.doubleValue*0.998) {
+        [SVProgressHUD showErrorWithStatus:@"提现有手续费（费率见右上角，点问号），您的费用不足，请减少提现金额再试。" ];
         return;
     }
     
@@ -401,13 +416,13 @@
                                                  deviceId:nil
                                                   success:^(NSString *reslut) {
                                                       [SVProgressHUD showSuccessWithStatus:@"密码设置成功"];
-                                                      [_passWordView clearPwd];
-                                                      [_passWordView removeEnterView];
+                                                      [self->_passWordView clearPwd];
+                                                      [self->_passWordView removeEnterView];
                                                   } Failed:^(NSString *error) {
                                                       [SVProgressHUD showErrorWithStatus:error];
-                                                      [_passWordView clearPwd];
-                                                      [_passWordView titleName:@"请重新设置密码" withMoneyText:nil];
-                                                      _firstPassWord = nil;
+                                                      [self->_passWordView clearPwd];
+                                                      [self->_passWordView titleName:@"请重新设置密码" withMoneyText:nil];
+                                                      self->_firstPassWord = nil;
                                                   }];
 
             }else{

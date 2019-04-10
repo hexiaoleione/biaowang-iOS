@@ -26,7 +26,7 @@
     _subView = [[RealnameView alloc]initWithFrame:self.view.bounds];
     __weak RealnameViewController *weakSelf = self;
     _subView.block = ^(int tag){
-        _card = _subView.cardNoFiled.text;
+        self->_card = self->_subView.cardNoFiled.text;
         [weakSelf btnClick:tag];
     };
     

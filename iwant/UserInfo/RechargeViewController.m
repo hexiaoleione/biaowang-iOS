@@ -79,13 +79,13 @@
     [RequestManager getRechargechangeuserId:[UserManager getDefaultUser].userId success:^(id object) {
         NSString *str = [object valueForKey:@"ifAvalid"];
         if ([str integerValue] == 0) {
-            _ifAvalid = NO;
+            self->_ifAvalid = NO;
         }else{
-            _ifAvalid = YES;
+            self->_ifAvalid = YES;
         }
 //  private String agreementType;    //普通用户 0或空 海南代理 1  海南用户 2
         if ([[UserManager getDefaultUser].agreementType intValue] == 1 || [[UserManager getDefaultUser].agreementType intValue] == 2) {
-            _ifAvalid = NO;
+            self->_ifAvalid = NO;
             [SVProgressHUD showErrorWithStatus:@"您是海南特约用户不可进行充值"];
         }
     } Failed:^(NSString *error) {

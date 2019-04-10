@@ -49,7 +49,9 @@
     [self creatSearchBar];
     [self creatTableView];
     _bgv = [[NothingBGView alloc] initWithFrame:_tableView.frame];
-    _bgv.textLabel.text = @"暂无货源信息";
+    _bgv.textLabel.numberOfLines = 0;
+    _bgv.textLabel.font = [UIFont systemFontOfSize:15.f];
+    _bgv.textLabel.text = @"您来晚了，订单已被别的镖师抢走，继续加油！";
     _bgv.hidden = YES;
     [self.view addSubview:_bgv];
 }
@@ -124,17 +126,17 @@
                                reqType:k_GET
                                success:^(id object) {
                                    NSArray *arr = [object valueForKey:@"data"];
-                                   if (_pageNo == 1) {
+                                   if (self->_pageNo == 1) {
                                        self.dataArray  = [NSMutableArray array];
                                        if (arr.count == 0 ) {
-                                           _tableView.footer.hidden = YES;
-                                           _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-                                           _bgv.hidden = NO;
+                                           self->_tableView.footer.hidden = YES;
+                                           self->_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+                                           self->_bgv.hidden = NO;
                                        }else{
-                                           _tableView.footer.hidden  = NO;
-                                           _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-                                           [_tableView  setSeparatorColor:UIColorFromRGB(0xc1c1fa)];  //设置分割线为紫色
-                                           _bgv.hidden = YES;
+                                           self->_tableView.footer.hidden  = NO;
+                                           self->_tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+                                           [self->_tableView  setSeparatorColor:UIColorFromRGB(0xc1c1fa)];  //设置分割线为紫色
+                                           self->_bgv.hidden = YES;
                                        }
                                    }
                                    for (NSDictionary *dic in arr) {
@@ -143,14 +145,14 @@
                                        [self.dataArray addObject:model];
                                        
                                    }
-                                   [_tableView reloadData];
+                                   [self->_tableView reloadData];
                                    
-                                   [_tableView.header endRefreshing];
-                                   [_tableView.footer endRefreshing];
+                                   [self->_tableView.header endRefreshing];
+                                   [self->_tableView.footer endRefreshing];
                                }
                                 failed:^(NSString *error) {
-                                    [_tableView.header endRefreshing];
-                                    [_tableView.footer endRefreshing];
+                                    [self->_tableView.header endRefreshing];
+                                    [self->_tableView.footer endRefreshing];
                                 }];
 }
 

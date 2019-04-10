@@ -54,7 +54,12 @@ CG_INLINE void AlertLog (NSString *titleStr,NSString *message,NSString *button1,
 {
     
     if (!_imageArr) {
-        _imageArr = [NSArray arrayWithObjects:@"share_pengyouquan",@"share_wechat",@"share_qq",@"qzone",nil];
+        if (_types == 0) {
+            _imageArr = [NSArray arrayWithObjects:@"share_pengyouquan",@"share_wechat",@"share_qq",@"qzone",nil];
+        }else {
+         
+            _imageArr = [NSArray arrayWithObjects:@"share_pengyouquan",@"share_wechat",nil];
+        }
     }
     return _imageArr;
 }
@@ -63,17 +68,28 @@ CG_INLINE void AlertLog (NSString *titleStr,NSString *message,NSString *button1,
 {
     
     if (!_titleArr) {
-        _titleArr = [NSArray arrayWithObjects:@"朋友圈",@"微信好友",@"QQ好友",@"QQ空间",nil];
+        
+        if (_types == 0) {
+           
+             _titleArr = [NSArray arrayWithObjects:@"朋友圈",@"微信好友",@"QQ好友",@"QQ空间",nil];
+        }else {
+            
+             _titleArr = [NSArray arrayWithObjects:@"朋友圈",@"微信好友",nil];
+        }
+        
+       
     }
     return _titleArr;
 }
 
--(id)initWithFrame:(CGRect)frame
+-(id)initWithFrame:(CGRect)frame type:(NSInteger)type dismissOpration:(void (^)(void))dismissfn
 {
+    _types = type;
     float Margin = ceilf(ApplicationframeValue.width/self.imageArr.count/2);
     
     self = [super initWithFrame:frame];
     if (self) {
+        self.disView = dismissfn;
         self.overlayView = [[UIControl alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.overlayView.backgroundColor = [UIColor colorWithRed:.16 green:.17 blue:.21 alpha:.5];
         [self.overlayView addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
@@ -132,13 +148,24 @@ CG_INLINE void AlertLog (NSString *titleStr,NSString *message,NSString *button1,
     msg.thumbnail = [UIImage imageNamed:@"shareIcon"];
     msg.desc=[NSString stringWithFormat:@"我推荐镖王App，快来安装体验吧!"];
     msg.link=@"http://www.efamax.com/user_dl.html";
+    __weak  ShareView *selfView = self;
     switch (sender.tag) {
         case 1:{
             NSLog(@"分享到朋友圈");
 
             msg.title = @"我推荐镖王App，快来安装体验吧!";
             [OpenShare shareToWeixinTimeline:msg Success:^(OSMessage *message) {
-                [SVProgressHUD showSuccessWithStatus:@"分享微信朋友圈成功"];
+                
+                if (selfView.types ==0) {
+                   
+                     [SVProgressHUD showSuccessWithStatus:@"分享微信朋友圈成功"];
+                    
+                }else {
+                    
+                    selfView.disView();
+                }
+                
+               
             } Fail:^(OSMessage *message, NSError *error) {
                 [SVProgressHUD showErrorWithStatus:@"取消分享"];
             }];
@@ -151,7 +178,16 @@ CG_INLINE void AlertLog (NSString *titleStr,NSString *message,NSString *button1,
             {
                 NSLog(@"分享给微信好友");
                 [OpenShare shareToWeixinSession:msg Success:^(OSMessage *message) {
-                    [SVProgressHUD showSuccessWithStatus:@"分享给微信好友成功"];
+                    
+                    if (selfView.types ==0) {
+                        
+                        [SVProgressHUD showSuccessWithStatus:@"分享给微信好友成功"];
+                        
+                    }else {
+                        
+                        selfView.disView();
+                    }
+                    
                 } Fail:^(OSMessage *message, NSError *error) {
                     [SVProgressHUD showErrorWithStatus:@"取消分享"];
                 }];

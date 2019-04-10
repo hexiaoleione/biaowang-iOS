@@ -108,13 +108,13 @@
                                    [SVProgressHUD showSuccessWithStatus:@"上传成功"];
                                    switch (headerView.tag) {
                                        case 0:
-                                           _url_1 = [([object objectForKey:@"data"][0]) valueForKey:@"filePath"];
+                                           self->_url_1 = [([object objectForKey:@"data"][0]) valueForKey:@"filePath"];
                                            break;
                                        case 1:
-                                           _url_2 = [([object objectForKey:@"data"][0]) valueForKey:@"filePath"];
+                                           self->_url_2 = [([object objectForKey:@"data"][0]) valueForKey:@"filePath"];
                                            break;
                                        case 2:
-                                           _url_3 = [([object objectForKey:@"data"][0]) valueForKey:@"filePath"];
+                                           self->_url_3 = [([object objectForKey:@"data"][0]) valueForKey:@"filePath"];
                                            break;
                                        default:
                                            break;
@@ -128,7 +128,7 @@
     CityViewController * vc = [[CityViewController alloc]init];
     vc.returnTextBlock = ^(NSString *address, NSString *citycode, NSString *towncode, NSString *cityname, NSString *townname) {
         self.cityTextField.text = [NSString stringWithFormat:@"%@",address];
-        _cityCode = citycode;
+        self->_cityCode = citycode;
     };
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -157,10 +157,10 @@
         [SVProgressHUD showErrorWithStatus:@"请填写正确的店主身份证号"];
         return;
     }
-    if (self.recommendPhoneTextField.text.length !=0 && self.recommendPhoneTextField.text.length !=11) {
-        [SVProgressHUD showErrorWithStatus:@"请填写正确的推荐人手机号"];
-        return;
-    }
+//    if (self.recommendPhoneTextField.text.length !=0 && self.recommendPhoneTextField.text.length !=11) {
+//        [SVProgressHUD showErrorWithStatus:@"请填写正确的推荐人手机号"];
+//        return;
+//    }
 
     NSDictionary * dic = @{@"userId":[UserManager getDefaultUser].userId,
                            @"latitude":[[[NSUserDefaults standardUserDefaults] valueForKey:USER_LOCATION_LAT] stringValue]

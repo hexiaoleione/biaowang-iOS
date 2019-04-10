@@ -14,12 +14,27 @@
 
 @implementation ShareViewController
 
+- (instancetype)initWithDismissOpration:(void (^)(void))dismissfn
+{
+    self = [super init];
+    if (self) {
+        self.dismiss = dismissfn;
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setCostomeTitle:@"分享"];
-    ShareView *share =   [[ShareView alloc]initWithFrame:self.view.bounds];
+    ShareView *share =   [[ShareView alloc]initWithFrame:self.view.bounds type:_types dismissOpration:^{
+      self.dismiss();
+      [self.navigationController popViewControllerAnimated:YES];
+        
+    }];
     self.view = share;
+    
 }
 
 - (void)didReceiveMemoryWarning {
